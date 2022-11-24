@@ -1,0 +1,61 @@
+Grupo Nº1
+
+-Baroni Rodrigo, Mauro Javier
+-Fernandez, Federico Nicolás
+-Garcia, Silvina Alejandra
+
+Ausentes ultima parte
+-Iroz, Nahuel Lucas Omar
+
+////////////////////////////
+Stack 
+
+-Java (Spring boot)
+-HTML, CSS, Prime Faces
+-JSF
+-JPF
+-JPA
+-Maven, MVC
+-PostgreSQL
+
+////////////////////////////
+Caso A
+
+-Gestión y Reserva de Alojamiento
+
+Back Office
+
+-GAL- Gestión de Alojamientos
+
+Front Office
+
+-RE- Registración de Usuarios
+-BU- Búsqueda -> Solo alojamientos
+-GR- Gestión de Reservas -> Simular el Pago por al menos 2 medios de pago.
+-GRE- Gestionar Reservas- Listar Reservas
+
+Reportes
+
+1- Reportes Corte de control
+
+	Se solicita crear un reporte donde se muestre un listado de reservas de Alojamientos ordenado de forma ascendente por la fecha de creaciñon. Debe contar con un filtro de fecha de creación que se encuentre en un determinado rango (Desde-Hasta)
+	
+	Encabezado:
+	Se debe mostrar el rango de fechas por el que se está filtrando y el total de reservas del listado.
+	
+	Cuerpo: 
+	Se debe mostrar en un listado donde se observe de todas las reservas del periodo, Fecha de inicio, Fecha de finalización, Nombre del Alojamiento y costo.
+	
+2- Reporte c/Corte de control
+
+	Se solicita crear un reporte donde se muestre un listado de reservas de Alojamientos agrupados por cliente.
+	
+	Encabezado de Grupo:
+	Se debe mostrar los datos del cliente que realiza la reserva.
+	
+	Cuerpo:
+	Se desea mostrar en un listado donde se observe de todas las reservas del cliente: Fecha de creación de reserva, Fecha de inicio. Fechas de finalización, Nombre del alojamiento y costo.
+	
+////////////////////////////
+
+
