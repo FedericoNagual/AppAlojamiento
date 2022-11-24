@@ -58,4 +58,28 @@ Reportes
 	
 ////////////////////////////
 
+Pendientes del Aplicativo
+
+--	Armar el TPO de DS
+--	Conectar a la base de datos el TPO de DS
+--	Realizar un ABML con la base de datos
+--	Armar el front end básico para el proyecto	
+
+SubTareas para llegar a los objetivos principales
+
+
+////////////////////////////
+Bitacora	Federico
+
+Indice, Horas del dia que se trabajo + problematica encontrada + que se pudo avanzar
+
+Fecha:
+
+Hs:
+
+Avance:
+
+Problematica:
+
+
 
