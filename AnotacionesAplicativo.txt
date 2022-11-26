@@ -84,7 +84,7 @@ Indice, Horas del dia que se trabajo + problematica encontrada + que se pudo ava
 
 Fecha: 24/11/2022
 
-Hs:		2hs
+Hs:				2hs
 
 Avance:	Aramar las bases para tener toda la guia basica
 
@@ -106,7 +106,7 @@ Problematica:
 
 Fecha: 26/11/2022
 
-Hs: 11am
+Hs: 			4hs
 
 Avance:			Se pudo armar la BD con el nombre de "Alojamientos" y se cargo el script;
 
