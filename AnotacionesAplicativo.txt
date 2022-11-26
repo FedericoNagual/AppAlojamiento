@@ -106,7 +106,7 @@ Problematica:
 
 Fecha: 26/11/2022
 
-Hs: 			4hs
+Hs: 			5hs
 
 Avance:			Se pudo armar la BD con el nombre de "Alojamientos" y se cargo el script;
 

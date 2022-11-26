@@ -15,3 +15,7 @@ Particularmente en mi maquina Fede:
 	-puerto:		5432	5050
 	
 	Instalacion con win 8:	Aparentenmente funciona
+	
+Problemas al conectar con la BD error de contraseña y en el ejemplo
+
+"connectionstring": "User ID=postgres;Password=postgres;Server=localhost;Port=5432;Database=JPS_local;Pooling=true;Integrated Security=true;",
