@@ -1,0 +1,17 @@
+instalar postgres  https://www.postgresql.org -cuando finaliza el wizard aparece la opcion de instalar pg_admin // si pide pass al entrar es postgre
+
+Formas de crear y cargar la Base de Datos:
+
+
+1ra forma: en servers -> postgres // crean una database y le dan a 2do click restore -> restauran el archivo DBPaquete.backup
+
+2da forma: copian todos los script del archivo script creacion database y ejecutan la query en la dabase que crearon
+
+PD: probando particularmente con la version 15.1
+
+Particularmente en mi maquina Fede:
+
+	-Pass: 			postgre
+	-puerto:		5432
+	
+	Instalacion con win 8:	Aparentenmente funciona

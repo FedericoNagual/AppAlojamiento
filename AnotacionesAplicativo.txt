@@ -73,13 +73,25 @@ Bitacora	Federico
 
 Indice, Horas del dia que se trabajo + problematica encontrada + que se pudo avanzar
 
-Fecha:
+Fecha: 24/11/2022
 
-Hs:
+Hs:		2hs
 
-Avance:
+Avance:	Aramar las bases para tener toda la guia basica
 
-Problematica:
+Problematica:	Poco avance
+
+////////////////////////////
+
+Fecha: 25/11/2022
+
+Hs:				2hs
+
+Avance:			Instale el postgreSQL
+
+Problematica:	
+
+	No logre iniciar o ver la BD, no funcionaron los comandos cmd para poder ver si se instalo bien y si funcionaba la Bd y poder verla.
 
 
 

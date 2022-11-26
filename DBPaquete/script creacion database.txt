@@ -1,0 +1,573 @@
+
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 216 (class 1259 OID 18977)
+-- Name: Alojamiento; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Alojamiento" (
+    "alojamientoId" bigint NOT NULL,
+    nombre text,
+    latitud text,
+    longitud text,
+    precio money,
+    descripcion text,
+    "horarioCheckIn" timestamp with time zone,
+    "horarioCheckOut" time with time zone,
+    categoria text,
+    "servicioId" bigint,
+    "habitacionId" bigint,
+    "ciudadId" bigint,
+    "fotoId" bigint
+);
+
+
+ALTER TABLE public."Alojamiento" OWNER TO postgres;
+
+--
+-- TOC entry 219 (class 1259 OID 19008)
+-- Name: Ciudad; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Ciudad" (
+    "ciudadId" bigint NOT NULL,
+    nombre text,
+    "provinciaId" bigint
+);
+
+
+ALTER TABLE public."Ciudad" OWNER TO postgres;
+
+--
+-- TOC entry 225 (class 1259 OID 19084)
+-- Name: Domicilio; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Domicilio" (
+    "domicilioId" bigint NOT NULL,
+    nombre text,
+    "ciudadId" bigint
+);
+
+
+ALTER TABLE public."Domicilio" OWNER TO postgres;
+
+--
+-- TOC entry 218 (class 1259 OID 18996)
+-- Name: Foto; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Foto" (
+    "fotoId" bigint NOT NULL,
+    url text,
+    extension text
+);
+
+
+ALTER TABLE public."Foto" OWNER TO postgres;
+
+--
+-- TOC entry 224 (class 1259 OID 19071)
+-- Name: Habitacion; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Habitacion" (
+    "habitacionId" bigint NOT NULL,
+    nombre text,
+    capacidad bigint,
+    "precioNoche" money,
+    descripcion text,
+    monto money
+);
+
+
+ALTER TABLE public."Habitacion" OWNER TO postgres;
+
+--
+-- TOC entry 215 (class 1259 OID 18965)
+-- Name: Imagen; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Imagen" (
+    "imagenId" bigint NOT NULL,
+    url text
+);
+
+
+ALTER TABLE public."Imagen" OWNER TO postgres;
+
+--
+-- TOC entry 213 (class 1259 OID 18927)
+-- Name: Login; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Login" (
+    "loginId" bigint NOT NULL,
+    nombre text,
+    "contraseña" text,
+    "usuarioId" bigint
+);
+
+
+ALTER TABLE public."Login" OWNER TO postgres;
+
+--
+-- TOC entry 223 (class 1259 OID 19054)
+-- Name: Oferta; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Oferta" (
+    "ofertaId" bigint NOT NULL,
+    "fechaInicio" timestamp with time zone,
+    "fechaFin" timestamp with time zone,
+    descuento money,
+    descripcion text
+);
+
+
+ALTER TABLE public."Oferta" OWNER TO postgres;
+
+--
+-- TOC entry 222 (class 1259 OID 19049)
+-- Name: OfertaAlojamiento; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."OfertaAlojamiento" (
+    "ofertaAlojamiento" bigint NOT NULL,
+    "alojamientoId" bigint,
+    "ofertaId" bigint
+);
+
+
+ALTER TABLE public."OfertaAlojamiento" OWNER TO postgres;
+
+--
+-- TOC entry 212 (class 1259 OID 18920)
+-- Name: Pago; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Pago" (
+    "pagoId" bigint NOT NULL,
+    monto money,
+    fecha timestamp with time zone,
+    "codigoBarra" text,
+    "ultimosDigitos" bigint
+);
+
+
+ALTER TABLE public."Pago" OWNER TO postgres;
+
+--
+-- TOC entry 221 (class 1259 OID 19022)
+-- Name: Pais; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Pais" (
+    "paisId" bigint NOT NULL,
+    nombre text
+);
+
+
+ALTER TABLE public."Pais" OWNER TO postgres;
+
+--
+-- TOC entry 214 (class 1259 OID 18944)
+-- Name: Paquete; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Paquete" (
+    "paqueteId" bigint NOT NULL,
+    nombre text,
+    descripcion text,
+    "cantidadDias" bigint,
+    "cantidadNoches" bigint,
+    "imagenId" bigint,
+    "alojamientoId" bigint
+);
+
+
+ALTER TABLE public."Paquete" OWNER TO postgres;
+
+--
+-- TOC entry 220 (class 1259 OID 19015)
+-- Name: Provincia; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Provincia" (
+    "provinciaId" bigint NOT NULL,
+    nombre text,
+    "paisId" bigint
+);
+
+
+ALTER TABLE public."Provincia" OWNER TO postgres;
+
+--
+-- TOC entry 211 (class 1259 OID 18913)
+-- Name: Reserva; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Reserva" (
+    numero bigint NOT NULL,
+    servicio text,
+    "usuarioId" bigint,
+    "fechaInicio" timestamp with time zone,
+    "fechaFin" timestamp with time zone,
+    "pagoId" bigint,
+    "paqueteId" bigint
+);
+
+
+ALTER TABLE public."Reserva" OWNER TO postgres;
+
+--
+-- TOC entry 209 (class 1259 OID 18894)
+-- Name: Rol; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Rol" (
+    "rolId" bigint NOT NULL,
+    descripcion text
+);
+
+
+ALTER TABLE public."Rol" OWNER TO postgres;
+
+--
+-- TOC entry 217 (class 1259 OID 18984)
+-- Name: Servicio; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Servicio" (
+    "servicioId" bigint NOT NULL,
+    nombre text,
+    descripcion text
+);
+
+
+ALTER TABLE public."Servicio" OWNER TO postgres;
+
+--
+-- TOC entry 210 (class 1259 OID 18901)
+-- Name: Usuario; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Usuario" (
+    "usuarioId" bigint NOT NULL,
+    "rolId" bigint,
+    nombre text,
+    "domicilioId" bigint
+);
+
+
+ALTER TABLE public."Usuario" OWNER TO postgres;
+
+--
+-- TOC entry 3242 (class 2606 OID 18983)
+-- Name: Alojamiento Alojamiento_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Alojamiento"
+    ADD CONSTRAINT "Alojamiento_pkey" PRIMARY KEY ("alojamientoId");
+
+
+--
+-- TOC entry 3248 (class 2606 OID 19014)
+-- Name: Ciudad Ciudad_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Ciudad"
+    ADD CONSTRAINT "Ciudad_pkey" PRIMARY KEY ("ciudadId");
+
+
+--
+-- TOC entry 3260 (class 2606 OID 19090)
+-- Name: Domicilio Domicilio_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Domicilio"
+    ADD CONSTRAINT "Domicilio_pkey" PRIMARY KEY ("domicilioId");
+
+
+--
+-- TOC entry 3246 (class 2606 OID 19002)
+-- Name: Foto Foto_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Foto"
+    ADD CONSTRAINT "Foto_pkey" PRIMARY KEY ("fotoId");
+
+
+--
+-- TOC entry 3258 (class 2606 OID 19077)
+-- Name: Habitacion Habitacion_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Habitacion"
+    ADD CONSTRAINT "Habitacion_pkey" PRIMARY KEY ("habitacionId");
+
+
+--
+-- TOC entry 3240 (class 2606 OID 18971)
+-- Name: Imagen Imagen_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Imagen"
+    ADD CONSTRAINT "Imagen_pkey" PRIMARY KEY ("imagenId");
+
+
+--
+-- TOC entry 3254 (class 2606 OID 19053)
+-- Name: OfertaAlojamiento OfertaAlojamiento_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."OfertaAlojamiento"
+    ADD CONSTRAINT "OfertaAlojamiento_pkey" PRIMARY KEY ("ofertaAlojamiento");
+
+
+--
+-- TOC entry 3256 (class 2606 OID 19060)
+-- Name: Oferta Oferta_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Oferta"
+    ADD CONSTRAINT "Oferta_pkey" PRIMARY KEY ("ofertaId");
+
+
+--
+-- TOC entry 3234 (class 2606 OID 18926)
+-- Name: Pago Pago_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Pago"
+    ADD CONSTRAINT "Pago_pkey" PRIMARY KEY ("pagoId");
+
+
+--
+-- TOC entry 3252 (class 2606 OID 19028)
+-- Name: Pais Pais_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Pais"
+    ADD CONSTRAINT "Pais_pkey" PRIMARY KEY ("paisId");
+
+
+--
+-- TOC entry 3238 (class 2606 OID 18950)
+-- Name: Paquete Paquete_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Paquete"
+    ADD CONSTRAINT "Paquete_pkey" PRIMARY KEY ("paqueteId");
+
+
+--
+-- TOC entry 3250 (class 2606 OID 19021)
+-- Name: Provincia Provincia_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Provincia"
+    ADD CONSTRAINT "Provincia_pkey" PRIMARY KEY ("provinciaId");
+
+
+--
+-- TOC entry 3232 (class 2606 OID 18919)
+-- Name: Reserva Reserva_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Reserva"
+    ADD CONSTRAINT "Reserva_pkey" PRIMARY KEY (numero);
+
+
+--
+-- TOC entry 3228 (class 2606 OID 18900)
+-- Name: Rol Rol_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Rol"
+    ADD CONSTRAINT "Rol_pkey" PRIMARY KEY ("rolId");
+
+
+--
+-- TOC entry 3244 (class 2606 OID 18990)
+-- Name: Servicio Servicio_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Servicio"
+    ADD CONSTRAINT "Servicio_pkey" PRIMARY KEY ("servicioId");
+
+
+--
+-- TOC entry 3230 (class 2606 OID 18907)
+-- Name: Usuario Usuario_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Usuario"
+    ADD CONSTRAINT "Usuario_pkey" PRIMARY KEY ("usuarioId");
+
+
+--
+-- TOC entry 3236 (class 2606 OID 18933)
+-- Name: Login loginId; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Login"
+    ADD CONSTRAINT "loginId" PRIMARY KEY ("loginId") INCLUDE ("loginId");
+
+
+--
+-- TOC entry 3269 (class 2606 OID 19039)
+-- Name: Alojamiento FK_ALOJAMIENTO_CIUDAD; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Alojamiento"
+    ADD CONSTRAINT "FK_ALOJAMIENTO_CIUDAD" FOREIGN KEY ("ciudadId") REFERENCES public."Ciudad"("ciudadId") NOT VALID;
+
+
+--
+-- TOC entry 3270 (class 2606 OID 19079)
+-- Name: Alojamiento FK_ALOJAMIENTO_HABITACION; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Alojamiento"
+    ADD CONSTRAINT "FK_ALOJAMIENTO_HABITACION" FOREIGN KEY ("habitacionId") REFERENCES public."Habitacion"("habitacionId") NOT VALID;
+
+
+--
+-- TOC entry 3268 (class 2606 OID 19003)
+-- Name: Alojamiento FK_ALOJAMIENTO_IMAGEN; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Alojamiento"
+    ADD CONSTRAINT "FK_ALOJAMIENTO_IMAGEN" FOREIGN KEY ("fotoId") REFERENCES public."Foto"("fotoId") NOT VALID;
+
+
+--
+-- TOC entry 3267 (class 2606 OID 18991)
+-- Name: Alojamiento FK_ALOJAMIENTO_SERVICIO; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Alojamiento"
+    ADD CONSTRAINT "FK_ALOJAMIENTO_SERVICIO" FOREIGN KEY ("servicioId") REFERENCES public."Servicio"("servicioId") NOT VALID;
+
+
+--
+-- TOC entry 3271 (class 2606 OID 19034)
+-- Name: Ciudad FK_CIUDAD_PROVINCIA; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Ciudad"
+    ADD CONSTRAINT "FK_CIUDAD_PROVINCIA" FOREIGN KEY ("provinciaId") REFERENCES public."Provincia"("provinciaId") NOT VALID;
+
+
+--
+-- TOC entry 3275 (class 2606 OID 19091)
+-- Name: Domicilio FK_DOMICILIO_CIUDAD; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Domicilio"
+    ADD CONSTRAINT "FK_DOMICILIO_CIUDAD" FOREIGN KEY ("ciudadId") REFERENCES public."Ciudad"("ciudadId") NOT VALID;
+
+
+--
+-- TOC entry 3264 (class 2606 OID 18934)
+-- Name: Login FK_LOGIN_USUARIO; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Login"
+    ADD CONSTRAINT "FK_LOGIN_USUARIO" FOREIGN KEY ("usuarioId") REFERENCES public."Usuario"("usuarioId");
+
+
+--
+-- TOC entry 3273 (class 2606 OID 19061)
+-- Name: OfertaAlojamiento FK_OFERTAALOJAMIENTO_ALOJAMIENTO; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."OfertaAlojamiento"
+    ADD CONSTRAINT "FK_OFERTAALOJAMIENTO_ALOJAMIENTO" FOREIGN KEY ("alojamientoId") REFERENCES public."Alojamiento"("alojamientoId") NOT VALID;
+
+
+--
+-- TOC entry 3274 (class 2606 OID 19066)
+-- Name: OfertaAlojamiento FK_OFERTAALOJAMIENTO_OFERTA; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."OfertaAlojamiento"
+    ADD CONSTRAINT "FK_OFERTAALOJAMIENTO_OFERTA" FOREIGN KEY ("ofertaId") REFERENCES public."Oferta"("ofertaId") NOT VALID;
+
+
+--
+-- TOC entry 3266 (class 2606 OID 19044)
+-- Name: Paquete FK_PAQUETE_ALOJAMIENTO; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Paquete"
+    ADD CONSTRAINT "FK_PAQUETE_ALOJAMIENTO" FOREIGN KEY ("alojamientoId") REFERENCES public."Alojamiento"("alojamientoId") NOT VALID;
+
+
+--
+-- TOC entry 3265 (class 2606 OID 18972)
+-- Name: Paquete FK_PAQUETE_IMAGEN; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Paquete"
+    ADD CONSTRAINT "FK_PAQUETE_IMAGEN" FOREIGN KEY ("imagenId") REFERENCES public."Imagen"("imagenId") NOT VALID;
+
+
+--
+-- TOC entry 3272 (class 2606 OID 19029)
+-- Name: Provincia FK_PROVINCIA_PAIS; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Provincia"
+    ADD CONSTRAINT "FK_PROVINCIA_PAIS" FOREIGN KEY ("paisId") REFERENCES public."Pais"("paisId") NOT VALID;
+
+
+--
+-- TOC entry 3263 (class 2606 OID 18939)
+-- Name: Reserva FK_RESERVA_PAGO; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Reserva"
+    ADD CONSTRAINT "FK_RESERVA_PAGO" FOREIGN KEY ("pagoId") REFERENCES public."Pago"("pagoId") NOT VALID;
+
+
+--
+-- TOC entry 3262 (class 2606 OID 19096)
+-- Name: Usuario FK_Usuario__DOMICILIO; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Usuario"
+    ADD CONSTRAINT "FK_Usuario__DOMICILIO" FOREIGN KEY ("domicilioId") REFERENCES public."Domicilio"("domicilioId") NOT VALID;
+
+
+--
+-- TOC entry 3261 (class 2606 OID 18908)
+-- Name: Usuario FK_Usuario__Rol; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Usuario"
+    ADD CONSTRAINT "FK_Usuario__Rol" FOREIGN KEY ("rolId") REFERENCES public."Rol"("rolId");
+
+
+-- Completed on 2022-10-20 17:51:30
+
+--
+-- PostgreSQL database dump complete
+--
+
