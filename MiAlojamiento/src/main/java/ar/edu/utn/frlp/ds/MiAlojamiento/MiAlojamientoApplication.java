@@ -9,7 +9,7 @@ public class MiAlojamientoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MiAlojamientoApplication.class, args);
-		
+		//Prueba de si funciona la consola de spring
 		System.out.println("Funciona");
 	}
 
