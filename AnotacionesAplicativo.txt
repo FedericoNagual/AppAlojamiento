@@ -69,6 +69,15 @@ SubTareas para llegar a los objetivos principales
 
 
 ////////////////////////////
+Datos:
+
+Nombre de la base de datos:		Alojamientos
+
+Nombre de la App:				MiAlojamiento
+
+
+////////////////////////////
+
 Bitacora	Federico
 
 Indice, Horas del dia que se trabajo + problematica encontrada + que se pudo avanzar
@@ -92,6 +101,18 @@ Avance:			Instale el postgreSQL
 Problematica:	
 
 	No logre iniciar o ver la BD, no funcionaron los comandos cmd para poder ver si se instalo bien y si funcionaba la Bd y poder verla.
+	
+////////////////////////////
+
+Fecha: 26/11/2022
+
+Hs: 11am
+
+Avance:			Se pudo armar la BD con el nombre de "Alojamientos" y se cargo el script;
+
+Problematica:
+
+	
 
 
 

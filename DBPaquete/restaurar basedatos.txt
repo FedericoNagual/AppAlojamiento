@@ -12,6 +12,6 @@ PD: probando particularmente con la version 15.1
 Particularmente en mi maquina Fede:
 
 	-Pass: 			postgre
-	-puerto:		5432
+	-puerto:		5432	5050
 	
 	Instalacion con win 8:	Aparentenmente funciona

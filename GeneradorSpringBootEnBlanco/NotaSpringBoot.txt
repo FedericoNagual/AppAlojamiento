@@ -1,0 +1,12 @@
+No es necesario usar el instalador de la herramienta que propone spring boot para usar pero en nuestro caso si se va a usar por eso se deja el instalador.
+
+link instalador:	https://spring.io/tools
+
+aplicativo:			Spring Tools 4 for Eclipse
+
+La carpeta comprimida de "MiAlojamiento" contiene el zip generado desde la pagina de spring gratuita a la fecha para poder generar el proyecto con las bases sin necesidad de usarlo desde la herramienta que propone el framework
+
+link:		star.spring.io
+
+Recordar que ese aplicativo de "MiAlojamiento" se encuentra vacio ya que solo tiene las bases del proyecto.
+
