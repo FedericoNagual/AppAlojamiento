@@ -1,0 +1,16 @@
+ ---- insertar datos
+INSERT INTO public."NombreTabla" ("NombreColumna", "NombreColumna") VALUES (tipodato, tipodato);
+
+ ---- modificar datos
+
+update public."URN.Usuarios" SET "NombreColumna"='datoEspecifico' WHERE "NombreColumna"=datoEspecifico;
+
+ ---- modificar tabla agregar columna
+alter table public."NombreTabla" add COLUMN "NombreColumna" tipodato;
+
+
+ ---- modificar tabla borrar columna
+ALTER TABLE IF EXISTS public."NombreTabla" DROP COLUMN IF EXISTS "NombreColumna";
+
+ ---- modificar renombrar columna
+ALTER TABLE IF EXISTS public."NombreTabla" RENAME "NombreColumnaActual" TO "NombreColumnaNueva";
