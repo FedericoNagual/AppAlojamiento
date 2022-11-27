@@ -110,8 +110,54 @@ Hs: 			5hs
 
 Avance:			Se pudo armar la BD con el nombre de "Alojamientos" y se cargo el script;
 
-Problematica:
+Problematica:	Configuracion general del ambiente 
 
+
+////////////////////////////
+
+Fecha:	27/11/2022
+
+Hs:				4hs desde 13
+
+Avance:			
+				Armado estandar de la estidad modelo, repository, servicio, controller, implementacion y adelanto de la configuracion ademas de ir sumando dependencias y configuraciones para que tomen las dependencias, home vacio para pruebas
+
+Problematica:	Poco tiempo para hacer pruebas y falta la parte de la vista.
+
+
+
+
+Abajo de todo
+////////////////////////////
+
+Mach Datos Java vs Datos PostgreSQL
+J = java
+P = PostgreSQL
+
+id
+
+	J:	Long
+
+	P:	bigint
+
+
+fecha
+
+	J:	Date	(java.util.Date)	@Temporal(TemporalType.DATE)
+	
+	P:	timestamp with time zone
+
+dni
+
+	J:	Integer	(Importante usar objetos de los primitivos y no los primitivos como int, para poder juntar los objetos con el JPA)
+	
+	P:	bigInt
+	
+precio
+
+	J: 	Double
+	
+	P:	Money
 	
 
 

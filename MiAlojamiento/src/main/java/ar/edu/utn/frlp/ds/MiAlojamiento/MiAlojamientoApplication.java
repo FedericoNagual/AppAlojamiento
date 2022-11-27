@@ -2,8 +2,13 @@ package ar.edu.utn.frlp.ds.MiAlojamiento;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
+/**
+ * 
+ * @author Federico
+ * Clase principal para ejecutar la app
+ *
+ */
 @SpringBootApplication
 public class MiAlojamientoApplication {
 
