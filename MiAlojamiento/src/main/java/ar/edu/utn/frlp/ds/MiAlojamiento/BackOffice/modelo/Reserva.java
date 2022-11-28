@@ -1,6 +1,7 @@
 package ar.edu.utn.frlp.ds.MiAlojamiento.BackOffice.modelo;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -34,10 +35,10 @@ public class Reserva implements Serializable {
 	private Usuario usuario;
 
 	@Column(name = "fechaInicio")
-	private DateTime fechaInicio;
+	private Date fechaInicio;
 
 	@Column(name = "fechaFin")
-	private DateTime fechaFin;
+	private Date fechaFin;
 
 	@Column(name = "pagoId")
 	private Pago pago;
@@ -48,7 +49,7 @@ public class Reserva implements Serializable {
 
 	
 
-	public Reserva(Long id, String servicio, Usuario usuario, DateTime fechaInicio, DateTime fechaFin, Pago pago,
+	public Reserva(Long id, String servicio, Usuario usuario, Date fechaInicio, Date fechaFin, Pago pago,
 			Paquete paquete) {
 		super();
 		this.id = id;
@@ -88,19 +89,19 @@ public class Reserva implements Serializable {
 		this.usuario = usuario;
 	}
 
-	public DateTime getFechaInicio() {
+	public Date getFechaInicio() {
 		return fechaInicio;
 	}
 
-	public void setFechaInicio(DateTime fechaInicio) {
+	public void setFechaInicio(Date fechaInicio) {
 		this.fechaInicio = fechaInicio;
 	}
 
-	public DateTime getFechaFin() {
+	public Date getFechaFin() {
 		return fechaFin;
 	}
 
-	public void setFechaFin(DateTime fechaFin) {
+	public void setFechaFin(Date fechaFin) {
 		this.fechaFin = fechaFin;
 	}
 

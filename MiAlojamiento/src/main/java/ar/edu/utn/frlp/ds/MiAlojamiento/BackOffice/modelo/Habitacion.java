@@ -16,8 +16,8 @@ import jakarta.persistence.Table;
  * Modelo de la clase Habitacion con sus atributos
  *
  */
-@Entity(name = "HABITACION")
-@Table(name = "HABITACION")
+@Entity(name = "Habitacion")
+@Table(name = "Habitacion")
 public class Habitacion implements Serializable {
 
 	private static final long serialVersionUID = 1L;

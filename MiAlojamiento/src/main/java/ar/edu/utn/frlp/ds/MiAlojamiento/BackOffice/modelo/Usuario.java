@@ -1,6 +1,7 @@
 package ar.edu.utn.frlp.ds.MiAlojamiento.BackOffice.modelo;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -37,7 +38,7 @@ public class Usuario implements Serializable {
 	private Domicilio domicilio;	
 	
 	@Column(name = "FechaNacimiento")
-	private DateTime  fechaNacimiento;
+	private Date  fechaNacimiento;
 	
 	@Column(name = "DNI")
 	private String dni;
@@ -48,7 +49,7 @@ public class Usuario implements Serializable {
 	@Column(name = "TipoDocumento")
 	private String tipoDocumento;
 	
-	public Usuario(Long id, String nombre, Rol rol,Domicilio domicilio,DateTime fechaNacimiento,String dni,Long telefono,String tipoDocumento) {
+	public Usuario(Long id, String nombre, Rol rol,Domicilio domicilio,Date fechaNacimiento,String dni,Long telefono,String tipoDocumento) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -95,11 +96,11 @@ public class Usuario implements Serializable {
 		this.domicilio = domicilio;
 	}
 
-	public DateTime getFechaNacimiento() {
+	public Date getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(DateTime fechaNacimiento) {
+	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
