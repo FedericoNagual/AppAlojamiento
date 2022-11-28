@@ -64,7 +64,7 @@ public class Pais implements Serializable {
 	 * Imprime en formato String todos los datos
 	 * de la clase
 	 * 
-	 * @return String datos de Habitacion
+	 * @return String datos de Pais
 	 * 
 	 */
 	@Override

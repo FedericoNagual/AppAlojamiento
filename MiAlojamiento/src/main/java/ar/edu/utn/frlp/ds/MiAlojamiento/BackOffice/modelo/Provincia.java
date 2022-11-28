@@ -11,9 +11,9 @@ import jakarta.persistence.Table;
 
 /**
  * 
- * @author Federico
+ * @author 
  * 
- * Modelo de la clase Habitacion con sus atributos
+ * Modelo de la clase Provincia con sus atributos
  *
  */
 @Entity(name = "Provincia")
@@ -74,7 +74,7 @@ public class Provincia implements Serializable {
 	 * Imprime en formato String todos los datos
 	 * de la clase
 	 * 
-	 * @return String datos de Habitacion
+	 * @return String datos de Provincia
 	 * 
 	 */
 	@Override
