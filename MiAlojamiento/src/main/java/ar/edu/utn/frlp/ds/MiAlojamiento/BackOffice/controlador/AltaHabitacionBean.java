@@ -55,7 +55,7 @@ public class AltaHabitacionBean extends GenericBean {
 	/**
 	 * Guarda una entity Habitacion y muestra un msj con los resultados
 	 */
-	public void guardarPersona() {
+	public void guardarHabitacion() {
 		Habitacion resultado = servicio.guardarHabitacion(getHabitacion());
 		mostrarMensaje("Se creó la Habitacion: " + resultado.getNombre() + " con el ID: " + resultado.getId());
 		init();
