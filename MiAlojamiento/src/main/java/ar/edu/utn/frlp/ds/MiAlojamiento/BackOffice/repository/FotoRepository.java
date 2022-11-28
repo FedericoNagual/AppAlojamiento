@@ -1,0 +1,30 @@
+package ar.edu.utn.frlp.ds.MiAlojamiento.BackOffice.repository;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import ar.edu.utn.frlp.ds.MiAlojamiento.BackOffice.modelo.DatosFoto;
+import ar.edu.utn.frlp.ds.MiAlojamiento.BackOffice.modelo.Foto;
+
+
+/**
+ * Repositorio de la entidad Foto
+ * 
+ * @author 
+ * 
+ */
+@Repository
+public interface FotoRepository extends JpaRepository<Foto, Long> {
+
+	public Optional<Foto> findById(Long id);
+
+	public Foto saveAndFlush(Foto foto);
+
+	public List<Foto> findAll();
+
+	public List<DatosFoto> findAllProjectedBy();
+
+}

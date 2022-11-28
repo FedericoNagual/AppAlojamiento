@@ -26,14 +26,14 @@ public class ServicioPaisImpl implements ServicioPais{
 		}
 
 		/**
-		 * Busca una entity Habitacion por nombre
+		 * Busca una entity Pais por nombre
 		 * 
 		 * @param nombre tipo String
-		 * @return List<Habitacion> resultado de un Find a la BD filtrado por nombre
+		 * @return List<Pais> resultado de un Find a la BD filtrado por nombre
 		 */
 		@Override
 		public List<Pais> buscarPaisXNombre(String nombre) {
-			//Implementar metodo que devuelva todas las Habitaciones por el nombre pasado
+			//Implementar metodo que devuelva todas las Pais por el nombre pasado
 			// por parametro
 			// Traer la lista, filtrarla por nombre
 			List<Pais> listaGeneral = paisRepository.findAll();
