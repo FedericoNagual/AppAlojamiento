@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 
 /**
  * 
- * @author Federico
+ * @author 
  * 
  * Modelo de la clase Pais con sus atributos
  *
@@ -24,7 +24,7 @@ public class Pais implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "habitacionId", unique = true, nullable = false)
+	@Column(name = "paisId", unique = true, nullable = false)
 	private Long id;
 
 	@Column(name = "nombre")
