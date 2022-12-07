@@ -1,0 +1,105 @@
+////////////////////////////
+
+Bitacora	Federico
+
+Indice, Horas del dia que se trabajo + problematica encontrada + que se pudo avanzar
+
+Fecha: 24/11/2022
+
+Hs:				2hs
+
+Avance:	Aramar las bases para tener toda la guia basica
+
+Problematica:	Poco avance
+
+////////////////////////////
+
+Fecha: 25/11/2022
+
+Hs:				2hs
+
+Avance:			Instale el postgreSQL
+
+Problematica:	
+
+	No logre iniciar o ver la BD, no funcionaron los comandos cmd para poder ver si se instalo bien y si funcionaba la Bd y poder verla.
+	
+////////////////////////////
+
+Fecha: 26/11/2022
+
+Hs: 			5hs
+
+Avance:			Se pudo armar la BD con el nombre de "Alojamientos" y se cargo el script;
+
+Problematica:	Configuracion general del ambiente 
+
+
+////////////////////////////
+
+Fecha:	27/11/2022
+
+Hs:				5hs 
+
+Avance:			
+				Armado estandar de la estidad modelo, repository, servicio, controller, implementacion y adelanto de la configuracion ademas de ir sumando dependencias y configuraciones para que tomen las dependencias, home vacio para pruebas
+
+Problematica:	Poco tiempo para hacer pruebas y falta la parte de la vista.
+
+
+////////////////////////////
+
+Fecha:	28/11/2022
+
+Hs:		1hs
+
+Avance:
+
+	Actualice la app y estuve probando e investigando el error con las dependencias (Que tambien aparecian los warnning y los errors en el panel de problemas, la actualizacion fue exitosa
+	
+
+Problematica:
+
+	Sigue sin levantar la app, posible solucion Archivo configuracion cuando levanta la Sprint Aplication o si es necesario ejecutar una Java aplication
+
+////////////////////////////
+
+Fecha: 02/12/2022
+
+Hs:		2hs
+
+Avance:
+
+	Replanteo de las dependencias de la app para poder tener compatibilidad con las herramientas que se desea utilizar en la app y poder hacer uso de -Inyección de dependencias-
+	
+
+Problematica:
+
+	Complejo lo compatible que es Java con sus dependencias y con sus versiones de java, mucho texto y mucha investigacion.
+	
+
+////////////////////////////
+
+Fecha:	05/12/2022
+
+Avance:
+
+	Se pudo compilar el proyecto pero no funciona la vista 
+
+
+Problemativa:
+
+	No funciona la vista por un tema de que no carga las palabras, como si un crookis no lo permite o algo por el estilo.
+	
+////////////////////////////
+
+Fecha:	06/12/2022
+
+Avance:
+
+	Volcar las clases ya armadas para ver como interactuan con la app y las entitys, primeramente armar una porcion del modelo acotado y tratar de armar la coneccion con la base de datos con un simple Alta, Baja y modificacion para armar el CRUD de las entidades de la app
+	
+
+Problematica:
+
+	
