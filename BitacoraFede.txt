@@ -82,6 +82,8 @@ Problematica:
 
 Fecha:	05/12/2022
 
+Hs:		2hs
+
 Avance:
 
 	Se pudo compilar el proyecto pero no funciona la vista 
@@ -94,6 +96,8 @@ Problemativa:
 ////////////////////////////
 
 Fecha:	06/12/2022
+
+Hs:		4hs
 
 Avance:
 
