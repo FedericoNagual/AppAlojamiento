@@ -10,7 +10,7 @@
 	<packaging>jar</packaging>
 	
 	<name>MiAlojamiento</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Proyecto de Spring Boot para la catedra de Diseño de sistemas correspondiente a la UTN FRLP</description>
 	
 	<parent>
 		<groupId>org.springframework.boot</groupId>
