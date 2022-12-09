@@ -106,4 +106,38 @@ Avance:
 
 Problematica:
 
-	
+	Encontrar tiempo para armar un modelo viable de formulario para poder tener para el equipo
+	ademas de probar el CRUD con la BD
+
+
+////////////////////////////
+
+Facha:	07/12/2022
+
+Hs:		3hs
+
+Avance:	
+
+	Avance se pudo armar la clase principal de Habitacion y un formulario para poder examinar y hacer las pruebas de BackEnd, casi todas las validaciones por parte del front funcionan
+
+
+Problematica:
+
+	Pruebas con errores en los "Macheos" ya que no reconoce la entidad por la table, no se si por no tener el prototipado correcto en la base de datos o al estar cargado con otros parametros que no estan bien mapeados, queda pendenciente hacer mas investigacion sobre el tema de PostgreSQL y sus datos. Para ver como se comportan. Algunos datos Number se muestran con decimales los cuales estaria bueno restringir.
+
+
+////////////////////////////
+
+Fecha:	08/12/2022
+
+Hs:		5hs
+
+Avance:
+
+	Se pudo armar el formulario para ver el alta de habitacion, siguen las pruebas con la base de datos, efectivamente despues de reformar la BD se pudo generar el alta, se cambio el id por bigserial y el money por numeric
+
+
+Problematica:
+
+	Se recomienda no trabajar con money asi que mejor usar un "numeric" de 9,2 para emparejar
+	por lo tanto se reajusta el valor de money, ya que java tiene problemas para entender que tipo de dato es.

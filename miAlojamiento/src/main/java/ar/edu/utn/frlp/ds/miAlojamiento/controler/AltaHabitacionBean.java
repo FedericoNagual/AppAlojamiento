@@ -10,10 +10,6 @@ import org.springframework.beans.factory.annotation.Value;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Habitacion;
 import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioHabitacionImpl;
 
-
-
-
-
 /**
  * Clase Bean del Alta de Habitacion
  * @author Federico
@@ -61,7 +57,7 @@ public class AltaHabitacionBean extends GenericBean {
 	 */
 	public void guardarHabitacion() {
 		Habitacion resultado = servicio.guardarHabitacion(getHabitacion());
-		mostrarMensaje("Se creó la Habitacion: " + resultado.getNombre() + " con el ID: " + resultado.getId());
+		mostrarMensaje("Se creó la Habitacion: " + resultado.getNombre() + " con el ID: " + resultado.getHabitacionId());
 		init();
 	}
 

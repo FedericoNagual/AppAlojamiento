@@ -7,36 +7,26 @@
 	<ui:define name="content">
 		<p:outputPanel id="page" style="width:100%; height:100%;">
 			<p:layout id="contenedor" fullPage="true">
-				<p:outputLabel style="border:none ; text-align: center; font-size: 20px; font-weight: bold;" value="Primera solapa de la App" />
-				<!-- <p:layoutUnit position="north" size="40" styleClass="grad"
+				<p:layoutUnit position="north" size="40" styleClass="grad"
 					style="border: none; text-align: center;">
-					<p:outputLabel value="Gestión de Personas"
+					<p:outputLabel value="Mi Alojamiento App"
 						style="font-size: 20px; font-weight: bold;" />
-				</p:layoutUnit>-->
+				</p:layoutUnit>
 
-				<!--<p:layoutUnit position="west" size="310">
+				<p:layoutUnit position="west" size="310">
 					<h:form>
 						<p:growl>
 							<p:autoUpdate />
 						</p:growl>
 						<h:panelGrid width="100%" style="width:300px">
 							<p:panelMenu style="margin-top: 1rem; margin-bottom: 1rem;">
-								<p:submenu style="text-align: center;" label="Personas">
-									<p:menuitem value="Alta de Persona" outcome="altaPersona"
-										onclick="PF('blocker').show()"
-										oncomplete="PF('blocker').hide()" />
-									<p:menuitem value="Consulta de Persona" outcome="consultas"
-										onclick="PF('blocker').show()"
-										oncomplete="PF('blocker').hide()" />
-									<p:menuitem value="Modificación de Persona"
-										outcome="modificaPersona" onclick="PF('blocker').show()"
-										oncomplete="PF('blocker').hide()" />
-									<p:menuitem value="Eliminar Persona" outcome="eliminarPersona"
+								<p:submenu style="text-align: center;" label="Habitacion">
+									<p:menuitem value="Alta de Habitacion" outcome="altaHabitacion"
 										onclick="PF('blocker').show()"
 										oncomplete="PF('blocker').hide()" />
 								</p:submenu>
 							</p:panelMenu>
-							<p:panelMenu style="margin-top: 1rem; margin-bottom: 1rem;">
+							<!--<p:panelMenu style="margin-top: 1rem; margin-bottom: 1rem;">
 								<p:submenu label="Vehículo">
 									<p:menuitem value="Alta de Vehículo" outcome="altaVehiculo"
 										onclick="PF('blocker').show()"
@@ -51,18 +41,16 @@
 										outcome="eliminarVehiculo" onclick="PF('blocker').show()"
 										oncomplete="PF('blocker').hide()" />
 								</p:submenu>
-							</p:panelMenu>
+							</p:panelMenu> -->
 						</h:panelGrid>
 					</h:form>
 				</p:layoutUnit>
 
 				<p:layoutUnit position="center">
 					<p:panel id="panelPrincipal"
-						style="width: 99%; height: 98%; text-align: center; border: none;">
-						<p:graphicImage url="imagenes/lemondata.png"
-							style="margin-top: 15%;" />
+						style="width: 50%; height: 50%; text-align: center; border: none;">
 					</p:panel>
-				</p:layoutUnit>-->
+				</p:layoutUnit>
 			</p:layout>
 		</p:outputPanel>
 	</ui:define>

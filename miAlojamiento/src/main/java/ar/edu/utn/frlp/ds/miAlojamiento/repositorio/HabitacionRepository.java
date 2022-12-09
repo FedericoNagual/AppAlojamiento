@@ -18,7 +18,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Habitacion;
 @Repository
 public interface HabitacionRepository extends JpaRepository<Habitacion, Long> {
 
-	public Optional<Habitacion> findById(Long id);
+	public Optional<Habitacion> findById(Long habitacionId);
 
 	public Habitacion saveAndFlush(Habitacion habitacion);
 

@@ -17,34 +17,34 @@ import javax.persistence.Table;
  *
  */
 @Entity(name = "Habitacion")
-@Table(name = "Habitacion")
+@Table(name = "\"Habitacion\"")
 public class Habitacion implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "habitacionId", unique = true, nullable = false)
-	private Long id;
+	@Column(name = "\"habitacionId\"", unique = true, nullable = false)
+	private Long habitacionId;
 
-	@Column(name = "nombre")
+	@Column(name = "nombre", nullable = false, length = 80)
 	private String nombre;
 
-	@Column(name = "capacidad")
+	@Column(name = "capacidad", nullable = false, length = 80)
 	private Integer capacidad;
 
-	@Column(name = "precioNoce")
+	@Column(name = "\"precioNoche\"", nullable = false, length =10)
 	private Double precioNoche;
 
-	@Column(name = "descripcion")
+	@Column(name = "descripcion", nullable = false, length = 80)
 	private String descripcion;
 
-	@Column(name = "monto")
+	@Column(name = "monto", nullable = false, length = 10)
 	private Double monto;
 
-	public Habitacion(Long id, String nombre, Integer capacidad, Double precioNoche, String descripcion, Double monto) {
+	public Habitacion(Long habitacionId, String nombre, Integer capacidad, Double precioNoche, String descripcion, Double monto) {
 		super();
-		this.id = id;
+		this.habitacionId = habitacionId;
 		this.nombre = nombre;
 		this.capacidad = capacidad;
 		this.precioNoche = precioNoche;
@@ -56,12 +56,12 @@ public class Habitacion implements Serializable {
 		super();
 	}
 
-	public Long getId() {
-		return id;
+	public Long getHabitacionId() {
+		return habitacionId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setHabitacionId(Long habitacionId) {
+		this.habitacionId = habitacionId;
 	}
 
 	public String getNombre() {
@@ -112,7 +112,7 @@ public class Habitacion implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "Habitacion [id=" + id + ", nombre=" + nombre + ", capacidad=" + capacidad + ", precioNoche="
+		return "Habitacion [id=" + habitacionId + ", nombre=" + nombre + ", capacidad=" + capacidad + ", precioNoche="
 				+ precioNoche + ", descripcion=" + descripcion + ", monto=" + monto + "]";
 	}
 

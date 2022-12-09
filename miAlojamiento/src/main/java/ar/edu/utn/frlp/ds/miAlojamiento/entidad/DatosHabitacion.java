@@ -10,7 +10,7 @@ package ar.edu.utn.frlp.ds.miAlojamiento.entidad;
 public interface DatosHabitacion {
 
 	// Tipo de dato, getNombreDato();
-	Long getId();
+	Long getHabitacionId();
 
 	String getNombre();
 

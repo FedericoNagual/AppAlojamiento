@@ -17,10 +17,10 @@ public interface ServicioHabitacion {
 
 	public List<Habitacion> buscarHabitacionXNombre(String nombre);
 
-	public Habitacion buscarHabitacionXId(Long id);
+	public Habitacion buscarHabitacionXId(Long habitacionId);
 
 	public List<DatosHabitacion> obtenerDatosComboHabitacion();
 
-	public void eliminarHabitacion(Long id);
+	public void eliminarHabitacion(Long habitacionId);
 
 }

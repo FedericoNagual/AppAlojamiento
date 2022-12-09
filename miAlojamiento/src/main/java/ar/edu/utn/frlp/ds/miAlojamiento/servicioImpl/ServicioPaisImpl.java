@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.context.annotation.SessionScope;
 
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.DatosPais;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Pais;
@@ -18,6 +20,8 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicio.ServicioPais;
  * @author Federico
  *
  */
+@SessionScope
+@Service
 public class ServicioPaisImpl implements ServicioPais{
 		
 		@Autowired

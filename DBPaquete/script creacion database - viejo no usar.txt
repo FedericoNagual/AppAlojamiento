@@ -21,11 +21,11 @@ SET default_table_access_method = heap;
 --
 
 CREATE TABLE public."Alojamiento" (
-    "alojamientoId" bigint NOT NULL,
+    "alojamientoId" bigserial NOT NULL,
     nombre text,
     latitud text,
     longitud text,
-    precio money,
+    precio numeric,
     descripcion text,
     "horarioCheckIn" timestamp with time zone,
     "horarioCheckOut" time with time zone,
@@ -45,7 +45,7 @@ ALTER TABLE public."Alojamiento" OWNER TO postgres;
 --
 
 CREATE TABLE public."Ciudad" (
-    "ciudadId" bigint NOT NULL,
+    "ciudadId" bigserial NOT NULL,
     nombre text,
     "provinciaId" bigint
 );
@@ -59,7 +59,7 @@ ALTER TABLE public."Ciudad" OWNER TO postgres;
 --
 
 CREATE TABLE public."Domicilio" (
-    "domicilioId" bigint NOT NULL,
+    "domicilioId" bigserial NOT NULL,
     nombre text,
     "ciudadId" bigint
 );
@@ -73,7 +73,7 @@ ALTER TABLE public."Domicilio" OWNER TO postgres;
 --
 
 CREATE TABLE public."Foto" (
-    "fotoId" bigint NOT NULL,
+    "fotoId" bigserial NOT NULL,
     url text,
     extension text
 );
@@ -87,12 +87,12 @@ ALTER TABLE public."Foto" OWNER TO postgres;
 --
 
 CREATE TABLE public."Habitacion" (
-    "habitacionId" bigint NOT NULL,
+    "habitacionId" bigserial NOT NULL,
     nombre text,
     capacidad bigint,
-    "precioNoche" money,
+    "precioNoche" numeric,
     descripcion text,
-    monto money
+    monto numeric
 );
 
 
@@ -104,7 +104,7 @@ ALTER TABLE public."Habitacion" OWNER TO postgres;
 --
 
 CREATE TABLE public."Imagen" (
-    "imagenId" bigint NOT NULL,
+    "imagenId" bigserial NOT NULL,
     url text
 );
 
@@ -117,7 +117,7 @@ ALTER TABLE public."Imagen" OWNER TO postgres;
 --
 
 CREATE TABLE public."Login" (
-    "loginId" bigint NOT NULL,
+    "loginId" bigserial NOT NULL,
     nombre text,
     "contraseña" text,
     "usuarioId" bigint
@@ -132,10 +132,10 @@ ALTER TABLE public."Login" OWNER TO postgres;
 --
 
 CREATE TABLE public."Oferta" (
-    "ofertaId" bigint NOT NULL,
+    "ofertaId" bigserial NOT NULL,
     "fechaInicio" timestamp with time zone,
     "fechaFin" timestamp with time zone,
-    descuento money,
+    descuento numeric,
     descripcion text
 );
 
@@ -148,7 +148,7 @@ ALTER TABLE public."Oferta" OWNER TO postgres;
 --
 
 CREATE TABLE public."OfertaAlojamiento" (
-    "ofertaAlojamiento" bigint NOT NULL,
+    "ofertaAlojamiento" bigserial NOT NULL,
     "alojamientoId" bigint,
     "ofertaId" bigint
 );
@@ -162,8 +162,8 @@ ALTER TABLE public."OfertaAlojamiento" OWNER TO postgres;
 --
 
 CREATE TABLE public."Pago" (
-    "pagoId" bigint NOT NULL,
-    monto money,
+    "pagoId" bigserial NOT NULL,
+    monto numeric,
     fecha timestamp with time zone,
     "codigoBarra" text,
     "ultimosDigitos" bigint
@@ -178,7 +178,7 @@ ALTER TABLE public."Pago" OWNER TO postgres;
 --
 
 CREATE TABLE public."Pais" (
-    "paisId" bigint NOT NULL,
+    "paisId" bigserial NOT NULL,
     nombre text
 );
 
@@ -191,7 +191,7 @@ ALTER TABLE public."Pais" OWNER TO postgres;
 --
 
 CREATE TABLE public."Paquete" (
-    "paqueteId" bigint NOT NULL,
+    "paqueteId" bigserial NOT NULL,
     nombre text,
     descripcion text,
     "cantidadDias" bigint,
@@ -209,7 +209,7 @@ ALTER TABLE public."Paquete" OWNER TO postgres;
 --
 
 CREATE TABLE public."Provincia" (
-    "provinciaId" bigint NOT NULL,
+    "provinciaId" bigserial NOT NULL,
     nombre text,
     "paisId" bigint
 );
@@ -223,7 +223,7 @@ ALTER TABLE public."Provincia" OWNER TO postgres;
 --
 
 CREATE TABLE public."Reserva" (
-    numero bigint NOT NULL,
+    numero bigserial NOT NULL,
     servicio text,
     "usuarioId" bigint,
     "fechaInicio" timestamp with time zone,
@@ -241,7 +241,7 @@ ALTER TABLE public."Reserva" OWNER TO postgres;
 --
 
 CREATE TABLE public."Rol" (
-    "rolId" bigint NOT NULL,
+    "rolId" bigserial NOT NULL,
     descripcion text
 );
 
@@ -254,7 +254,7 @@ ALTER TABLE public."Rol" OWNER TO postgres;
 --
 
 CREATE TABLE public."Servicio" (
-    "servicioId" bigint NOT NULL,
+    "servicioId" bigserial NOT NULL,
     nombre text,
     descripcion text
 );
@@ -268,7 +268,7 @@ ALTER TABLE public."Servicio" OWNER TO postgres;
 --
 
 CREATE TABLE public."Usuario" (
-    "usuarioId" bigint NOT NULL,
+    "usuarioId" bigserial NOT NULL,
     "rolId" bigint,
     nombre text,
     "domicilioId" bigint

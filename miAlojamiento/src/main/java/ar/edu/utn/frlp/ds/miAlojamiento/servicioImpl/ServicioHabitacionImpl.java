@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.context.annotation.SessionScope;
 
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.DatosHabitacion;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Habitacion;
@@ -16,6 +18,8 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicio.ServicioHabitacion;
  * @author Federico
  *
  */
+@SessionScope
+@Service
 public class ServicioHabitacionImpl implements ServicioHabitacion {
 
 	@Autowired
@@ -62,8 +66,8 @@ public class ServicioHabitacionImpl implements ServicioHabitacion {
 	 * @return Habitacion resultado del metodo findById
 	 */
 	@Override
-	public Habitacion buscarHabitacionXId(Long id) {
-		return habitacionRepository.findById(id).get();
+	public Habitacion buscarHabitacionXId(Long habitacionId) {
+		return habitacionRepository.findById(habitacionId).get();
 	}
 
 	/**
@@ -80,8 +84,8 @@ public class ServicioHabitacionImpl implements ServicioHabitacion {
 	 * Eliminar una entity Habitaicon de la BD
 	 */
 	@Override
-	public void eliminarHabitacion(Long id) {
-		habitacionRepository.deleteById(id);
+	public void eliminarHabitacion(Long habitacionId) {
+		habitacionRepository.deleteById(habitacionId);
 	}
 
 }
