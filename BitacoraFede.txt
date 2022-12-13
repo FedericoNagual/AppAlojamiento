@@ -141,3 +141,18 @@ Problematica:
 
 	Se recomienda no trabajar con money asi que mejor usar un "numeric" de 9,2 para emparejar
 	por lo tanto se reajusta el valor de money, ya que java tiene problemas para entender que tipo de dato es.
+
+////////////////////////////
+
+Fecha:	12/12/2022
+
+Hs:		3hs
+
+Avance:
+
+	Re organizacion del trello para poder trabajar mas organizados y reestructuracion de un manual para poder seguir el funcionamiento del equipo de trabajp
+
+
+Problematica:
+
+	Poco tiempo para explicarles a mis compañeros, espero que sea claro y les sirva.

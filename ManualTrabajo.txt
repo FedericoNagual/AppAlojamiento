@@ -1,0 +1,48 @@
+Manual para trabajar en el proyecto "Mi Alojamiento"
+
+Una vez levantado el programa y el proyecto.
+Ingresar en el tablero del trello para visualizar las tareas, link:
+
+https://trello.com/b/E14E3rDO/proyecto-dise%C3%B1o#
+
+Primeramente identificar las columnas las cuales son:
+
+-Plantilla de Trabajo:
+
+	Se encuentran las plantillas para agilizar el armado de las tareas, las cuales son en principio 
+	-Bugs (Por los errores encontrados a mejorar); 
+	-Vista (Representa los xhtml que representan el FrontEnd de la app y de esa funcionalidad)
+	-Inc /Incidencia (Representa la tarea asignada en principio para los trabajos respecto del BackEnd tanto de la BD como del Back del aplicativo.
+
+-Cartelera Trabajo sin hacer:
+
+	Es donde se almacenan las tareas a realizar y que armamos con las plantillas anteriores.
+	
+-En Proceso:
+
+	Es donde se almacenan las tareas cuando se estan ejecutando o se necesita ayuda para poder avanzar.
+	
+-En Test:
+
+	Es cuando las tareas estan realizadas y subidas pero todavia no se pudo testear de que efectivamente esta bien realizada la tarea, para ello se realiza el deploy del commit
+	
+-Lista:
+
+	Es el lugar donde terminan las tareas.
+	
+////////////////////////////////////////////////////////////////////////////////////
+Forma en la cual se utiliza el tablero.
+
+1- 
+	Se crea una tarea nueva del tipo correspondiente tocando en el boton cuadrado de abajo a la derecha de la columna "Plantilla de Trabajo" llamado "Crear a partir de una plantilla", que se encuentra al costado del boton Añadir una tarjeta.
+	Una vez creada se le asigna un numero correspondiente al ultimo numero generado + 1, ATENCION LOS NUMEROS NO SE PUEDEN REPETIR. para esto fijarse en la columna siguiente la ultima # , recordar que tiene que tener 4 digitos por ejemplo "0001". Una vez creada se coloca en la columna "Cartelera Trabajo sin hacer". Acordarse de colocar el numero y un nombre referencial (fijarse en otras ya creadas) y su etiqueta y asignarse la tarea, todo esto dentro de la tarjeta dice como hacer en su panel (Si se les complica pueden preguntar a un compañero).
+	
+2-
+	Cuando se activa una tarea y se la empieza se coloca en la columna "En proceso".
+	
+	
+3-
+	Una vez finalizada la tarea y testeada su correcto funcionamiento por ustedes mismos se realiza el commit con el numero de tarea correspondiente y una descripcion corta, PE "#0001 se armo el correcto funcionamiento de Alta alojamiento" y se coloca en Test, para que otro compañero lo compruebe su correcto funcionamiento y vea si encuentra errores o bugs para reportar con esa tarea.
+	
+4-
+	Para realizar la tarea de Test es necesario que sea otra persona que no participo de la construccion de esa tarea y pueda testearla. Con la aprobacion de esta, la tarea para a Lista y termina su seguimiento.
