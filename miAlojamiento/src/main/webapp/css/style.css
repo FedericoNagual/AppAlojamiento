@@ -3,4 +3,10 @@
 	.ui-widget-content .ui-inputfield.ui-state-error {
 	color: #333333;
 	border: 1px solid #f5546c;
+	border-style: none;
+}
+
+.noborder.ui-panelgrid>*>tr,
+.noborder.ui-panelgrid .ui-panelgrid-cell {
+    border: none;
 }

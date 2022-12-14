@@ -7,8 +7,9 @@
 	<ui:define name="content">
 		<p:panel id="panelDatosHabitacion"
 			header="#{altaHabitacionBean.titulo}" style="text-align: center;">
-			<p:panelGrid columns="2" cellpadding="4"
-				style="margin-left: auto; margin-right: auto;">
+			<p:panelGrid columns="2" cellpadding="5"
+				style="margin-left: auto; margin-right: auto; margin-top:1rem; margin-bottom:1rem;"
+				styleClass="ui-noborder">
 				<p:outputLabel value="Nombre" indicateRequired="true"></p:outputLabel>
 				<p:inputText placeholder="Nombre" required="true"
 					value="#{altaHabitacionBean.habitacion.nombre}"></p:inputText>
@@ -24,14 +25,10 @@
 				<p:outputLabel value="Descripcion" indicateRequired="true"></p:outputLabel>
 				<p:inputText placeholder="Descripcion" required="true"
 					value="#{altaHabitacionBean.habitacion.descripcion}"></p:inputText>
-
-				<p:outputLabel value="Monto" indicateRequired="true"></p:outputLabel>
-				<p:inputNumber placeholder="2000.00" required="true"
-					value="#{altaHabitacionBean.habitacion.monto}"></p:inputNumber>
+					
 			</p:panelGrid>
-
 			<p:toolbar>
-				<p:toolbarGroup align="right">
+				<p:toolbarGroup align="right" style=" margin:0.3rem;">
 					<p:commandButton value="Crear/Dar Alta de Habitacion"
 						update="panelDatosHabitacion"
 						action="#{altaHabitacionBean.guardarHabitacion()}"
