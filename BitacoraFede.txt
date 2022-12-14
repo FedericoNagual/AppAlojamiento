@@ -162,15 +162,29 @@ Problematica:
 
 Fecha:	13/12/2022
 
-Hs:		4hs
+Hs:		6hs
 
 Avance:
 
 	Se pudo avanzar con la vista principal de los datos y poder dejar armado el formulario de Habitacion.
 	Se pudo armar el DTO y construccion del dato Habitacion que se modifico desde el BE hasta la BD.
+	Se empezo a armar las vistas para la Consulta Habitacion que realiza un listar para traer todo lo que tiene la BD.
 	
 Problematica:
 
 	Mucho tiempo hasta entender el problema de los panelgrid siendo de p: y de h: la documentacion fue rebuscada y se tuvo que buscar por propiedades y por atributos y valores para esos atributos.
+	Problemas al reorganizar las carpetas, fijarse de como organizarlas por las carpetas y como activarlas desde el home para poder ir a buscar los xhtml.
 	
 ////////////////////////////
+
+Fecha:	14/12/2022
+
+Hs:		4hs
+
+Avance:
+
+	Se pudo armar la vista y avanzar con la investigacion para incorporar mas utilidad a las librerias tanto a primefaces como a primeIcons, se pudo armar al vista y reorganizar las carpetas de las vistas de los formularios y los template.
+	
+Problematica:
+
+	No se termino de integrar el primeIcons para las pruebas realizadas no reconoce el llamado de la libreria.
