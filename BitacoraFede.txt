@@ -156,3 +156,21 @@ Avance:
 Problematica:
 
 	Poco tiempo para explicarles a mis compañeros, espero que sea claro y les sirva.
+	
+
+////////////////////////////
+
+Fecha:	13/12/2022
+
+Hs:		4hs
+
+Avance:
+
+	Se pudo avanzar con la vista principal de los datos y poder dejar armado el formulario de Habitacion.
+	Se pudo armar el DTO y construccion del dato Habitacion que se modifico desde el BE hasta la BD.
+	
+Problematica:
+
+	Mucho tiempo hasta entender el problema de los panelgrid siendo de p: y de h: la documentacion fue rebuscada y se tuvo que buscar por propiedades y por atributos y valores para esos atributos.
+	
+////////////////////////////
