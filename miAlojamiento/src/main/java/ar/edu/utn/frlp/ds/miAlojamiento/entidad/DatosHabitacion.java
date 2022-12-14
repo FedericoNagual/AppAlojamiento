@@ -20,14 +20,11 @@ public interface DatosHabitacion {
 
 	String getDescripcion();
 
-	Double getMonto();
-
 	default String getFormatoCombo() {
 		// Parseos de Datos a String para imprimir
 		String capacidad = getCapacidad().toString();
 		String precioNoche = getPrecioNoche().toString();
-		String monto = getMonto().toString();
-		return getNombre() + " ; " + capacidad + " ; " + precioNoche + " ; " + getDescripcion() + " ; " + monto;
+		return getNombre() + " ; " + capacidad + " ; " + precioNoche + " ; " + getDescripcion();
 	}
 
 }

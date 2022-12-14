@@ -39,17 +39,13 @@ public class Habitacion implements Serializable {
 	@Column(name = "descripcion", nullable = false, length = 80)
 	private String descripcion;
 
-	@Column(name = "monto", nullable = false, length = 10)
-	private Double monto;
-
-	public Habitacion(Long habitacionId, String nombre, Integer capacidad, Double precioNoche, String descripcion, Double monto) {
+	public Habitacion(Long habitacionId, String nombre, Integer capacidad, Double precioNoche, String descripcion) {
 		super();
 		this.habitacionId = habitacionId;
 		this.nombre = nombre;
 		this.capacidad = capacidad;
 		this.precioNoche = precioNoche;
 		this.descripcion = descripcion;
-		this.monto = monto;
 	}
 
 	public Habitacion() {
@@ -96,14 +92,6 @@ public class Habitacion implements Serializable {
 		this.descripcion = descripcion;
 	}
 
-	public Double getMonto() {
-		return monto;
-	}
-
-	public void setMonto(Double monto) {
-		this.monto = monto;
-	}
-
 	/**
 	 * Imprime en formato String todos los datos de la clase
 	 * 
@@ -113,7 +101,7 @@ public class Habitacion implements Serializable {
 	@Override
 	public String toString() {
 		return "Habitacion [id=" + habitacionId + ", nombre=" + nombre + ", capacidad=" + capacidad + ", precioNoche="
-				+ precioNoche + ", descripcion=" + descripcion + ", monto=" + monto + "]";
+				+ precioNoche + ", descripcion=" + descripcion + " ]";
 	}
 
 }
