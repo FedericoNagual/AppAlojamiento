@@ -46,3 +46,28 @@ Forma en la cual se utiliza el tablero.
 	
 4-
 	Para realizar la tarea de Test es necesario que sea otra persona que no participo de la construccion de esa tarea y pueda testearla. Con la aprobacion de esta, la tarea para a Lista y termina su seguimiento.
+
+
+////////////////////////////////////////////////////////////////////////////////////
+Manual de trabajo para Jira
+
+link:	https://federnagual.atlassian.net/jira/software/projects/MA/boards/1
+
+Antes de tomar cualquier inc es importante actualizar el proyecto y bajar los ultimos modulos armados.
+
+Encontraran 5 columnas, las cuales detallo:
+
+1-Por Hacer
+	-Cuando tengo tareas nuevas siendo del tipo, tarea o bugs se arman en esta columna , se agrega una descripcion y se agrega su etiqueta correspondiente al tipo que sea ya sea (BackEnd; FrontEnd, BaseDeDatos) Para especificar el tipo y saber a la hora de agarrar una incidencia, una vez ejegida y con su descripcion de la tarea que tiene que hacer, se la asignan y cambian a En curso
+
+2-En Curso
+	-Permanece en curso hasta que se termina de programar y se agrega 1 solo commit con el numero de incidencia con 4 digitos por ejemplo si tengo la incidencia 55, tengo que agregar la 0055 en el commit. Si tengo problemas al desarrollarlo tengo que moverlo a la columna Ayuda, de terminar toda la inc se mueve a Revision
+
+3-Ayuda
+	-Espera la inc por ayuda de otro miembro del equipo, es importante revisar en tiempo y forma y trabajar rapido, no tomar ams inc de las que uno puede hacer en tiempo y forma.
+
+4-Revision
+	-La inc terminada y commiteada espera por otro compañero para su revision y cambio de estado con un comentario de finalizado o si encontro bugs, la obligacion de crear una inc de tipo bug y vincularla con la inc de revision.De no tener problemas pasar a Listo
+
+5-Listo
+	-La inc fue terminada y tiene su camino realizado.

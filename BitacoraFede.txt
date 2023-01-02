@@ -188,3 +188,18 @@ Avance:
 Problematica:
 
 	No se termino de integrar el primeIcons para las pruebas realizadas no reconoce el llamado de la libreria.
+	
+/////////////////////////////
+Fecha:	02/01/2023
+
+Hs:		3hs
+
+Avance:
+
+	Se pudo armar el pasaje del trello al jira para armar las incidencias de trabajo del proyecto Mi Alojamiento.
+	Se pudo actualizar el manual de trabajo para los chicos en jira.
+	Ajuste de las incidencias del proyecto y muestra del proyecto con mis compañero y puesta a punto para que puedan trabajar en el proyecto y aportar.
+	
+Problematica:
+
+	Poco tiempo muchas tareas mucho que pensar.
