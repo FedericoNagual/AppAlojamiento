@@ -10,7 +10,7 @@
 			<h:panelGrid columns="2" cellpadding="4"
 				style="margin-left: auto; margin-right: auto; margin-top: 1rem; margin-bottom: 1rem;">
 				<p:outputLabel value="Habitacion: " indicateRequired="true" />
-				<p:selectOneMenu value="#{consultaHabitacionBean}"
+				<p:selectOneMenu value="#{consultaHabitacionBean.idSeleccionado}"
 					required="#{not empty param.combo}">
 					<f:selectItem itemLabel="--Seleccione--" />
 					<f:selectItems value="#{consultaHabitacionBean.datosCombo}"
@@ -39,9 +39,15 @@
 					value="#{consultaHabitacionBean.habitacion.descripcion}"></p:inputText>
 					
 			</p:panelGrid>
-			<p:toolbar>
-				<p:toolbarGroup align="right" style=" margin:0.3rem;">
-					<p:commandButton value="Consultar" styleClass="classBlock"
+			<p:toolbar >
+				<p:toolbarGroup class="margen-toolbar" style="margin:0.3rem;" ><!-- TODO -->
+					<p:commandButton value="Listar" styleClass="classBlock"
+						action="#{consultaHabitacionBean.proximamente('Grilla')}"
+						update="panelConsultaHabitacion">
+					</p:commandButton>
+				</p:toolbarGroup>
+				<p:toolbarGroup align="right" style="margin:0.3rem;">
+					<p:commandButton value="Colsulta" styleClass="classBlock"
 						action="#{consultaHabitacionBean.consultaHabitacion}"
 						update="panelConsultaHabitacion">
 						<f:param name="combo" value="true" />
