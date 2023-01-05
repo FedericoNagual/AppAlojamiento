@@ -1,2 +1,5 @@
-#Comentarios en git ignore
-MiAlojamiento/src/main/resources/application.properties
+miAlojamiento/src/main/resources/application.properties
+miAlojamiento/src/main/webapp/template/inicioTemplate.xhtml
+
+
+
