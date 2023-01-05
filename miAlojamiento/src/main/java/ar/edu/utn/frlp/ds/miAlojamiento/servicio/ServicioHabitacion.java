@@ -11,11 +11,13 @@ import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Habitacion;
  * @author Federico
  *
  */
-public interface ServicioHabitacion {
+public interface ServicioHabitacion{
 
 	public Habitacion guardarHabitacion(Habitacion habitacion);
 
 	public List<Habitacion> buscarHabitacionXNombre(String nombre);
+	
+	//public List<Habitacion> buscarHabitacionXNombreXFecha (String nombre, Date fecha); 
 
 	public Habitacion buscarHabitacionXId(Long habitacionId);
 
