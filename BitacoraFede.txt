@@ -203,3 +203,18 @@ Avance:
 Problematica:
 
 	Poco tiempo muchas tareas mucho que pensar.
+
+/////////////////////////////
+Fecha:	05/01/2023
+
+Hs:		4hs
+
+Avance:
+
+	Se pudo armar la inc 0025 y la inc 0029, sumado al manejo de la librerias FacesMessage para los msj de Info, Ward, error Fatal y proximamente. Ademas de armar el front y back para las consultas a la bd para traer la entidad habitacion.
+	
+Problematica:
+
+	Poco avance pero se pudo armar algo y tengo que pensar como armar el login, proximanente encarar el borrar y modificar, estas pantallas es posible que se puedan armar con botones mas simples para tener un mejor flojo, aunque no se si es necesario que desde todos los paneles se tenga que pasar a todos, en lo que navegabilidad respecta, por ejemplo desde Alta, tengo que poder editar o tengo que poder volver al menu de ver ?. A lo mejor desde el menu buscar y si obtengo un elemento puntual, tengo que poder eliminarlo y modificarlo, siendo la vista principal la de busqueda.
+	
+/////////////////////////////
