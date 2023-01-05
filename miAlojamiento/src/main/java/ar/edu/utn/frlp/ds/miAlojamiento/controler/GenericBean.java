@@ -27,5 +27,27 @@ public abstract class GenericBean {
 		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", mensaje);
 		PrimeFaces.current().dialog().showMessageDynamic(message);
 	}
+	
+	public void mostrarMensajeError(String mensaje) {
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", mensaje);
+		PrimeFaces.current().dialog().showMessageDynamic(message);
+	}
+	
+	public void mostrarMensajeWarn(String mensaje) {
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Atencion", mensaje);
+		PrimeFaces.current().dialog().showMessageDynamic(message);
+	}
+	
+	public void mostrarMensajeFatal(String mensaje) {
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Horror", mensaje);
+		PrimeFaces.current().dialog().showMessageDynamic(message);
+	}
+	
+	public void proximamente(String msj) {
+		String mensaje="Proximamente funcionalidad de tipo: ";
+		mensaje=mensaje+msj;
+		FacesMessage message= new FacesMessage(FacesMessage.SEVERITY_WARN, "Atencion",mensaje);
+		PrimeFaces.current().dialog().showMessageDynamic(message);
+	}
 
 }
