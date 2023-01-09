@@ -77,57 +77,14 @@ Nombre de la App:				MiAlojamiento
 
 
 ////////////////////////////
+Pasos para armar una grilla
 
-Bitacora	Federico
+	-Armar un metodo que traiga todos los datos desde el back y de la BD Armarlo en una lista
+	-En una clase Bean pasamos la lista por inyeccion de dependencias a una list de ese tipo.
+	-En la misma clase usamos un atributo para 1 elemento seleccionado
+	-Un metodo @PostConstruct con public void para rellenar la lista() y con un llamado a ese servicio para llenar la lista.
+	-Armar y coenctar el xhtml con el bean
 
-Indice, Horas del dia que se trabajo + problematica encontrada + que se pudo avanzar
-
-Fecha: 24/11/2022
-
-Hs:				2hs
-
-Avance:	Aramar las bases para tener toda la guia basica
-
-Problematica:	Poco avance
-
-////////////////////////////
-
-Fecha: 25/11/2022
-
-Hs:				2hs
-
-Avance:			Instale el postgreSQL
-
-Problematica:	
-
-	No logre iniciar o ver la BD, no funcionaron los comandos cmd para poder ver si se instalo bien y si funcionaba la Bd y poder verla.
-	
-////////////////////////////
-
-Fecha: 26/11/2022
-
-Hs: 			5hs
-
-Avance:			Se pudo armar la BD con el nombre de "Alojamientos" y se cargo el script;
-
-Problematica:	Configuracion general del ambiente 
-
-
-////////////////////////////
-
-Fecha:	27/11/2022
-
-Hs:				5hs desde 13
-
-Avance:			
-				Armado estandar de la estidad modelo, repository, servicio, controller, implementacion y adelanto de la configuracion ademas de ir sumando dependencias y configuraciones para que tomen las dependencias, home vacio para pruebas
-
-Problematica:	Poco tiempo para hacer pruebas y falta la parte de la vista.
-
-
-
-
-Abajo de todo
 ////////////////////////////
 
 Mach Datos Java vs Datos PostgreSQL
