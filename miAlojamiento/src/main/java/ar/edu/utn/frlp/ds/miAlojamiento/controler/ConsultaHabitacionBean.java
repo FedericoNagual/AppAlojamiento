@@ -31,6 +31,12 @@ public class ConsultaHabitacionBean extends GenericBean {
 	private Habitacion habitacion;
 	private Boolean aceptarListado;
 
+	/*
+	 * Elementos para la grilla, lita y elemento seleccionado
+	 */
+	private List<Habitacion> lista;
+	private Habitacion habSeleccionada;
+
 	@Autowired
 	private ServicioHabitacionImpl servicio;
 
@@ -40,7 +46,9 @@ public class ConsultaHabitacionBean extends GenericBean {
 	 */
 	@PostConstruct
 	public void init() {
+		setAceptarListado(Boolean.TRUE);
 		setDatosCombo(servicio.obtenerDatosComboHabitacion());
+		setLista(servicio.buscarHabitacionAll());
 		setIdSeleccionado(null);
 		setHabitacion(null);
 	}
@@ -85,8 +93,25 @@ public class ConsultaHabitacionBean extends GenericBean {
 		this.aceptarListado = aceptarListado;
 	}
 
+	public List<Habitacion> getLista() {
+		return lista;
+	}
+
+	public void setLista(List<Habitacion> lista) {
+		this.lista = lista;
+	}
+
+	public Habitacion getHabSeleccionada() {
+		return habSeleccionada;
+	}
+
+	public void setHabSeleccionada(Habitacion habSeleccionada) {
+		this.habSeleccionada = habSeleccionada;
+	}
+
 	/**
-	 * Consulta las habitaciones y busca sus datos por el Id seleccionado y los muestra en la vista
+	 * Consulta las habitaciones y busca sus datos por el Id seleccionado y los
+	 * muestra en la vista
 	 */
 	public void consultaHabitacion() {
 		if (idSeleccionado != null) {
@@ -95,17 +120,20 @@ public class ConsultaHabitacionBean extends GenericBean {
 	}
 
 	/**
-	 * Habilita la grilla y muestra los datos de toda tuplas en pantalla en una grilla
+	 * Habilita la grilla y muestra los datos de toda tuplas en pantalla en una
+	 * grilla
 	 */
 	public void consultaTotalHabitacion() {
 
 	}
-	
+
 	/**
-	 * Limpia los parametros para mostrar la pagina sin la grilla
+	 * Limpia los parametros para mostrar la pagina con la grilla de inicio
 	 */
 	public void limpiar() {
-		
+		setIdSeleccionado(null);
+		setHabitacion(null);
+		setAceptarListado(Boolean.TRUE);
 	}
 
 }

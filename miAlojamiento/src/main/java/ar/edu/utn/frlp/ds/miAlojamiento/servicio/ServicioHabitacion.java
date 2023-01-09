@@ -24,5 +24,7 @@ public interface ServicioHabitacion{
 	public List<DatosHabitacion> obtenerDatosComboHabitacion();
 
 	public void eliminarHabitacion(Long habitacionId);
+	
+	public List<Habitacion> buscarHabitacionAll();
 
 }

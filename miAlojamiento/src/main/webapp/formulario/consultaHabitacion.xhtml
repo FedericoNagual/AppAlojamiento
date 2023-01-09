@@ -39,10 +39,71 @@
 					value="#{consultaHabitacionBean.habitacion.descripcion}"></p:inputText>
 					
 			</p:panelGrid>
+			<!-- Armado de la grilla con DataGrid -->
+		    <h:form id="form">
+		        <p:dataGrid var="habitacion" value="#{consultaHabitacionBean.lista}" columns="3" layout="grid"
+		                    rows="12" paginator="true" id="cars"
+		                    paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+		                    rowsPerPageTemplate="6,12,16">
+		
+		            <f:facet name="header">
+		                Lista de Habitaciones
+		            </f:facet>
+		
+		            <p:panel header="#{habitacion.habitacionId}- #{habitacion.nombre}" style="text-align:center">
+		            	<h:panelGrid columns="2" style="width:100%">
+		            		<h:outputText value="Capacidad: " style="margin: 1.2rem;"/>
+		            		<h:outputText value="#{habitacion.capacidad}" style="margin: 1.2rem;" />
+		            		<h:outputText value="Precio/N: " style="margin: 1.2rem;"/>
+		            		<h:outputText value="#{habitacion.precioNoche}" style="margin: 1.2rem;"/>
+		            		<h:outputText value="Descripcion: " style="margin: 1.2rem;"/>
+		            		<h:outputText value="#{habitacion.descripcion}" style="margin: 1.2rem;" />
+		            	</h:panelGrid>
+		            </p:panel>
+		
+		        </p:dataGrid>
+		
+		        <p:dialog header="Product Info" widgetVar="productDialog" modal="true" showEffect="fade"
+		                  hideEffect="fade"
+		                  resizable="false">
+		            <p:outputPanel id="productDetail" style="text-align:center;">
+		                <p:column rendered="#{not empty dataGridView.selectedProduct}">
+		                    <div class="product">
+		                        <div class="product-grid-item card" style="margin-bottom: 0">
+		                            <div class="product-grid-item-top">
+		                                <div>
+		                                    <i class="pi pi-tag product-category-icon"/>
+		                                    <span class="product-category">#{dataGridView.selectedProduct.category}</span>
+		                                </div>
+		                                <span class="product-badge status-#{dataGridView.selectedProduct.inventoryStatus.name().toLowerCase()}">#{dataGridView.selectedProduct.inventoryStatus.text}</span>
+		                            </div>
+		                            <div class="product-grid-item-content">
+		                                <p:graphicImage
+		                                        name="demo/images/product/#{dataGridView.selectedProduct.image}"/>
+		                                <div class="product-name">#{dataGridView.selectedProduct.name}</div>
+		                                <div class="product-description">#{dataGridView.selectedProduct.description}</div>
+		                                <p:rating readonly="true" value="#{dataGridView.selectedProduct.rating}"/>
+		                            </div>
+		                            <div class="product-grid-item-bottom">
+		                                <h:outputText value="#{dataGridView.selectedProduct.price}"
+		                                              styleClass="product-price">
+		                                    <f:convertNumber currencySymbol="$" type="currency"/>
+		                                </h:outputText>
+		                                <p:commandButton value="Add To Cart" icon="pi pi-shopping-cart"
+		                                                 disabled="#{dataGridView.selectedProduct.inventoryStatus == 'OUTOFSTOCK'}">
+		                                </p:commandButton>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </p:column>
+		            </p:outputPanel>
+		        </p:dialog>
+		    </h:form>
+		    	
 			<p:toolbar >
 				<p:toolbarGroup class="margen-toolbar" style="margin:0.3rem;" ><!-- TODO -->
-					<p:commandButton value="Listar" styleClass="classBlock"
-						action="#{consultaHabitacionBean.proximamente('Grilla')}"
+					<p:commandButton value="Limpiar" styleClass="classBlock"
+						action="#{consultaHabitacionBean.limpiar()}"
 						update="panelConsultaHabitacion">
 					</p:commandButton>
 				</p:toolbarGroup>

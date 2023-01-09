@@ -29,7 +29,7 @@ public class ServicioHabitacionImpl implements ServicioHabitacion {
 	 * Guarda la entity Habitacion
 	 * 
 	 * @param habitacion tipo Habitacion
-	 * @return Habitacion resultado del metodo saveAndFlush
+	 * @return Habitacion resultado del metodo saveAndFlush()
 	 */
 	@Override
 	public Habitacion guardarHabitacion(Habitacion habitacion) {
@@ -63,7 +63,7 @@ public class ServicioHabitacionImpl implements ServicioHabitacion {
 	 * Buscar entity Habitacion por Id
 	 * 
 	 * @param id tipo Long
-	 * @return Habitacion resultado del metodo findById
+	 * @return Habitacion resultado del metodo findById()
 	 */
 	@Override
 	public Habitacion buscarHabitacionXId(Long habitacionId) {
@@ -73,7 +73,7 @@ public class ServicioHabitacionImpl implements ServicioHabitacion {
 	/**
 	 * Obtener DatosComboHabitacion
 	 * 
-	 * @return List<DatosHabitacion> resultado del metodo findAllProjectedBy
+	 * @return List<DatosHabitacion> resultado del metodo findAllProjectedBy()
 	 */
 	@Override
 	public List<DatosHabitacion> obtenerDatosComboHabitacion() {
@@ -86,6 +86,16 @@ public class ServicioHabitacionImpl implements ServicioHabitacion {
 	@Override
 	public void eliminarHabitacion(Long habitacionId) {
 		habitacionRepository.deleteById(habitacionId);
+	}
+	
+	/**
+	 * Busca todos las Tuplas de Habitacion que existen
+	 * @return List<Habitacion> resultado del metodo findAll() 
+	 */
+	@Override
+	public List<Habitacion> buscarHabitacionAll() {
+		List<Habitacion> ListaCompleta= habitacionRepository.findAll();
+		return ListaCompleta;
 	}
 
 }
