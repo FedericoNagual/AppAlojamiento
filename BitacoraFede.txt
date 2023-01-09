@@ -218,3 +218,16 @@ Problematica:
 	Poco avance pero se pudo armar algo y tengo que pensar como armar el login, proximanente encarar el borrar y modificar, estas pantallas es posible que se puedan armar con botones mas simples para tener un mejor flojo, aunque no se si es necesario que desde todos los paneles se tenga que pasar a todos, en lo que navegabilidad respecta, por ejemplo desde Alta, tengo que poder editar o tengo que poder volver al menu de ver ?. A lo mejor desde el menu buscar y si obtengo un elemento puntual, tengo que poder eliminarlo y modificarlo, siendo la vista principal la de busqueda.
 	
 /////////////////////////////
+Fecha:	09/01/2023
+
+Hs:		4hs
+
+Avance:
+
+	Armar la grilla para mostrar todos los elementos traidos de la BD
+	
+Problematica:
+
+	No se pudo mostrar todas las funciones de la grilla y del listado, mas basico y de un solo listado, probar de la manera mas simple llamando un elemento grilla para gestionarlo.
+	
+/////////////////////////////
