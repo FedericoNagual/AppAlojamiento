@@ -14,7 +14,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioCiudadImpl;
 
 /**
  * 
- * @author 
+ * @author Mauro
  *
  */
 @Named("altaCiudadBean")
