@@ -14,7 +14,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.entidad.DatoCiudad;
 /**
  * Repositorio de la entidad Ciudad
  * 
- * @author 
+ * @author Mauro
  * 
  */
 @Repository
