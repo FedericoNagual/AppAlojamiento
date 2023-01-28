@@ -21,7 +21,6 @@ public interface HabitacionRepository extends JpaRepository<Habitacion, Long> {
 	public Optional<Habitacion> findById(Long habitacionId);
 
 	public Habitacion saveAndFlush(Habitacion habitacion);
-
 	public List<Habitacion> findAll();
 
 	public List<DatosHabitacion> findAllProjectedBy();
