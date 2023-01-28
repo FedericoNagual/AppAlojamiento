@@ -41,7 +41,7 @@ public class ConsultaPaisBean extends GenericBean{
 
 	/**
 	 * Se llama cuando se inicia la clase ConsutaPaisBean que setea a
-	 * Habitacion creando una nueva instancia
+	 * Pais creando una nueva instancia
 	 */
 	@PostConstruct
 	public void init() {

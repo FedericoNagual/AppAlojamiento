@@ -16,7 +16,7 @@ public interface ServicioCiudad {
 
 	public List<Ciudad> buscarCiudadXNombre(String nombre);
 	
-	List<DatoCiudad> obtenerDatosCiudad();
+	public List<DatoCiudad> obtenerDatosCiudad();
 
 	public void eliminarCiudad(Long id);
 

@@ -30,7 +30,7 @@ public class AltaProvinciaBean extends GenericBean {
 
 	/**
 	 * Se llama cuando se inicia la clase AltaProvinciaBean que setea a la clase
-	 * Ciudad creando una nueva instancia
+	 * Provincia creando una nueva instancia
 	 */
 	@PostConstruct
 	public void init() {

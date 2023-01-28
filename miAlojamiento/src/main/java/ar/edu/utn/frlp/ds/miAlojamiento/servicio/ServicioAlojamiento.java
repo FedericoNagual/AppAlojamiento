@@ -14,7 +14,7 @@ public interface ServicioAlojamiento {
 
 	public List<Alojamiento > buscarAlojamientoXNombre(String nombre);
 	
-	List<DatosAlojamiento > obtenerDatosAlojamiento ();
+	public	List<DatosAlojamiento > obtenerDatosAlojamiento ();
 
 	public void eliminarAlojamiento (Long id);
 	

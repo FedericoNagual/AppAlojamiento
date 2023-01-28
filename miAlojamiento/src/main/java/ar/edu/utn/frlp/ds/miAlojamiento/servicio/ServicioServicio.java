@@ -15,7 +15,7 @@ public interface ServicioServicio {
 
 	public List<Servicio> buscarServicioXNombre(String nombre);
 	
-	List<DatosServicio> obtenerDatosServicio();
+	public List<DatosServicio> obtenerDatosServicio();
 
 	public void eliminarServicio(Long id);
 

@@ -28,8 +28,8 @@ public class AltaServicioBean extends GenericBean {
 	private ServicioServicioImpl servicioI;
 
 	/**
-	 * Se llama cuando se inicia la clase AltaProvinciaBean que setea a la clase
-	 * Ciudad creando una nueva instancia
+	 * Se llama cuando se inicia la clase AltaServicioBean que setea a la clase
+	 * Servicio creando una nueva instancia
 	 */
 	@PostConstruct
 	public void init() {

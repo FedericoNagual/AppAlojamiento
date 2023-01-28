@@ -42,7 +42,7 @@ public class ConsultaAlojamientoBean extends GenericBean{
 	private ServicioAlojamientoImpl servicio;
 
 	/**
-	 * Se llama cuando se inicia la clase ConsutaPaisBean que setea a
+	 * Se llama cuando se inicia la clase ConsutaAlojamientoBean que setea a
 	 * Alojamiento creando una nueva instancia
 	 */
 	@PostConstruct
