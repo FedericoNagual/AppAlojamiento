@@ -12,8 +12,14 @@ import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Pais;
 import ar.edu.utn.frlp.ds.miAlojamiento.repositorio.PaisRepository;
 import ar.edu.utn.frlp.ds.miAlojamiento.servicio.ServicioPais;
 
-
-
+/**
+ * Implementacion del Servicio Pais
+ * @author Mauro
+ * @author Federico
+ *
+ */
+@SessionScope
+@Service
 public class ServicioPaisImpl implements ServicioPais{
 	
 	@Autowired
