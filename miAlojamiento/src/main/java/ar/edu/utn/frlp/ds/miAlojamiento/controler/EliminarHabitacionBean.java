@@ -86,6 +86,7 @@ public class EliminarHabitacionBean extends GenericBean {
 
 	/**
 	 * Consulta de Habitacion por id y lo almacena en idSeleccionado
+	 * 
 	 */
 	public void consultaHabitacion() {
 		if(idSeleccionado != null) {
