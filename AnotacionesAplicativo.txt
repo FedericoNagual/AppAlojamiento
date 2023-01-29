@@ -116,6 +116,15 @@ precio
 	
 	P:	Money
 	
+Relacion 1 a muchos 
 
+ClaseA = uno
+ClaseB = muchos
+
+
+
+Relacion 1 a 1
+
+Relacion Muchos a Muchos
 
 

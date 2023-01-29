@@ -231,3 +231,28 @@ Problematica:
 	No se pudo mostrar todas las funciones de la grilla y del listado, mas basico y de un solo listado, probar de la manera mas simple llamando un elemento grilla para gestionarlo.
 	
 /////////////////////////////
+Fecha:	10/01/2023
+
+Hs:		3Hs
+
+Avance:
+
+	Se investigo para hacer el login y como funciona, tambien como hacer una lista o listado para mostrar todos los elementos que se cargaron previamente y poder listarlos para saber el total
+
+Problematica:
+
+	No se llego con el tiempo y queda para otro dia.
+
+
+/////////////////////////////
+Fecha: 29/01/2023
+
+Hs:		4hs
+
+Avance:	
+	
+	Se termino el consulta, alta, modificacion y baja de habitacion
+
+Problematica:
+
+/////////////////////////////
