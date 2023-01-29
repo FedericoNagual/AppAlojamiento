@@ -16,7 +16,7 @@ public interface ServicioProvincia {
 
 	public List<Provincia> buscarProvinciaXNombre(String nombre);
 	
-	List<DatoProvincia> obtenerDatosProvincia();
+	public List<DatoProvincia> obtenerDatosProvincia();
 
 	public void eliminarProvincia(Long id);
 

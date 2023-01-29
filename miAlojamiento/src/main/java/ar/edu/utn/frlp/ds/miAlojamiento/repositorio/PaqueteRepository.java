@@ -13,7 +13,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Paquete;
 /**
  * Repositorio de la entidad Paquete
  * 
- * @author 
+ * @author Mauro
  * 
  */
 @Repository

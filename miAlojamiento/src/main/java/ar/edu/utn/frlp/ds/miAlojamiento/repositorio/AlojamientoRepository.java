@@ -13,7 +13,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.entidad.DatosAlojamiento;
 /**
  * Repositorio de la entidad Alojamiento
  * 
- * @author 
+ * @author Mauro
  * 
  */
 @Repository

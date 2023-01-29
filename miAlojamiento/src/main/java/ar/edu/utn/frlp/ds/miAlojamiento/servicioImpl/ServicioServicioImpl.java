@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.context.annotation.SessionScope;
 
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.DatosServicio;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Provincia;
@@ -13,7 +15,15 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicio.ServicioServicio;
 
 
 
+/**
+ * Implementacion del Servicio Servicio
+ * 
+ * @author Mauro
+ *
+ */
 
+@SessionScope
+@Service
 public class ServicioServicioImpl implements ServicioServicio{
 	@Autowired
 	private ServicioRepository servicioRepository;

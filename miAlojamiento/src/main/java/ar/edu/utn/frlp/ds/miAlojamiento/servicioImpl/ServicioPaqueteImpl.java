@@ -5,13 +5,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.context.annotation.SessionScope;
 
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.DatosPaquete;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Paquete;
 import ar.edu.utn.frlp.ds.miAlojamiento.repositorio.PaqueteRepository;
 import ar.edu.utn.frlp.ds.miAlojamiento.servicio.ServicioPaquete;
 
+/**
+ * Implementacion del Servicio Paquete
+ * 
+ * @author Mauro
+ *
+ */
 
+@SessionScope
+@Service
 public class ServicioPaqueteImpl implements ServicioPaquete{
 	@Autowired
 	private PaqueteRepository paqueteRepository;

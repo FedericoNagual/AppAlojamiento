@@ -4,13 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.context.annotation.SessionScope;
 
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Alojamiento;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.DatosAlojamiento;
 import ar.edu.utn.frlp.ds.miAlojamiento.repositorio.AlojamientoRepository;
 import ar.edu.utn.frlp.ds.miAlojamiento.servicio.ServicioAlojamiento;
 
+/**
+ * Implementacion del Servicio Alojamiento
+ * 
+ * @author Mauro
+ *
+ */
 
+@SessionScope
+@Service
 public class ServicioAlojamientoImpl implements ServicioAlojamiento{
 	@Autowired
 	private AlojamientoRepository alojamientoRepository;

@@ -4,13 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.context.annotation.SessionScope;
 
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.DatoProvincia;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Provincia;
 import ar.edu.utn.frlp.ds.miAlojamiento.repositorio.ProvinciaRepository;
 import ar.edu.utn.frlp.ds.miAlojamiento.servicio.ServicioProvincia;
 
+/**
+ * Implementacion del Servicio Provincia
+ * 
+ * @author Mauro
+ *
+ */
 
+@SessionScope
+@Service
 public class ServicioProvinciaImpl implements ServicioProvincia{
 	@Autowired
 	private ProvinciaRepository provinciaRepository;

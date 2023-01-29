@@ -4,12 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.context.annotation.SessionScope;
 
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.DatosReserva;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Reserva;
 import ar.edu.utn.frlp.ds.miAlojamiento.repositorio.ReservaRepository;
 import ar.edu.utn.frlp.ds.miAlojamiento.servicio.ServicioReserva;
+/**
+ * Implementacion del Servicio Reserva
+ * 
+ * @author Mauro
+ *
+ */
 
+@SessionScope
+@Service
 public class ServicioReservaImpl implements ServicioReserva{
 
 	@Autowired
