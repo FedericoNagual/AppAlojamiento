@@ -124,7 +124,7 @@ public class ConsultaHabitacionBean extends GenericBean {
 	 * grilla
 	 */
 	public void consultaTotalHabitacion() {
-
+		//Por completar
 	}
 
 	/**
