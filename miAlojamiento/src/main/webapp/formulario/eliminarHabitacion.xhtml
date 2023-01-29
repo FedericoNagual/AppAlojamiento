@@ -1,0 +1,82 @@
+<ui:composition template="/template/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="content">
+		<p:panel id="panelEliminacion" header="#{eliminaHabitacionBean.titulo}"
+			style="text-align: center;">
+			<h:panelGrid columns="3" cellpadding="4"
+				style="margin-left: auto; margin-right: auto;">
+				<p:outputLabel value="Habitacion: " indicateRequired="true" />
+				<p:selectOneMenu value="#{eliminaHabitacionBean.idSeleccionado}"
+					required="#{not empty param.combo}">
+					<f:selectItem itemLabel="Seleccione" />
+					<f:selectItems value="#{eliminaHabitacionBean.datosCombo}"
+						var="habitacion" itemLabel="#{habitacion.formatoCombo}"
+						itemValue="#{habitacion.habitacionId}" />
+					<p:ajax event="valueChange" update="panelEliminacion" />
+				</p:selectOneMenu>
+
+				<p:commandButton value="Buscar" styleClass="classBlock"
+					action="#{eliminaHabitacionBean.consultarVehiculo}"
+					update="panelEliminacion">
+					<f:param name="combo" value="true" />
+				</p:commandButton>
+			</h:panelGrid>
+
+			<p:panel id="panelDatosHabitacion" style="text-align: center;" rendered="#{eliminarVehiculoBean.vehiculo != null }" >
+
+				<h:panelGrid columns="2" cellpadding="8"
+					style="margin-left: auto; margin-right: auto; text-align: left;" >
+					<p:outputLabel value="Nombre"></p:outputLabel>
+					<p:inputText disabled="true"
+						value="#{eliminaHabitacionBean.habitacion.nombre}" readonly="true"></p:inputText>
+	
+					<p:outputLabel value="Capacidad"></p:outputLabel>
+					<p:inputNumber disabled="true"
+						value="#{eliminaHabitacionBean.habitacion.capacidad}" readonly="true"></p:inputNumber>
+	
+					<p:outputLabel value="Precio Noche" ></p:outputLabel>
+					<p:inputNumber disabled="true"
+						value="#{eliminaHabitacionBean.habitacion.precioNoche}" readonly="true"></p:inputNumber>
+	
+					<p:outputLabel value="Descripcion" indicateRequired="true"></p:outputLabel>
+					<p:inputText disabled="true"
+						value="#{eliminaHabitacionBean.habitacion.descripcion}" readonly="true"></p:inputText>
+
+
+				</h:panelGrid>
+			</p:panel>
+
+
+			<p:toolbar>
+				<p:toolbarGroup align="right">
+					<p:commandButton value="Eliminar" styleClass="classBlock"
+						update="panelEliminacion"
+						disabled="#{eliminaHabitacionBean.habitacion == null}"
+						action="#{eliminaHabitacionBean.eliminaHabitacion()}">
+						<f:param name="datos" value="true" />
+						<p:confirm header="Confirmacion"
+							message="¿Desea eliminar a la habitacion  : #{eliminaHabitacionBean.habitacion.nombre} ?" />
+					</p:commandButton>
+					<p:spacer width="20" />
+					<p:commandButton value="Volver" immediate="true"
+						styleClass="classBlock" action="#{eliminaHabitacionBean.volver}" />
+
+					<!-- mensaje dialogo -->
+					<p:confirmDialog global="true" showEffect="fade" hideEffect="fade"
+						responsive="true" width="350">
+						<p:commandButton value="No" type="button"
+							styleClass="ui-confirmdialog-no ui-button-flat" />
+						<p:commandButton value="Si" type="button"
+							styleClass="ui-confirmdialog-yes" />
+					</p:confirmDialog>
+				</p:toolbarGroup>
+			</p:toolbar>
+		</p:panel>
+
+
+	</ui:define>
+</ui:composition>
