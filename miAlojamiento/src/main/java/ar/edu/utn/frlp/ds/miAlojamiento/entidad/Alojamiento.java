@@ -2,13 +2,17 @@ package ar.edu.utn.frlp.ds.miAlojamiento.entidad;
 
 import java.io.Serializable;
 import java.sql.Time;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 
 /**
  * Modelo de la clase Alojamiento con sus atributos
@@ -50,17 +54,21 @@ public class Alojamiento implements Serializable {
 
 	@Column(name = "categoria")
 	private String categoria;
-
+	
 	@Column(name = "servicioId")
+	@OneToOne(mappedBy="servicio")
 	private Servicio servicio;
 
 	@Column(name = "habitacionId")
+	@OneToMany(mappedBy="habitacion")
 	private Habitacion habitacion;
 
 	@Column(name = "ciudadId")
+	@OneToOne(mappedBy="ciudad")
 	private Ciudad ciudad;
 
 	@Column(name = "fotoId")
+	@OneToOne(mappedBy="foto")
 	private Foto foto;
 
 	public Alojamiento(Long id, String nombre, String latitud, String longitud, Double precio, String descripcion,

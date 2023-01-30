@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -41,9 +42,11 @@ public class Paquete implements Serializable {
 	private Long cantidadNoches;
 
 	@Column(name = "imagenId")
+	@OneToOne(mappedBy="imagen")
 	private Imagen imagen;
 
 	@Column(name = "alojamientoId")
+	@OneToOne(mappedBy="alojamiento")
 	private Alojamiento alojamiento;
 
 	public Paquete(Long id, String nombre, String descripcion, Long cantidadDias, Long cantidadNoches, Imagen imagen,

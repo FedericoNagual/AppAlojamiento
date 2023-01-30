@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -31,6 +32,7 @@ public class Domicilio implements Serializable {
 	private String nombre;
 
 	@Column(name = "ciudadId")
+	@OneToOne(mappedBy="ciudad")
 	private Ciudad ciudad;
 
 	public Domicilio(Long id, String nombre, Ciudad ciudad) {

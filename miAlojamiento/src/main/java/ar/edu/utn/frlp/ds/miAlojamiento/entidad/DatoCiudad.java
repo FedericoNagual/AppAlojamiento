@@ -6,6 +6,7 @@ public interface DatoCiudad {
 	 String getNombre();
 
 	 Provincia getProvincia();
+	
 	 default String getFormatoCombo() {
 			// Parseos de Datos a String para imprimir
 			String provincia = getProvincia().toString();

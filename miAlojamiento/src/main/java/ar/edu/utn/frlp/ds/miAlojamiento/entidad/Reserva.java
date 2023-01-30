@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -33,6 +35,7 @@ public class Reserva implements Serializable {
 	private String servicio;
 
 	@Column(name = "usuarioId")
+	@OneToOne(mappedBy="usuario")
 	private Usuario usuario;
 
 	@Column(name = "fechaInicio")
@@ -45,6 +48,7 @@ public class Reserva implements Serializable {
 	private Pago pago;
 
 	@Column(name = "paqueteId")
+	@OneToMany(mappedBy="paquete")
 	private Paquete paquete;
 
 	public Reserva(Long id, String servicio, Usuario usuario, Date fechaInicio, Date fechaFin, Pago pago,

@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -32,6 +33,7 @@ public class Provincia implements Serializable {
 	private String nombre;
 
 	@Column(name = "paisId")
+	@OneToOne(mappedBy="pais")
 	private Pais pais;
 
 	public Provincia(Long id, String nombre, Pais pais) {
