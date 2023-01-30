@@ -27,12 +27,12 @@ public class ServicioCiudadImpl implements ServicioCiudad{
 	private CiudadRepository ciudadRepository;
 
 	/**
-	 * Guarda la entity Pais
+	 * Guarda la entity ciudad
 	 * 
 	 */
 	@Override
-	public Ciudad guardarCiudad(Ciudad provincia) {
-		return ciudadRepository.saveAndFlush(provincia);
+	public Ciudad guardarCiudad(Ciudad ciudad) {
+		return ciudadRepository.saveAndFlush(ciudad);
 	}
 
 	/**

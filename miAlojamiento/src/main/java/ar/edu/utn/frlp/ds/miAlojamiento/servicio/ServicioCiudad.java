@@ -9,7 +9,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.entidad.DatoCiudad;
 
 public interface ServicioCiudad {
 
-	public Ciudad guardarCiudad(Ciudad foto);
+	public Ciudad guardarCiudad(Ciudad ciudad);
 
 	public Ciudad buscarCiudadXId(Long id);
 

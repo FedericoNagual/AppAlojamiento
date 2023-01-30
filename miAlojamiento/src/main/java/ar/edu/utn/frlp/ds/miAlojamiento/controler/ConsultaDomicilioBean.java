@@ -9,49 +9,49 @@ import javax.inject.Named;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
-import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Ciudad;
-import ar.edu.utn.frlp.ds.miAlojamiento.entidad.DatoCiudad;
-import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioCiudadImpl;
+import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Domicilio;
+import ar.edu.utn.frlp.ds.miAlojamiento.entidad.DatosDomicilio;
+import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioDomicilioImpl;
 
 
 /**
- * Clase Bean del Consulta de Ciudad
+ * Clase Bean del Consulta de Domicilio
  * 
  * @author Mauro
  *
  */
-@Named("consultaCiudadBean")
+@Named("consultaDomicilioBean")
 @ViewScoped
-public class ConsultaCiudadBean extends GenericBean {
+public class ConsultaDomicilioBean extends GenericBean {
 
-	@Value("${consultaCiudad}")
+	@Value("${consultaDomicilio}")
 	private String titulo;
 
 	private Long idSeleccionado;
-	private List<DatoCiudad> datosCombo;
-	private Ciudad ciudad;
+	private List<DatosDomicilio> datosCombo;
+	private Domicilio Domicilio;
 	private Boolean aceptarListado;
 
 	/*
 	 * Elementos para la grilla, lita y elemento seleccionado
 	 */
-	private List<Ciudad> lista;
-	private Ciudad ciudadSeleccionada;
+	private List<Domicilio> lista;
+	private Domicilio DomicilioSeleccionada;
 
 	@Autowired
-	private ServicioCiudadImpl servicio;
+	private ServicioDomicilioImpl servicio;
 
 	/**
-	 * Se llama cuando se inicia la clase ConsutaCiudadBean que setea a
-	 * Ciudad creando una nueva instancia
+	 * Se llama cuando se inicia la clase ConsutaDomicilioBean que setea a
+	 * Domicilio creando una nueva instancia
 	 */
 	@PostConstruct
 	public void init() {
 		setAceptarListado(Boolean.TRUE);
-		setDatosCombo(servicio.obtenerDatosCiudad());
-		setLista(servicio.buscarCiudadAll());
+		setDatosCombo(servicio.obtenerDatosDomicilio());
+		setLista(servicio.buscarDomicilioAll());
 		setIdSeleccionado(null);
-		setCiudad(null);
+		setDomicilio(null);
 	}
 
 	public String getTitulo() {
@@ -62,12 +62,12 @@ public class ConsultaCiudadBean extends GenericBean {
 		this.titulo = titulo;
 	}
 
-	public Ciudad getCiudad() {
-		return ciudad;
+	public Domicilio getDomicilio() {
+		return Domicilio;
 	}
 
-	public void setCiudad(Ciudad ciudad) {
-		this.ciudad = ciudad;
+	public void setDomicilio(Domicilio Domicilio) {
+		this.Domicilio = Domicilio;
 	}
 
 	public Long getIdSeleccionado() {
@@ -78,11 +78,11 @@ public class ConsultaCiudadBean extends GenericBean {
 		this.idSeleccionado = idSeleccionado;
 	}
 
-	public List<DatoCiudad> getDatosCombo() {
+	public List<DatosDomicilio> getDatosCombo() {
 		return datosCombo;
 	}
 
-	public void setDatosCombo(List<DatoCiudad> datosCombo) {
+	public void setDatosCombo(List<DatosDomicilio> datosCombo) {
 		this.datosCombo = datosCombo;
 	}
 
@@ -94,29 +94,29 @@ public class ConsultaCiudadBean extends GenericBean {
 		this.aceptarListado = aceptarListado;
 	}
 
-	public List<Ciudad> getLista() {
+	public List<Domicilio> getLista() {
 		return lista;
 	}
 
-	public void setLista(List<Ciudad> lista) {
+	public void setLista(List<Domicilio> lista) {
 		this.lista = lista;
 	}
 
-	public Ciudad getCiudadSeleccionada() {
-		return ciudadSeleccionada;
+	public Domicilio getDomicilioSeleccionada() {
+		return DomicilioSeleccionada;
 	}
 
-	public void setCiudadSeleccionada(Ciudad ciudadSeleccionada) {
-		this.ciudadSeleccionada = ciudadSeleccionada;
+	public void setDomicilioSeleccionada(Domicilio DomicilioSeleccionada) {
+		this.DomicilioSeleccionada = DomicilioSeleccionada;
 	}
 
 	/**
-	 * Consulta las Ciudades y busca sus datos por el Id seleccionado y los
+	 * Consulta las Domicilioes y busca sus datos por el Id seleccionado y los
 	 * muestra en la vista
 	 */
-	public void consultaCiudad() {
+	public void consultaDomicilio() {
 		if (idSeleccionado != null) {
-			setCiudad(servicio.buscarCiudadXId(getIdSeleccionado()));
+			setDomicilio(servicio.buscarDomicilioXId(getIdSeleccionado()));
 		}
 	}
 
@@ -124,7 +124,7 @@ public class ConsultaCiudadBean extends GenericBean {
 	 * Habilita la grilla y muestra los datos de toda tuplas en pantalla en una
 	 * grilla
 	 */
-	public void consultaTotalCiudad() {
+	public void consultaTotalDomicilio() {
 
 	}
 
@@ -133,7 +133,7 @@ public class ConsultaCiudadBean extends GenericBean {
 	 */
 	public void limpiar() {
 		setIdSeleccionado(null);
-		setCiudad(null);
+		setDomicilio(null);
 		setAceptarListado(Boolean.TRUE);
 	}
 
