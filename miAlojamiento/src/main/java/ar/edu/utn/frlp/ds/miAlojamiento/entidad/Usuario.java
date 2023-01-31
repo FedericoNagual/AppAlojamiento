@@ -35,6 +35,7 @@ public class Usuario implements Serializable {
 	private String nombre;
 
 	@Column(name = "rolId")
+	@OneToOne(mappedBy="rol")
 	private Rol rol;
 
 	@Column(name = "domicilioId")

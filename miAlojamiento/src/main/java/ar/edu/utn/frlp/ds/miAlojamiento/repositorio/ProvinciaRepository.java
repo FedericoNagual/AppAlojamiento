@@ -22,7 +22,7 @@ public interface ProvinciaRepository extends JpaRepository<Provincia, Long> {
 
 	public Optional<Provincia> findById(Long id);
 
-	public Provincia saveAndFlush(Provincia ciudad);
+	public Provincia saveAndFlush(Provincia provincia);
 
 	public List<Provincia> findAll();
 
