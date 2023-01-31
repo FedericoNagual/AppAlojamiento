@@ -23,7 +23,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioPaisImpl;
 @ViewScoped
 public class ConsultaPaisBean extends GenericBean{
 	@Value("${consultaPais}")
-	private String name;
+	private String nombre;
 
 	private Long idSeleccionado;
 	private List<DatosPais> datosCombo;
@@ -52,12 +52,12 @@ public class ConsultaPaisBean extends GenericBean{
 		setPais(null);
 	}
 
-	public String getName() {
-		return name;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public Pais getPais() {
