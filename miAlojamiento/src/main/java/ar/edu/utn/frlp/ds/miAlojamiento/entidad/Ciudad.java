@@ -1,13 +1,15 @@
 package ar.edu.utn.frlp.ds.miAlojamiento.entidad;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -30,15 +32,20 @@ public class Ciudad implements Serializable {
 	@Column(name = "nombre")
 	private String nombre;
 
-	@Column(name = "provinciaId")
-	@OneToOne(mappedBy="provincia")
-	private Provincia provincia;
+	@OneToMany
+	@JoinColumn(name = "domicilioId")
+	private List<Domicilio> listaDomicilio;
+	
+	@OneToMany
+	@JoinColumn(name = "alojamientoId")
+	private List<Alojamiento> listaAlojamiento;
 
-	public Ciudad(Long id, String nombre, Provincia provincia) {
+	public Ciudad(Long id, String nombre, List<Domicilio> listaDomicilio, List<Alojamiento> listaAlojamiento) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
-		this.provincia = provincia;
+		this.listaDomicilio = listaDomicilio;
+		this.listaAlojamiento = listaAlojamiento;
 	}
 
 	public Ciudad() {
@@ -61,12 +68,20 @@ public class Ciudad implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public Provincia getProvincia() {
-		return provincia;
+	public List<Domicilio> getListaDomicilio() {
+		return listaDomicilio;
 	}
 
-	public void setProvincia(Provincia provincia) {
-		this.provincia = provincia;
+	public void setListaDomicilio(List<Domicilio> listaDomicilio) {
+		this.listaDomicilio = listaDomicilio;
+	}
+
+	public List<Alojamiento> getListaAlojamiento() {
+		return listaAlojamiento;
+	}
+
+	public void setListaAlojamiento(List<Alojamiento> listaAlojamiento) {
+		this.listaAlojamiento = listaAlojamiento;
 	}
 
 	/**
@@ -77,7 +92,7 @@ public class Ciudad implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "Ciudad [id=" + id + ", nombre=" + nombre + ", provincia=" + provincia + "]";
+		return "Ciudad [id=" + id + ", nombre=" + nombre + "]";
 	}
 
 }

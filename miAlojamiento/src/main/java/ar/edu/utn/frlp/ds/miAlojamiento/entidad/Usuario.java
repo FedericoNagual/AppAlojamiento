@@ -2,12 +2,14 @@ package ar.edu.utn.frlp.ds.miAlojamiento.entidad;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -34,14 +36,6 @@ public class Usuario implements Serializable {
 	@Column(name = "nombre")
 	private String nombre;
 
-	@Column(name = "rolId")
-	@OneToOne(mappedBy="rol")
-	private Rol rol;
-
-	@Column(name = "domicilioId")
-	@OneToOne(mappedBy="domicilio")
-	private Domicilio domicilio;
-
 	@Column(name = "FechaNacimiento")
 	private Date fechaNacimiento;
 
@@ -53,21 +47,43 @@ public class Usuario implements Serializable {
 
 	@Column(name = "TipoDocumento")
 	private String tipoDocumento;
+	
+	@OneToOne
+	@JoinColumn(name = "domicilioId")
+	private Domicilio domicilio;
+	
+	@OneToMany
+	@JoinColumn(name = "reservaId")
+	private List<Reserva> listaReserva;
 
-	public Usuario(Long id, String nombre, Rol rol, Domicilio domicilio, Date fechaNacimiento, String dni,
-			Long telefono, String tipoDocumento) {
+	@OneToMany
+	@JoinColumn(name = "loginId")
+	private List<Login> listaLogin;
+
+	public Usuario() {
+		super();
+	}
+
+	public Usuario(Long id, String nombre, Date fechaNacimiento, String dni, Long telefono, String tipoDocumento,
+			Domicilio domicilio, List<Reserva> listaReserva, List<Login> listaLogin) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
-		this.domicilio = domicilio;
 		this.fechaNacimiento = fechaNacimiento;
 		this.dni = dni;
 		this.telefono = telefono;
 		this.tipoDocumento = tipoDocumento;
+		this.domicilio = domicilio;
+		this.listaReserva = listaReserva;
+		this.listaLogin = listaLogin;
 	}
 
-	public Usuario() {
-		super();
+	public List<Login> getListaLogin() {
+		return listaLogin;
+	}
+
+	public void setListaLogin(List<Login> listaLogin) {
+		this.listaLogin = listaLogin;
 	}
 
 	public Long getId() {
@@ -86,12 +102,12 @@ public class Usuario implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public Rol getRol() {
-		return rol;
+	public List<Reserva> getListaReserva() {
+		return listaReserva;
 	}
 
-	public void setRol(Rol rol) {
-		this.rol = rol;
+	public void setListaReserva(List<Reserva> listaReserva) {
+		this.listaReserva = listaReserva;
 	}
 
 	public Domicilio getDomicilio() {
@@ -136,8 +152,7 @@ public class Usuario implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nombre=" + nombre + ", rol=" + rol + ", domicilio=" + domicilio
-				+ ", fechaNacimiento=" + fechaNacimiento + ", dni=" + dni + ", telefono=" + telefono
-				+ ", tipoDocumento=" + tipoDocumento + "]";
+		return "Usuario [id=" + id + ", nombre=" + nombre + ", fechaNacimiento=" + fechaNacimiento + ", dni=" + dni
+				+ ", telefono=" + telefono + ", tipoDocumento=" + tipoDocumento + ", domicilio=" + domicilio + "]";
 	}
 }

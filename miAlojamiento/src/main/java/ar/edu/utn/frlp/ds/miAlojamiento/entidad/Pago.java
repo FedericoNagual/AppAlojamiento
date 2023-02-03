@@ -2,12 +2,15 @@ package ar.edu.utn.frlp.ds.miAlojamiento.entidad;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -41,20 +44,34 @@ public class Pago implements Serializable {
 	@Column(name = "ultimosDigitos")
 	private Long ultimosDigitos;
 
-	public Pago(Long id, Double monto, Date fecha, String codigoBarra, Long ultimosDigitos) {
+	@OneToMany
+	@JoinColumn(name = "reservaId")
+	private List<Reserva> listaReserva;
+
+
+	public Pago(Long id, Double monto, Date fecha, String codigoBarra, Long ultimosDigitos,
+			List<Reserva> listaReserva) {
 		super();
 		this.id = id;
 		this.monto = monto;
 		this.fecha = fecha;
 		this.codigoBarra = codigoBarra;
 		this.ultimosDigitos = ultimosDigitos;
-
+		this.listaReserva = listaReserva;
 	}
 
 	public Pago() {
 		super();
 	}
 
+	public List<Reserva> getListaReserva() {
+		return listaReserva;
+	}
+	
+	public void setListaReserva(List<Reserva> listaReserva) {
+		this.listaReserva = listaReserva;
+	}
+	
 	public Long getId() {
 		return id;
 	}

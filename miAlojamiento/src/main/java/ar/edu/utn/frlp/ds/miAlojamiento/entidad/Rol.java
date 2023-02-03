@@ -1,12 +1,15 @@
 package ar.edu.utn.frlp.ds.miAlojamiento.entidad;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -30,11 +33,16 @@ public class Rol implements Serializable {
 
 	@Column(name = "descripcion")
 	private String descripcion;
+	
+	@OneToMany
+	@JoinColumn(name = "usuarioId")
+	private List<Usuario> listaUsuario;
 
-	public Rol(Long id, String descripcion) {
+	public Rol(Long id, String descripcion, List<Usuario> listaUsuario) {
 		super();
 		this.id = id;
 		this.descripcion = descripcion;
+		this.listaUsuario = listaUsuario;
 	}
 
 	public Rol() {
@@ -55,6 +63,14 @@ public class Rol implements Serializable {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	public List<Usuario> getListaUsuario() {
+		return listaUsuario;
+	}
+
+	public void setListaUsuario(List<Usuario> listaUsuario) {
+		this.listaUsuario = listaUsuario;
 	}
 
 	/**

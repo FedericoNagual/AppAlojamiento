@@ -1,13 +1,15 @@
 package ar.edu.utn.frlp.ds.miAlojamiento.entidad;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -32,15 +34,15 @@ public class Provincia implements Serializable {
 	@Column(name = "nombre")
 	private String nombre;
 
-	@Column(name = "paisId")
-	@OneToOne(mappedBy="pais")
-	private Pais pais;
+	@OneToMany
+	@JoinColumn(name = "ciudadId")
+	private List<Ciudad> listaCiudad;
 
-	public Provincia(Long id, String nombre, Pais pais) {
+	public Provincia(Long id, String nombre, List<Ciudad> listaCiudad) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
-		this.pais = pais;
+		this.listaCiudad = listaCiudad;
 	}
 
 	public Provincia() {
@@ -63,12 +65,12 @@ public class Provincia implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public Pais getPais() {
-		return pais;
+	public List<Ciudad> getListaCiudad() {
+		return listaCiudad;
 	}
 
-	public void setPais(Pais pais) {
-		this.pais = pais;
+	public void setListaCiudad(List<Ciudad> listaCiudad) {
+		this.listaCiudad = listaCiudad;
 	}
 
 	/**
@@ -79,7 +81,7 @@ public class Provincia implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "Provincia [id=" + id + ", nombre=" + nombre + ", pais=" + pais + "]";
+		return "Provincia [id=" + id + ", nombre=" + nombre + "]";
 	}
 
 }

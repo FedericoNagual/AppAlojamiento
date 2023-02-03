@@ -33,15 +33,11 @@ public class Login implements Serializable {
 	@Column(name = "contraseña")
 	private String contraseña;
 
-	@Column(name = "usuarioId")
-	private Usuario usuario;
-
-	public Login(Long id, String nombre, String contraseña, Usuario usuario) {
+	public Login(Long id, String nombre, String contraseña) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.contraseña = contraseña;
-		this.usuario = usuario;
 	}
 
 	public Login() {
@@ -72,17 +68,9 @@ public class Login implements Serializable {
 		this.contraseña = contraseña;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
 	@Override
 	public String toString() {
-		return "Login [id=" + id + ", nombre=" + nombre + ", contraseña=" + contraseña + ", usuario=" + usuario + "]";
+		return "Login [id=" + id + ", nombre=" + nombre + ", contraseña=" + contraseña + "]";
 	}
 
 }

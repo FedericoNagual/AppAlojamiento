@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -31,15 +30,10 @@ public class Domicilio implements Serializable {
 	@Column(name = "nombre")
 	private String nombre;
 
-	@Column(name = "ciudadId")
-	@OneToOne(mappedBy="ciudad")
-	private Ciudad ciudad;
-
-	public Domicilio(Long id, String nombre, Ciudad ciudad) {
+	public Domicilio(Long id, String nombre) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
-		this.ciudad = ciudad;
 	}
 
 	public Domicilio() {
@@ -62,14 +56,6 @@ public class Domicilio implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public Ciudad getCiudad() {
-		return ciudad;
-	}
-
-	public void setCiudad(Ciudad ciudad) {
-		this.ciudad = ciudad;
-	}
-
 	/**
 	 * Imprime en formato String todos los datos de la clase
 	 * 
@@ -78,6 +64,6 @@ public class Domicilio implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "Domicilio [id=" + id + ", nombre=" + nombre + ", ciudad=" + ciudad + "]";
+		return "Domicilio [id=" + id + ", nombre=" + nombre + "]";
 	}
 }

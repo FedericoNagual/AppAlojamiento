@@ -2,14 +2,15 @@ package ar.edu.utn.frlp.ds.miAlojamiento.entidad;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -34,37 +35,35 @@ public class Reserva implements Serializable {
 	@Column(name = "servicio")
 	private String servicio;
 
-	@Column(name = "usuarioId")
-	@OneToOne(mappedBy="usuario")
-	private Usuario usuario;
-
 	@Column(name = "fechaInicio")
 	private Date fechaInicio;
 
 	@Column(name = "fechaFin")
 	private Date fechaFin;
 
-	@Column(name = "pagoId")
-	private Pago pago;
+	@OneToMany
+	@JoinColumn(name = "paqueteId")
+	private List<Paquete> listaPaquete;
 
-	@Column(name = "paqueteId")
-	@OneToMany(mappedBy="paquete")
-	private Paquete paquete;
-
-	public Reserva(Long id, String servicio, Usuario usuario, Date fechaInicio, Date fechaFin, Pago pago,
-			Paquete paquete) {
+	public Reserva(Long id, String servicio, Date fechaInicio, Date fechaFin, List<Paquete> listaPaquete) {
 		super();
 		this.id = id;
 		this.servicio = servicio;
-		this.usuario = usuario;
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
-		this.pago = pago;
-		this.paquete = paquete;
+		this.listaPaquete = listaPaquete;
 	}
 
 	public Reserva() {
 		super();
+	}
+
+	public List<Paquete> getListaPaquete() {
+		return listaPaquete;
+	}
+
+	public void setListaPaquete(List<Paquete> listaPaquete) {
+		this.listaPaquete = listaPaquete;
 	}
 
 	public Long getId() {
@@ -83,14 +82,6 @@ public class Reserva implements Serializable {
 		this.servicio = servicio;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
 	public Date getFechaInicio() {
 		return fechaInicio;
 	}
@@ -107,26 +98,10 @@ public class Reserva implements Serializable {
 		this.fechaFin = fechaFin;
 	}
 
-	public Pago getPago() {
-		return pago;
-	}
-
-	public void setPago(Pago pago) {
-		this.pago = pago;
-	}
-
-	public Paquete getPaquete() {
-		return paquete;
-	}
-
-	public void setPaquete(Paquete paquete) {
-		this.paquete = paquete;
-	}
-
 	@Override
 	public String toString() {
-		return "Reserva [id=" + id + ", servicio=" + servicio + ", usuario=" + usuario + ", pago=" + pago + ", paquete="
-				+ paquete + "]";
+		return "Reserva [id=" + id + ", servicio=" + servicio + ", fechaInicio=" + fechaInicio + ", fechaFin="
+				+ fechaFin + ", listaPaquete=" + listaPaquete + "]";
 	}
 
 }

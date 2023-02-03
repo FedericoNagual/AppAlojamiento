@@ -1,12 +1,15 @@
 package ar.edu.utn.frlp.ds.miAlojamiento.entidad;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -27,17 +30,19 @@ public class OfertaAlojamiento implements Serializable {
 	@Column(name = "ofertaAlojamientoId", unique = true, nullable = false)
 	private Long id;
 
-	@Column(name = "alojamientoId")
-	private Alojamiento alojamiento;
+	@OneToMany
+	@JoinColumn(name = "alojamientoId")
+	private List<Alojamiento> listaAlojamiento;
 
-	@Column(name = "ofertaId")
-	private Oferta oferta;
+	@OneToMany
+	@JoinColumn(name = "ofertaId")
+	private List<Oferta> listaOferta;
 
-	public OfertaAlojamiento(Long id, Alojamiento alojamiento, Oferta oferta) {
+	public OfertaAlojamiento(Long id, List<Alojamiento> listaAlojamiento, List<Oferta> listaOferta) {
 		super();
 		this.id = id;
-		this.alojamiento = alojamiento;
-		this.oferta = oferta;
+		this.listaAlojamiento = listaAlojamiento;
+		this.listaOferta = listaOferta;
 	}
 
 	public OfertaAlojamiento() {
@@ -52,25 +57,26 @@ public class OfertaAlojamiento implements Serializable {
 		this.id = id;
 	}
 
-	public Alojamiento getAlojamiento() {
-		return alojamiento;
+	public List<Alojamiento> getListaAlojamiento() {
+		return listaAlojamiento;
 	}
 
-	public void setAlojamiento(Alojamiento alojamiento) {
-		this.alojamiento = alojamiento;
+	public void setListaAlojamiento(List<Alojamiento> listaAlojamiento) {
+		this.listaAlojamiento = listaAlojamiento;
 	}
 
-	public Oferta getOferta() {
-		return oferta;
+	public List<Oferta> getListaOferta() {
+		return listaOferta;
 	}
 
-	public void setOferta(Oferta oferta) {
-		this.oferta = oferta;
+	public void setListaOferta(List<Oferta> listaOferta) {
+		this.listaOferta = listaOferta;
 	}
 
 	@Override
 	public String toString() {
-		return "OfertaAlojamiento [id=" + id + ", alojamiento=" + alojamiento + ", oferta=" + oferta + "]";
+		return "OfertaAlojamiento [id=" + id + ", listaAlojamiento=" + listaAlojamiento + ", listaOferta=" + listaOferta
+				+ "]";
 	}
 
 }
