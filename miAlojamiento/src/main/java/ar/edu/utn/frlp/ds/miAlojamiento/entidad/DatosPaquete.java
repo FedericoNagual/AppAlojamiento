@@ -7,20 +7,19 @@ public interface DatosPaquete {
 
 	String getDescripcion();
 
-	 Long getCantidadDias();
+	Long getCantidadDias();
 
-	 Long getCantidadNoches();
+	Long getCantidadNoches();
+	
+	Imagen getImagen();
 
-	 Imagen getImagen();
+	default String getFormatoCombo() {
+		// Parseos de Datos a String para imprimir
+		String cantidadDias = getCantidadDias().toString();
+		String cantidadNoches = getCantidadNoches().toString();
+		String imagen = getImagen().toString();
 
-	 Alojamiento getAlojamiento();
-	 default String getFormatoCombo() {
-			// Parseos de Datos a String para imprimir
-			String alojamiento = getAlojamiento().toString();
-			String cantidadDias = getCantidadDias().toString();
-			String cantidadNoches = getCantidadNoches().toString();
-			String imagen = getImagen().toString();
-			
-			return getNombre() + " ; " + getDescripcion()+ " ; " +cantidadDias+ " ; " +cantidadNoches+ " ; " +imagen+ " ; " +alojamiento ;
-		}
+		return getNombre() + " ; " + getDescripcion() + " ; " + cantidadDias + " ; " + cantidadNoches + " ; " + imagen
+				+ " ; ";
+	}
 }

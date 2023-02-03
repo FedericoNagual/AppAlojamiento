@@ -24,7 +24,7 @@ public interface DatosHabitacion {
 		// Parseos de Datos a String para imprimir
 		String capacidad = getCapacidad().toString();
 		String precioNoche = getPrecioNoche().toString();
-		return getNombre() + " ; " + capacidad + " ; " + precioNoche + " ; " + getDescripcion();
+		return getNombre() + " ; " + capacidad + " ; " + precioNoche + " ; " + getDescripcion()+ " ]";
 	}
 
 }

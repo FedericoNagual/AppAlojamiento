@@ -1,6 +1,5 @@
 package ar.edu.utn.frlp.ds.miAlojamiento.entidad;
 
-import java.sql.Date;
 /**
  * 
  * @author Mauro
@@ -11,16 +10,11 @@ public interface DatosLogin {
 
 	String getContraseña();
 
-	 Usuario getUsuario();
-	 
-	 
-	 default String getFormatoCombo() {
-			// Parseos de Datos a String para imprimir
-			String nombre = getNombre().toString();
-			String contraseña = getContraseña().toString();
-			String usuario = getUsuario().getId().toString();
-		
+	default String getFormatoCombo() {
+		// Parseos de Datos a String para imprimir
+		String nombre = getNombre().toString();
+		String contraseña = getContraseña().toString();
 
-			return nombre + " ; " +  contraseña + " ; " + usuario  ;
-		}
+		return nombre + " ; " + contraseña + " ] ";
+	}
 }

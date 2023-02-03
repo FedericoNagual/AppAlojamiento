@@ -1,18 +1,20 @@
 package ar.edu.utn.frlp.ds.miAlojamiento.entidad;
 
+import java.util.List;
+
 /**
  * 
  * @author Mauro
  *
  */
 public interface DatosPais {
-	// Tipo de dato, getNombreDato();
-		Long getId();
+	Long getId();
 
-		String getNombre();
+	String getNombre();
+	
+	List<Provincia> listaProvincia();
 
-		default String getFormatoCombo() {
-			return getNombre();
-		}
+	default String getFormatoCombo() {
+		return getNombre();
+	}
 }
-

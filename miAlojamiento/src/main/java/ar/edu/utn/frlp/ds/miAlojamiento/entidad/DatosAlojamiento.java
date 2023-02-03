@@ -1,11 +1,13 @@
 package ar.edu.utn.frlp.ds.miAlojamiento.entidad;
 
 import java.sql.Time;
+import java.util.List;
 
 public interface DatosAlojamiento {
-	 Long getId();
+	
+	Long getId();
 
-	 String getNombre();
+	String getNombre();
 
 	String getLatitud();
 
@@ -14,32 +16,34 @@ public interface DatosAlojamiento {
 	Double getPrecio();
 
 	String getDescripcion();
- 
+
 	Time getHorarioCheckIn();
 
-	 Time getHorarioCheckOut();
+	Time getHorarioCheckOut();
 
-	 String getCategoria();
+	String getCategoria();
 
-	 Servicio getServicio();
+	List<Servicio> getListaServicio();
 
-	 Habitacion getHabitacion();
+	List<Habitacion> getListaHabitacion();
 
-	 Ciudad getCiudad();
+	Ciudad getCiudad();
 
-	 Foto getFoto();
-	 default String getFormatoCombo() {
-			// Parseos de Datos a String para imprimir
-			String servicio = getServicio().toString();
-			String habitacion = getHabitacion().toString();
-			String ciudad = getCiudad().toString();
-			String precio = getPrecio().toString();
-			String horarioCheckIn = getHorarioCheckIn().toString();
-			String horarioCheckOut = getHorarioCheckOut().toString();
-			String foto = getFoto().toString();
+	Foto getFoto();
 
-			return getNombre() + " ; " + servicio + " ; " + habitacion + " ; " + ciudad + " ; " + getLatitud()+ " ; " + getLongitud()
-					+ " ; " + getDescripcion() + " ; " +precio+ " ; " + horarioCheckIn + " ; " + horarioCheckOut+ " ; " + foto;
-		}
+	default String getFormatoCombo() {
+		// Parseos de Datos a String para imprimir
+		String servicio = getListaServicio().toString();
+		String habitacion = getListaHabitacion().toString();
+		String ciudad = getCiudad().toString();
+		String precio = getPrecio().toString();
+		String horarioCheckIn = getHorarioCheckIn().toString();
+		String horarioCheckOut = getHorarioCheckOut().toString();
+		String foto = getFoto().toString();
+
+		return getNombre() + " ; " + servicio+ " ; " + habitacion + " ; " + ciudad + " ; " + getLatitud() + " ; "
+				+ getLongitud() + " ; " + getDescripcion() + " ; " + precio + " ; " + horarioCheckIn + " ; "
+				+ horarioCheckOut + " ; " + foto;
+	}
 
 }

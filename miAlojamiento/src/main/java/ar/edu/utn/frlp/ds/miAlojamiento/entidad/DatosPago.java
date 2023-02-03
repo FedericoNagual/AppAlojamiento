@@ -1,6 +1,7 @@
 package ar.edu.utn.frlp.ds.miAlojamiento.entidad;
 
 import java.sql.Date;
+import java.util.List;
 /**
  * 
  * @author Mauro
@@ -16,6 +17,8 @@ public interface DatosPago {
 	 String getCodigoBarra();
 	 
 	 Long getUltimosDigitos();
+	 
+	 List<Reserva> getListaReserva();
 	 
 	 default String getFormatoCombo() {
 			// Parseos de Datos a String para imprimir

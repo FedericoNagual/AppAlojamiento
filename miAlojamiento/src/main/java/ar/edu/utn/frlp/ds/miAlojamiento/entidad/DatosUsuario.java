@@ -1,40 +1,39 @@
 package ar.edu.utn.frlp.ds.miAlojamiento.entidad;
 
 import java.sql.Date;
-
-import javax.persistence.Column;
-import javax.persistence.OneToOne;
-
+import java.util.List;
 
 public interface DatosUsuario {
 
-	 Long getId();	 
-	 
-	 String getNombre();
-	 
-	 Long getTelefono();
+	Long getId();
 
-	 Rol getRol();
+	String getNombre();
 
-	 Domicilio getDomicilio();
+	Date getFechaNacimiento();
 
-	 Date getFechaNacimiento();
+	String getDni();
 
-	 String getTipoDocumento();
-	 
-	 String getDni();
+	Long getTelefono();
 
-	 default String getFormatoCombo() {
-			// Parseos de Datos a String para imprimir
-			String id = getId().toString();
-			String nombre = getNombre().toString();
-			String telefono = getTelefono().toString();
-			String rol = getRol().getDescripcion().toString();
-			String domicilio = getDomicilio().getNombre().toString();
-			String fechaNacimiento = getFechaNacimiento().toString();
-			String tipoDocumento = getTipoDocumento().toString();
-			String dni = getDni().toString();
-			
-			return  id+ " ; " +nombre+ " ; " +telefono+ " ; " +rol+ " ; " +domicilio + " ; " +fechaNacimiento + " ; " +tipoDocumento + " ; " +dni  ;
-		}
+	String getTipoDocumento();
+
+	Domicilio getDomicilio();
+
+	List<Reserva> getListaReserva();
+
+	List<Login> getListaLogin();
+
+	default String getFormatoCombo() {
+		// Parseos de Datos a String para imprimir
+		String id = getId().toString();
+		String nombre = getNombre().toString();
+		String telefono = getTelefono().toString();
+		String domicilio = getDomicilio().getNombre().toString();
+		String fechaNacimiento = getFechaNacimiento().toString();
+		String tipoDocumento = getTipoDocumento().toString();
+		String dni = getDni().toString();
+
+		return id + " ; " + nombre + " ; " + telefono + " ; " + domicilio + " ; " + fechaNacimiento
+				+ " ; " + tipoDocumento + " ; " + dni;
+	}
 }
