@@ -16,7 +16,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioPaisImpl;
 public class AltaPaisBean extends GenericBean {
 
 	@Value("${altaPais}")
-	private String nombre;
+	private String titulo;
  
 	private Pais pais;
 
@@ -28,12 +28,12 @@ public class AltaPaisBean extends GenericBean {
 		setPais(new Pais());
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 	public Pais getPais() {
 		return pais;

@@ -5,12 +5,17 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 /**
  * 
@@ -21,21 +26,26 @@ import javax.persistence.Table;
  *
  */
 @Entity(name = "Provincia")
-@Table(name = "Provincia")
+@Table(name = "\"Provincia\"")
 public class Provincia implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "provinciaId", unique = true, nullable = false)
+	@Column(name ="\"provinciaId\"", unique = true, nullable = false)
 	private Long id;
 
 	@Column(name = "nombre")
 	private String nombre;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "\"paisId\"")
+	@JsonProperty(access= Access.WRITE_ONLY)
+	private Pais pais;
 
 	@OneToMany
-	@JoinColumn(name = "ciudadId")
+	@JoinColumn(name = "\"ciudadId\"")
 	private List<Ciudad> listaCiudad;
 
 	public Provincia(Long id, String nombre, List<Ciudad> listaCiudad) {

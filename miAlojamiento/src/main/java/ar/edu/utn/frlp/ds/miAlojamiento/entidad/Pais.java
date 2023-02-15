@@ -20,22 +20,21 @@ import javax.persistence.Table;
  *
  */
 @Entity(name = "Pais")
-@Table(name = "Pais")
+@Table(name = "\"Pais\"")
 public class Pais implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "habitacionId", unique = true, nullable = false)
+	@Column(name = "\"paisId\"", unique = true, nullable = false)
 	private Long id;
 
 	@Column(name = "nombre")
 	private String nombre;
 
-	@OneToMany
-	@JoinColumn(name = "provinciaId")
-	private List<Provincia> listaProvincia;
+	@OneToMany 
+	private List<Provincia> listaProvincia  ;
 
 	public Pais(Long id, String nombre, List<Provincia> listaProvincia) {
 		super();
