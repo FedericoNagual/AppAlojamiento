@@ -33,7 +33,8 @@ public class Pais implements Serializable {
 	@Column(name = "nombre")
 	private String nombre;
 
-	@OneToMany 
+	@OneToMany
+	@JoinColumn(name = "\"provinciaId\"")
 	private List<Provincia> listaProvincia  ;
 
 	public Pais(Long id, String nombre, List<Provincia> listaProvincia) {
