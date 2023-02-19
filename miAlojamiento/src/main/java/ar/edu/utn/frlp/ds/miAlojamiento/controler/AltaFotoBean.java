@@ -22,9 +22,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioFotoImpl;
 public class AltaFotoBean extends GenericBean {
 
 	@Value("${altaFoto}")
-	private String url;
-
-	private String extension;
+	private String titulo;
 	private Foto foto;
 
 	@Autowired
@@ -39,12 +37,12 @@ public class AltaFotoBean extends GenericBean {
 		setFoto(new Foto());
 	}
 
-	public String getUrl() {
-		return url;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	public Foto getFoto() {
@@ -54,13 +52,7 @@ public class AltaFotoBean extends GenericBean {
 	public void setFoto(Foto foto) {
 		this.foto = foto;
 	}
-	public String getExtension() {
-		return extension;
-	}
-
-	public void setExtension(String extension) {
-		this.extension = extension;
-	}
+	
 	/**
 	 * Guarda una entity Foto y muestra un msj con los resultados
 	 */

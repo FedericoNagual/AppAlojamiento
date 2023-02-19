@@ -22,7 +22,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioUsuarioImpl;
 public class AltaUsuarioBean extends GenericBean {
 
 	@Value("${altaUsuario}")
-	private String nombre;
+	private String titulo;
 
 	private Usuario Usuario;
 
@@ -38,12 +38,12 @@ public class AltaUsuarioBean extends GenericBean {
 		setUsuario(new Usuario());
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	public Usuario getUsuario() {

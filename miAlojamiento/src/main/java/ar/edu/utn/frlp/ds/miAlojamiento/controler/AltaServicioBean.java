@@ -20,7 +20,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioServicioImpl;
 public class AltaServicioBean extends GenericBean {
 
 	@Value("${altaServicio}")
-	private String nombre;
+	private String titulo;
 
 	private Servicio servicio;
 
@@ -36,12 +36,12 @@ public class AltaServicioBean extends GenericBean {
 		setServicio(new Servicio());
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	public Servicio getServicio() {

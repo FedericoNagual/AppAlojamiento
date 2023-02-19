@@ -19,25 +19,25 @@ import javax.persistence.Table;
  * 
  */
 @Entity(name = "Ciudad")
-@Table(name = "Ciudad")
+@Table(name = "\"Ciudad\"")
 public class Ciudad implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ciudadId", unique = true, nullable = false)
+	@Column(name = "\"ciudadId\"", unique = true, nullable = false)
 	private Long id;
 
 	@Column(name = "nombre")
 	private String nombre;
 
 	@OneToMany
-	@JoinColumn(name = "domicilioId")
+	@JoinColumn(name = "\"domicilioId\"")
 	private List<Domicilio> listaDomicilio;
 	
 	@OneToMany
-	@JoinColumn(name = "alojamientoId")
+	@JoinColumn(name = "\"alojamientoId\"")
 	private List<Alojamiento> listaAlojamiento;
 
 	public Ciudad(Long id, String nombre, List<Domicilio> listaDomicilio, List<Alojamiento> listaAlojamiento) {

@@ -24,7 +24,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioDomicilioImpl;
 public class ModificarDomicilioBean extends GenericBean {
 
 	@Value("${modificaDomicilio}")
-	private String nombre;
+	private String titulo;
 
 	private Long idSeleccionado;
 	private List<DatosDomicilio> datosCombo;
@@ -44,12 +44,12 @@ public class ModificarDomicilioBean extends GenericBean {
 		setDomicilio(null);
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	public Long getIdSeleccionado() {

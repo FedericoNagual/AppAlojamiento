@@ -24,7 +24,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioReservaImpl;
 public class EliminarReservaBean extends GenericBean {
 
 	@Value("${eliminaReserva}")
-
+	private String titulo;
 
 	private Long idSeleccionado;
 	private List<DatosReserva> datosCombo;
@@ -44,7 +44,13 @@ public class EliminarReservaBean extends GenericBean {
 		setReserva(null);
 	}
 
+	public String getTitulo() {
+		return titulo;
+	}
 
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
 
 	public Long getIdSeleccionado() {
 		return idSeleccionado;

@@ -20,7 +20,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioLoginImpl;
 public class AltaLoginBean extends GenericBean {
 
 	@Value("${altaLogin}")
-	private String nombre;
+	private String titulo;
 
 	private Login Login;
 
@@ -36,12 +36,12 @@ public class AltaLoginBean extends GenericBean {
 		setLogin(new Login());
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	public Login getLogin() {

@@ -20,7 +20,7 @@ import javax.persistence.Table;
  * @author Mauro
  *
  */
-@Entity(name = "Alojamiento")
+@Entity(name = "\"Alojamiento\"")
 @Table(name = "Alojamiento")
 public class Alojamiento implements Serializable {
 
@@ -28,7 +28,7 @@ public class Alojamiento implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "alojamientoId", unique = true, nullable = false)
+	@Column(name = "\"alojamientoId\"", unique = true, nullable = false)
 	private Long id;
 
 	@Column(name = "nombre")
@@ -46,10 +46,10 @@ public class Alojamiento implements Serializable {
 	@Column(name = "descripcion")
 	private String descripcion;
 
-	@Column(name = "horarioCheckIn")
+	@Column(name = "\"horarioCheckIn\"")
 	private Time horarioCheckIn;
 
-	@Column(name = "horarioCheckOut")
+	@Column(name = "\"horarioCheckOut\"")
 	private Time horarioCheckOut;
 
 	@Column(name = "categoria")
@@ -57,23 +57,23 @@ public class Alojamiento implements Serializable {
 
 	// 1 alojamiento puede contar con muchos servicios
 	@OneToMany
-	@JoinColumn(name = "servicioId")
+	@JoinColumn(name = "\"servicioId\"")
 	private List<Servicio> listaServicio;
 
 	@OneToMany
-	@JoinColumn(name = "habitacionId")
+	@JoinColumn(name = "\"habitacionId\"")
 	private List<Habitacion> listaHabitacion;
 
 	@OneToOne
-	@JoinColumn(name = "ciudadId")
+	@JoinColumn(name = "\"ciudadId\"")
 	private Ciudad ciudad;
 
 	@OneToOne
-	@JoinColumn(name = "fotoId")
+	@JoinColumn(name = "\"fotoId\"")
 	private Foto foto;
 
 	@OneToMany
-	@JoinColumn(name = "paqueteId")
+	@JoinColumn(name = "\"paqueteId\"")
 	private List<Paquete> listaPaquete;
 
 	public Alojamiento(Long id, String nombre, String latitud, String longitud, Double precio, String descripcion,

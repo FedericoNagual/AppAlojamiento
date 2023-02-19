@@ -20,7 +20,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioRolImpl;
 public class AltaRolBean extends GenericBean {
 
 	@Value("${altaRol}")
-	private String descripcion;
+	private String titulo;
 
 	private Rol Rol;
 
@@ -36,12 +36,12 @@ public class AltaRolBean extends GenericBean {
 		setRol(new Rol());
 	}
 
-	public String getDescripcion() {
-		return descripcion;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	public Rol getRol() {

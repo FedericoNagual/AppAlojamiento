@@ -19,23 +19,23 @@ import javax.persistence.Table;
  *
  */
 @Entity(name = "Oferta")
-@Table(name = "Oferta")
+@Table(name = "\"Oferta\"")
 public class Oferta implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ofertaId", unique = true, nullable = false)
+	@Column(name = "\"ofertaId\"", unique = true, nullable = false)
 	private Long id;
 
 	@Column(name = "nombre")
 	private String nombre;
 
-	@Column(name = "fechaInicio")
+	@Column(name = "\"fechaInicio\"")
 	private Date fechaInicio;
 
-	@Column(name = "fechaFin")
+	@Column(name = "\"fechaFin\"")
 	private Date fechaFin;
 
 	@Column(name = "descuento")

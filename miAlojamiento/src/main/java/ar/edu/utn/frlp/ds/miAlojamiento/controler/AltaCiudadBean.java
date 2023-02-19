@@ -22,9 +22,8 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioCiudadImpl;
 public class AltaCiudadBean extends GenericBean {
 
 	@Value("${altaCiudad}")
-	private String nombre;
+	private String titulo;
 
-	private Provincia provincia;
 	private Ciudad ciudad;
 
 	@Autowired
@@ -39,21 +38,14 @@ public class AltaCiudadBean extends GenericBean {
 		setCiudad(new Ciudad());
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
-	public Provincia getProvincia() {
-		return provincia;
-	}
-
-	public void setProvincia(Provincia provincia) {
-		this.provincia = provincia;
-	}
 	public Ciudad getCiudad() {
 		return ciudad;
 	}

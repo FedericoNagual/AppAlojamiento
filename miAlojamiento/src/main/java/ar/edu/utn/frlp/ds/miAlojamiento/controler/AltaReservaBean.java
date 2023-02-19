@@ -21,6 +21,8 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioReservaImpl;
 public class AltaReservaBean extends GenericBean {
 
 	@Value("${altaReserva}")
+	private String titulo;
+	
 	private Reserva reserva;
 
 	@Autowired
@@ -33,6 +35,14 @@ public class AltaReservaBean extends GenericBean {
 	@PostConstruct
 	public void init() {
 		setReserva(new Reserva());
+	}
+	
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 	public Reserva getReserva() {
 		return reserva;

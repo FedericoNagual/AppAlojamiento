@@ -24,7 +24,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioPagoImpl;
 public class EliminarPagoBean extends GenericBean {
 
 	@Value("${eliminaPago}")
-	private Long id;
+	private String titulo;
 
 	private Long idSeleccionado;
 	private List<DatosPago> datosCombo;
@@ -44,12 +44,12 @@ public class EliminarPagoBean extends GenericBean {
 		setPago(null);
 	}
 
-	public Long getId() {
-		return id;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	public Long getIdSeleccionado() {

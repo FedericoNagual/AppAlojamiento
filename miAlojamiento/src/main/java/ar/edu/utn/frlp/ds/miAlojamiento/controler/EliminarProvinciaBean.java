@@ -24,7 +24,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioProvinciaImpl;
 public class EliminarProvinciaBean extends GenericBean {
 
 	@Value("${eliminaProvincia}")
-	private String descripcion;
+	private String titulo;
 
 	private Long idSeleccionado;
 	private List<DatoProvincia> datosCombo;
@@ -44,12 +44,12 @@ public class EliminarProvinciaBean extends GenericBean {
 		setProvincia(null);
 	}
 
-	public String getDescripcion() {
-		return descripcion;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	public Long getIdSeleccionado() {

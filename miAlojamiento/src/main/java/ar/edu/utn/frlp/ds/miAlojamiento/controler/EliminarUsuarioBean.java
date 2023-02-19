@@ -24,7 +24,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioUsuarioImpl;
 public class EliminarUsuarioBean extends GenericBean {
 
 	@Value("${eliminaUsuario}")
-	private String dni;
+	private String titulo;
 
 	private Long idSeleccionado;
 	private List<DatosUsuario> datosCombo;
@@ -43,15 +43,13 @@ public class EliminarUsuarioBean extends GenericBean {
 		setIdSeleccionado(null);
 		setUsuario(null);
 	}
-
-	public String getDni() {
-		return dni;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setDni(String dni) {
-		this.dni = dni;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
-
 	public Long getIdSeleccionado() {
 		return idSeleccionado;
 	}

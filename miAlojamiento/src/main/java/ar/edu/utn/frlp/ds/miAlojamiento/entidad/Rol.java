@@ -21,24 +21,24 @@ import javax.persistence.Table;
  *
  */
 @Entity(name = "Rol")
-@Table(name = "Rol")
+@Table(name = "\"Rol\"")
 public class Rol implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "rolId", unique = true, nullable = false)
+	@Column(name = "\"rolId\"", unique = true, nullable = false)
 	private Long id;
 
 	@Column(name = "descripcion")
 	private String descripcion;
 	
 	@OneToMany
-	@JoinColumn(name = "usuarioId")
-	private List<Usuario> listaUsuario;
+	@JoinColumn(name = "\"loginId\"")
+	private List<Login> listaUsuario;
 
-	public Rol(Long id, String descripcion, List<Usuario> listaUsuario) {
+	public Rol(Long id, String descripcion, List<Login> listaUsuario) {
 		super();
 		this.id = id;
 		this.descripcion = descripcion;
@@ -65,11 +65,11 @@ public class Rol implements Serializable {
 		this.descripcion = descripcion;
 	}
 
-	public List<Usuario> getListaUsuario() {
+	public List<Login> getListaUsuario() {
 		return listaUsuario;
 	}
 
-	public void setListaUsuario(List<Usuario> listaUsuario) {
+	public void setListaUsuario(List<Login> listaUsuario) {
 		this.listaUsuario = listaUsuario;
 	}
 

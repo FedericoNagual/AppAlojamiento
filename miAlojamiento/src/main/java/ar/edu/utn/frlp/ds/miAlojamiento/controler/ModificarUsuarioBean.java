@@ -24,7 +24,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioUsuarioImpl;
 public class ModificarUsuarioBean extends GenericBean {
 
 	@Value("${modificaUsuario}")
-	private String nombre;
+	private String titulo;
 
 	private Long idSeleccionado;
 	private List<DatosUsuario> datosCombo;
@@ -43,13 +43,12 @@ public class ModificarUsuarioBean extends GenericBean {
 		setIdSeleccionado(null);
 		setUsuario(null);
 	}
-
-	public String getNombre() {
-		return nombre;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre= nombre;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	public Long getIdSeleccionado() {

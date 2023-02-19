@@ -20,14 +20,14 @@ import javax.persistence.Table;
  *
  */
 @Entity(name = "Paquete")
-@Table(name = "Paquete")
+@Table(name = "\"Paquete\"")
 public class Paquete implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "paqueteId", unique = true, nullable = false)
+	@Column(name = "\"paqueteId\"", unique = true, nullable = false)
 	private Long id;
 
 	@Column(name = "nombre")
@@ -36,14 +36,14 @@ public class Paquete implements Serializable {
 	@Column(name = "descripcion")
 	private String descripcion;
 
-	@Column(name = "cantidadDias")
+	@Column(name = "\"cantidadDias\"")
 	private Long cantidadDias;
 
-	@Column(name = "cantidadNoches")
+	@Column(name = "\"cantidadNoches\"")
 	private Long cantidadNoches;
 
 	@OneToOne
-	@JoinColumn(name = "imagenId")
+	@JoinColumn(name = "\"imagenId\"")
 	private Imagen imagen;
 
 	public Paquete(Long id, String nombre, String descripcion, Long cantidadDias, Long cantidadNoches, Imagen imagen) {

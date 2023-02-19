@@ -18,14 +18,14 @@ import javax.persistence.Table;
  *
  */
 @Entity(name = "Servicio")
-@Table(name = "Servicio")
+@Table(name = "\"Servicio\"")
 public class Servicio implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "servicioId", unique = true, nullable = false)
+	@Column(name = "\"servicioId\"", unique = true, nullable = false)
 	private Long id;
 
 	@Column(name = "nombre")

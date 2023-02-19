@@ -17,14 +17,14 @@ import javax.persistence.Table;
  *
  */
 @Entity(name = "Domicilio")
-@Table(name = "Domicilio")
+@Table(name = "\"Domicilio\"")
 public class Domicilio implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "domicilioId", unique = true, nullable = false)
+	@Column(name = "\"domicilioId\"", unique = true, nullable = false)
 	private Long id;
 
 	@Column(name = "nombre")

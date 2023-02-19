@@ -23,41 +23,41 @@ import javax.persistence.Table;
  *
  */
 @Entity(name = "Usuario")
-@Table(name = "Usuario")
+@Table(name = "\"Usuario\"")
 public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "usuarioId", unique = true, nullable = false)
+	@Column(name = "\"usuarioId\"", unique = true, nullable = false)
 	private Long id;
 
 	@Column(name = "nombre")
 	private String nombre;
 
-	@Column(name = "FechaNacimiento")
+	@Column(name = "\"fechaNacimiento\"")
 	private Date fechaNacimiento;
 
-	@Column(name = "DNI")
+	@Column(name = "\"dni\"")
 	private String dni;
 
-	@Column(name = "Telefono")
+	@Column(name = "telefono")
 	private Long telefono;
 
-	@Column(name = "TipoDocumento")
+	@Column(name = "\"tipoDocumento\"")
 	private String tipoDocumento;
 	
 	@OneToOne
-	@JoinColumn(name = "domicilioId")
+	@JoinColumn(name = "\"domicilioId\"")
 	private Domicilio domicilio;
 	
 	@OneToMany
-	@JoinColumn(name = "reservaId")
+	@JoinColumn(name = "\"reservaId\"")
 	private List<Reserva> listaReserva;
 
 	@OneToMany
-	@JoinColumn(name = "loginId")
+	@JoinColumn(name = "\"loginId\"")
 	private List<Login> listaLogin;
 
 	public Usuario() {

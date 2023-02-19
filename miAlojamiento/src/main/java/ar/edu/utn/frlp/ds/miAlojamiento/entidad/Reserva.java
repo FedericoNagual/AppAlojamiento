@@ -22,14 +22,14 @@ import javax.persistence.Table;
  *
  */
 @Entity(name = "Reserva")
-@Table(name = "Reserva")
+@Table(name = "\"Reserva\"")
 public class Reserva implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "reservaId", unique = true, nullable = false)
+	@Column(name = "\"reservaId\"", unique = true, nullable = false)
 	private Long id;
 
 	@Column(name = "servicio")
@@ -42,7 +42,7 @@ public class Reserva implements Serializable {
 	private Date fechaFin;
 
 	@OneToMany
-	@JoinColumn(name = "paqueteId")
+	@JoinColumn(name = "\"paqueteId\"")
 	private List<Paquete> listaPaquete;
 
 	public Reserva(Long id, String servicio, Date fechaInicio, Date fechaFin, List<Paquete> listaPaquete) {

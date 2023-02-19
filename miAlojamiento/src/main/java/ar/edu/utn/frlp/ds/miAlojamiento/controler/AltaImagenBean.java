@@ -20,7 +20,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioImagenImpl;
 public class AltaImagenBean extends GenericBean {
 
 	@Value("${altaImagen}")
-	private String url;
+	private String titulo;
 
 	private Imagen Imagen;
 
@@ -36,14 +36,13 @@ public class AltaImagenBean extends GenericBean {
 		setImagen(new Imagen());
 	}
 
-	public String getUrl() {
-		return url;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
-
 	public Imagen getImagen() {
 		return Imagen;
 	}

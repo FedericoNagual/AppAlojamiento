@@ -24,7 +24,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioFotoImpl;
 public class EliminarFotoBean extends GenericBean {
 
 	@Value("${eliminaFoto}")
-	private String url;
+	private String titulo;
 
 	private Long idSeleccionado;
 	private List<DatosFoto> datosCombo;
@@ -44,12 +44,12 @@ public class EliminarFotoBean extends GenericBean {
 		setFoto(null);
 	}
 
-	public String getUrl() {
-		return url;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	public Long getIdSeleccionado() {

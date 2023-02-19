@@ -24,7 +24,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioPagoImpl;
 public class AltaPagoBean extends GenericBean {
 
 	@Value("${altaPago}")
-	private Long id;
+	private String titulo;
 	private Pago pago;
 
 	@Autowired
@@ -39,12 +39,12 @@ public class AltaPagoBean extends GenericBean {
 		setPago(new Pago());
 	}
 
-	public Long getId() {
-		return id;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 

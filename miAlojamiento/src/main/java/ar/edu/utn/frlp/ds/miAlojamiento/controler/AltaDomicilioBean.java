@@ -22,9 +22,8 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioDomicilioImpl;
 public class AltaDomicilioBean extends GenericBean {
 
 	@Value("${altaDomicilio}")
-	private String nombre;
+	private String titulo;
 
-	private Ciudad ciudad;
 	private Domicilio Domicilio;
 
 	@Autowired
@@ -39,21 +38,14 @@ public class AltaDomicilioBean extends GenericBean {
 		setDomicilio(new Domicilio());
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
-	public Ciudad getCiudad() {
-		return ciudad;
-	}
-
-	public void setCiudad(Ciudad ciudad) {
-		this.ciudad = ciudad;
-	}
 	public Domicilio getDomicilio() {
 		return Domicilio;
 	}

@@ -17,7 +17,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioPaqueteImpl;
 public class AltaPaqueteBean  extends GenericBean {
 
 	@Value("${altaPaquete}")
-	private String nombre;
+	private String titulo;
 	private Paquete paquete;
 
 	@Autowired
@@ -28,12 +28,13 @@ public class AltaPaqueteBean  extends GenericBean {
 		setPaquete(new Paquete());
 	}
 
-	public String getNombre() {
-		return nombre;
+
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 	
 	public Paquete getPaquete() {

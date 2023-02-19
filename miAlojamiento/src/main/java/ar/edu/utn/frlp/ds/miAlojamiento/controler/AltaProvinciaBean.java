@@ -21,7 +21,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioProvinciaImpl;
 public class AltaProvinciaBean extends GenericBean {
 
 	@Value("${altaProvincia}")
-	private String nombre;
+	private String titulo;
 
 	private Provincia provincia;
 
@@ -37,12 +37,12 @@ public class AltaProvinciaBean extends GenericBean {
 		setProvincia(new Provincia());
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	public Provincia getProvincia() {
