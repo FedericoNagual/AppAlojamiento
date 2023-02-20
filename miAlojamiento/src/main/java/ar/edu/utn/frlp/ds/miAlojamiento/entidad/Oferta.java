@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -43,8 +44,12 @@ public class Oferta implements Serializable {
 
 	@Column(name = "descripcion")
 	private String descripcion;
+	
+	@OneToOne
+	@Column(name = "\"alojamientoId\"")
+	private Alojamiento alojamiento;
 
-	public Oferta(Long id, String nombre, Date fechaInicio, Date fechaFin, Double descuento, String descripcion) {
+	public Oferta(Long id, String nombre, Date fechaInicio, Date fechaFin, Double descuento, String descripcion,Alojamiento alojamiento) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -52,6 +57,7 @@ public class Oferta implements Serializable {
 		this.fechaFin = fechaFin;
 		this.descuento = descuento;
 		this.descripcion = descripcion;
+		this.alojamiento= alojamiento;
 	}
 
 	public Oferta() {
@@ -64,6 +70,13 @@ public class Oferta implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+	public Alojamiento getAlojamiento() {
+		return alojamiento;
+	}
+
+	public void setAlojamiento(Alojamiento alojamiento) {
+		this.alojamiento = alojamiento;
 	}
 
 	public String getNombre() {

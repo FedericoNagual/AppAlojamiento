@@ -21,7 +21,7 @@ public interface DatosUsuario {
 
 	List<Reserva> getListaReserva();
 
-	List<Login> getListaLogin();
+	Login getLogin();
 
 	default String getFormatoCombo() {
 		// Parseos de Datos a String para imprimir

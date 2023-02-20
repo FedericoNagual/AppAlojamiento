@@ -56,16 +56,16 @@ public class Usuario implements Serializable {
 	@JoinColumn(name = "\"reservaId\"")
 	private List<Reserva> listaReserva;
 
-	@OneToMany
+	@OneToOne
 	@JoinColumn(name = "\"loginId\"")
-	private List<Login> listaLogin;
+	private Login login;
 
 	public Usuario() {
 		super();
 	}
 
 	public Usuario(Long id, String nombre, Date fechaNacimiento, String dni, Long telefono, String tipoDocumento,
-			Domicilio domicilio, List<Reserva> listaReserva, List<Login> listaLogin) {
+			Domicilio domicilio, List<Reserva> listaReserva, Login login) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -75,15 +75,15 @@ public class Usuario implements Serializable {
 		this.tipoDocumento = tipoDocumento;
 		this.domicilio = domicilio;
 		this.listaReserva = listaReserva;
-		this.listaLogin = listaLogin;
+		this.login = login;
 	}
 
-	public List<Login> getListaLogin() {
-		return listaLogin;
+	public Login getLogin() {
+		return login;
 	}
 
-	public void setListaLogin(List<Login> listaLogin) {
-		this.listaLogin = listaLogin;
+	public void setLogin(Login login) {
+		this.login = login;
 	}
 
 	public Long getId() {
