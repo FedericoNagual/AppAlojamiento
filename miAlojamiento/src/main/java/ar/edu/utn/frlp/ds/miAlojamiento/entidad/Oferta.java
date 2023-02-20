@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -46,7 +47,7 @@ public class Oferta implements Serializable {
 	private String descripcion;
 	
 	@OneToOne
-	@Column(name = "\"alojamientoId\"")
+	@JoinColumn(name = "\"alojamientoId\"")
 	private Alojamiento alojamiento;
 
 	public Oferta(Long id, String nombre, Date fechaInicio, Date fechaFin, Double descuento, String descripcion,Alojamiento alojamiento) {
