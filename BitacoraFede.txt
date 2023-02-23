@@ -256,3 +256,99 @@ Avance:
 Problematica:
 
 /////////////////////////////
+Fecha:	21/02/2023
+
+Hs:		6hs.
+
+Avance:
+
+	Analizar los videos de SoloCode (Profe amiga) Para poder investigar temas sobre JPA y JSF. 
+	
+Problematica:
+
+	Encontre la solucion a los mapeos, por falta de tiempo quede en agarrar 3 clases relacionadas como pais, provincia y ciudad para probar las altas y ver su comportamiento con respecto a como arme las clases.
+	
+Anotaciones:
+
+	Anotaciones sobre lo investigado. JPA (Java Persistence API).
+	Traduce una base de datos para armar los objetos o hacerlo al reves.
+	Java <-- --> BD.
+	Entiende mediante annotations@
+	El puente para conectar es un proveedores de JPA. Necesario para armar un CRUD o AMBL
+	
+	Mapear los objetos con la bd mediante las annotations@ decimos como es para la base de datos
+	@Entity  -> Para decir que es una tabla en la base de datos
+	@Id con @GeneratedValue(strategy = GenerationType.SEQUENCE ) Establece la Primary key y estable la forma de generacion del id que sea automatica y secuencial.
+	@Basic Para hacer referencia a atributos comunes.
+	@Temporal se usa para fechas.
+	@Temporal(TemporalType.TIMESTAMP) para tener en cuenta la hora
+	@Temporal(TemporalType.DATE) para tener en cuenta la fecha DATE.
+	@OneToMany: Indicar una relacion unidireccional de 1 a N.
+	@OneToOne: Indicar una relacion de 1 a 1.
+	@ManyToMany: Indicar una relacion n a n.
+	
+	JPA controllers son para crear las tablas.
+	Tomar una clase y crear una entidad en la BD.
+	
+	Dentro de los metodos que proporciona JPA tenemos varios para hacer diferentes CRUD
+	-Para Crear usamos el create(entity)
+	-Para editar update usamos el edit(entity)
+	-Para buscar usamos el find (trae solo 1 entity) o el find Entities (trae todas las entidades lista completa)
+	-Para eliminar usamos el destroy(id)
+	
+	@OneToOne relacion 1 a 1.
+	Alumno tiene 1 sola Carrera (Carrera y Alumno son las entidades)
+	Al ser una relacion 1 a 1 puede tener estar en los dos pero corresponde mas al Alumno
+	Entonces Alumno dentro tiene 
+	
+	@OneToOne
+	private Carrera carrera;
+	
+	Obliga a crear primero los datos de Carrera y despues los de Alumno.
+	
+	// Segun Mentoria de Software
+	Utiliza una composicion de Banco , Moneda, Cuenta
+	En la Cual 1 Banco tiene Muchas Cuentas // 1 Banco  * Cuentas
+	Y 1 Moneda tiene muchas Cuentas	// 1 Moneda * Cuentas
+	Por lo cual Cuenta tiene 2 FK de Banco y Moneda
+	
+	Osea que dentro de Cuenta.
+	@ManyToOne
+	@JoinColumn(name = "En la bd")
+	Banco banco;
+	
+	@ManyToOne
+	@JoinColumn(name = "En la bd")
+	Moneda moneda; 
+	
+	// Necesario tener que ser JoinColumn y tiene que ser una clase entity no puede ser un tipo de dato primitivo.
+	
+	
+	Dentro de Banco.
+	Tiene sus atributos pero no tiene ningun Cuenta 
+	
+	
+	Dentro de Moneda. en otro ejemplo a diferencia de Banco puede ser.
+	
+	@OneToMany(mappedBy="nombre de la variable donde se lo llama") por ejemplo mappedBy="moneda"
+	List<Cuenta> listaCuentas;		//Es una lista ya que llama a muchos.
+	
+	//Osea la clase que tiene el @ManyToOne con el objeto de ese tipo de dato en este caso seria Moneda
+	// Se puede cambia el List por un Set siempre y cuando la lista no se repita el dato.
+	
+	//Se puede tener un @OneToMany pero no un @ManyToOne Ya que necesita mapear
+	
+/////////////////////////////
+Fecha:	22/02/2023
+
+Hs:		04hs
+
+Avance:
+
+	Pude armar los objetos bien de cada clase y contrastarlos con algunos alta de, pero todavia me faltan
+	
+Problematica:
+
+	Poco tiempo para mucho codigo, no me alcanzan los dedos, despues continuo arreglando el codigo y me apoyo en la BD
+	
+/////////////////////////////
