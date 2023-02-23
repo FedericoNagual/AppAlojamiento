@@ -1,6 +1,6 @@
 package ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,12 +17,13 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicio.ServicioOferta;
  * Implementacion del Servicio Oferta
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 
 @SessionScope
 @Service
-public class ServicioOfertaImpl implements ServicioOferta{
+public class ServicioOfertaImpl implements ServicioOferta {
 	@Autowired
 	private OfertaRepository OfertaRepository;
 
@@ -43,12 +44,12 @@ public class ServicioOfertaImpl implements ServicioOferta{
 	 */
 	@Override
 	public List<Oferta> buscarOfertaXFechaInicio(Date fechaInicio) {
-		//Implementar metodo que devuelva todas las Oferta por el nombre pasado
+		// Implementar metodo que devuelva todas las Oferta por el nombre pasado
 		// por parametro
 		// Traer la lista, filtrarla por nombre
 		List<Oferta> listaGeneral = OfertaRepository.findAll();
 		List<Oferta> lista = new ArrayList<Oferta>();
-		
+
 		for (int i = 0; i < listaGeneral.size(); i++) {
 			if (fechaInicio.equals(listaGeneral.get(i).getFechaInicio())) {
 				lista.add(listaGeneral.get(i));
@@ -87,19 +88,15 @@ public class ServicioOfertaImpl implements ServicioOferta{
 		OfertaRepository.deleteById(id);
 	}
 
-	
-
 	/**
 	 * Busca todos las Tuplas de Oferta que existen
-	 * @return List<Oferta> resultado del metodo findAll() 
+	 * 
+	 * @return List<Oferta> resultado del metodo findAll()
 	 */
 	@Override
 	public List<Oferta> buscarOfertaAll() {
-		List<Oferta> ListaCompleta= OfertaRepository.findAll();
+		List<Oferta> ListaCompleta = OfertaRepository.findAll();
 		return ListaCompleta;
 	}
 
 }
-
-
-

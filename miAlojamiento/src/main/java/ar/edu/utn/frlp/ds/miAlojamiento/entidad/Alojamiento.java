@@ -1,7 +1,6 @@
 package ar.edu.utn.frlp.ds.miAlojamiento.entidad;
 
 import java.io.Serializable;
-import java.sql.Time;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -10,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -18,6 +18,7 @@ import javax.persistence.Table;
  * Modelo de la clase Alojamiento con sus atributos
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 @Entity(name = "\"Alojamiento\"")
@@ -47,24 +48,21 @@ public class Alojamiento implements Serializable {
 	private String descripcion;
 
 	@Column(name = "\"horarioCheckIn\"")
-	private Time horarioCheckIn;
+	private Long horarioCheckIn;
 
 	@Column(name = "\"horarioCheckOut\"")
-	private Time horarioCheckOut;
+	private Long horarioCheckOut;
 
 	@Column(name = "categoria")
 	private String categoria;
 
-	// 1 alojamiento puede contar con muchos servicios
-	@OneToMany
-	@JoinColumn(name = "\"servicioId\"")
-	private List<Servicio> listaServicio;
+	@OneToMany(mappedBy = "alojamiento")
+	private List<Servicio> listaServicio;// 1 alojamiento puede contar con muchos servicios
 
-	@OneToMany
-	@JoinColumn(name = "\"habitacionId\"")
-	private List<Habitacion> listaHabitacion;
+	@OneToMany(mappedBy = "alojamiento")
+	private List<Habitacion> listaHabitacion;// 1 alojamiento puede tener muchas habitaciones
 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "\"ciudadId\"")
 	private Ciudad ciudad;
 
@@ -72,12 +70,11 @@ public class Alojamiento implements Serializable {
 	@JoinColumn(name = "\"fotoId\"")
 	private Foto foto;
 
-	@OneToMany
-	@JoinColumn(name = "\"paqueteId\"")
-	private List<Paquete> listaPaquete;
+	@OneToMany(mappedBy = "alojamiento")
+	private List<Paquete> listaPaquete;// 1 alojamiento puede estar en muchos paquetes
 
 	public Alojamiento(Long id, String nombre, String latitud, String longitud, Double precio, String descripcion,
-			Time horarioCheckIn, Time horarioCheckOut, String categoria, List<Servicio> listaServicio,
+			Long horarioCheckIn, Long horarioCheckOut, String categoria, List<Servicio> listaServicio,
 			List<Habitacion> listaHabitacion, Ciudad ciudad, Foto foto, List<Paquete> listaPaquete) {
 		super();
 		this.id = id;
@@ -148,19 +145,19 @@ public class Alojamiento implements Serializable {
 		this.descripcion = descripcion;
 	}
 
-	public Time getHorarioCheckIn() {
+	public Long getHorarioCheckIn() {
 		return horarioCheckIn;
 	}
 
-	public void setHorarioCheckIn(Time horarioCheckIn) {
+	public void setHorarioCheckIn(Long horarioCheckIn) {
 		this.horarioCheckIn = horarioCheckIn;
 	}
 
-	public Time getHorarioCheckOut() {
+	public Long getHorarioCheckOut() {
 		return horarioCheckOut;
 	}
 
-	public void setHorarioCheckOut(Time horarioCheckOut) {
+	public void setHorarioCheckOut(Long horarioCheckOut) {
 		this.horarioCheckOut = horarioCheckOut;
 	}
 
@@ -214,10 +211,7 @@ public class Alojamiento implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Alojamiento [id=" + id + ", nombre=" + nombre + ", latitud=" + latitud + ", longitud=" + longitud
-				+ ", precio=" + precio + ", descripcion=" + descripcion + ", horarioCheckIn=" + horarioCheckIn
-				+ ", horarioCheckOut=" + horarioCheckOut + ", categoria=" + categoria + ", listaServicio="
-				+ listaServicio + ", listaHabitacion=" + listaHabitacion + ", ciudad=" + ciudad + ", foto=" + foto
-				+ ", listaPaquete=" + listaPaquete + "]";
+		return "Alojamiento [id=" + id + ", nombre=" + nombre + ", precio=" + precio + ", descripcion=" + descripcion
+				+ ", ciudad=" + ciudad + "]";
 	}
 }

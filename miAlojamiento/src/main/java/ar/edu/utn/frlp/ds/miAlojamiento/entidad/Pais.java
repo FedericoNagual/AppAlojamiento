@@ -17,6 +17,7 @@ import javax.persistence.Table;
  * Modelo de la clase Pais con sus atributos
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 @Entity(name = "Pais")
@@ -33,9 +34,8 @@ public class Pais implements Serializable {
 	@Column(name = "nombre")
 	private String nombre;
 
-	@OneToMany
-	@JoinColumn(name = "\"provinciaId\"")
-	private List<Provincia> listaProvincia  ;
+	@OneToMany(mappedBy = "pais")
+	private List<Provincia> listaProvincia;
 
 	public Pais(Long id, String nombre, List<Provincia> listaProvincia) {
 		super();

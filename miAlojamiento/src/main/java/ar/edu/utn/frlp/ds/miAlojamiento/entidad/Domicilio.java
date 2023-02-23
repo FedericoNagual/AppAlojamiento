@@ -7,13 +7,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
  * 
  * Modelo de la clase Domicilio con sus atributos
  * 
- * @author	Mauro
+ * @author Mauro
+ * @author Federico
  *
  */
 @Entity(name = "Domicilio")
@@ -30,10 +33,15 @@ public class Domicilio implements Serializable {
 	@Column(name = "nombre")
 	private String nombre;
 
-	public Domicilio(Long id, String nombre) {
+	@ManyToOne
+	@JoinColumn(name = "\"ciudadId\"")
+	private Ciudad ciudad;
+
+	public Domicilio(Long id, String nombre, Ciudad ciudad) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
+		this.ciudad = ciudad;
 	}
 
 	public Domicilio() {
@@ -54,6 +62,14 @@ public class Domicilio implements Serializable {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	public Ciudad getCiudad() {
+		return ciudad;
+	}
+
+	public void setCiudad(Ciudad ciudad) {
+		this.ciudad = ciudad;
 	}
 
 	/**

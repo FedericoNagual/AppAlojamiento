@@ -1,12 +1,12 @@
 package ar.edu.utn.frlp.ds.miAlojamiento.entidad;
 
-import java.sql.Date;
-import java.sql.Time;
-import java.util.List;
+import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.OneToOne;
-
+/**
+ * 
+ * @author Federico
+ *
+ */
 public interface DatosOferta {
 
 

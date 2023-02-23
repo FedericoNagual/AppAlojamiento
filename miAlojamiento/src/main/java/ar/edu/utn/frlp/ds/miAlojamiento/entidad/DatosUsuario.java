@@ -1,8 +1,13 @@
 package ar.edu.utn.frlp.ds.miAlojamiento.entidad;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
+/**
+ * 
+ * @author Federico
+ *
+ */
 public interface DatosUsuario {
 
 	Long getId();
@@ -33,7 +38,7 @@ public interface DatosUsuario {
 		String tipoDocumento = getTipoDocumento().toString();
 		String dni = getDni().toString();
 
-		return id + " ; " + nombre + " ; " + telefono + " ; " + domicilio + " ; " + fechaNacimiento
-				+ " ; " + tipoDocumento + " ; " + dni;
+		return id + " ; " + nombre + " ; " + telefono + " ; " + domicilio + " ; " + fechaNacimiento + " ; "
+				+ tipoDocumento + " ; " + dni;
 	}
 }

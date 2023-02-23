@@ -1,6 +1,5 @@
 package ar.edu.utn.frlp.ds.miAlojamiento.controler;
 
-import java.sql.Date;
 
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
@@ -9,14 +8,13 @@ import javax.inject.Named;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
-import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Habitacion;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Oferta;
 import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioOfertaImpl;
 
 
 /**
  * 
- * @author 
+ * @author Federico
  *
  */
 @Named("altaOfertaBean")

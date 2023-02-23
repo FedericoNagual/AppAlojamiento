@@ -1,7 +1,7 @@
 package ar.edu.utn.frlp.ds.miAlojamiento.entidad;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -9,16 +9,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * 
  * Modelo de la clase Pago con sus atributos
  * 
  * @author Mauro
- * 
+ * @author Federico
  *
  */
 @Entity(name = "Pago")
@@ -36,6 +37,7 @@ public class Pago implements Serializable {
 	private Double monto;
 
 	@Column(name = "fecha")
+	@Temporal(TemporalType.DATE)
 	private Date fecha;
 
 	@Column(name = "\"codigoBarra\"")
@@ -44,8 +46,7 @@ public class Pago implements Serializable {
 	@Column(name = "\"ultimosDigitos\"")
 	private Long ultimosDigitos;
 
-	@OneToMany
-	@JoinColumn(name = "\"reservaId\"")
+	@OneToMany(mappedBy = "pago")
 	private List<Reserva> listaReserva;
 
 

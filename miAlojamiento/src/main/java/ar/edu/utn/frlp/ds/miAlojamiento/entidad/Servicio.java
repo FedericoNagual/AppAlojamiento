@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -14,7 +16,7 @@ import javax.persistence.Table;
  * Modelo de la clase Servicio con sus atributos
  * 
  * @author Mauro
- * 
+ * @author Federico
  *
  */
 @Entity(name = "Servicio")
@@ -33,12 +35,19 @@ public class Servicio implements Serializable {
 
 	@Column(name = "descripcion")
 	private String descripcion;
+	
+	@ManyToOne
+	@JoinColumn(name = "\"alojamientoId\"")
+	private Alojamiento alojamiento;
 
-	public Servicio(Long id, String nombre, String descripcion) {
+	
+
+	public Servicio(Long id, String nombre, String descripcion, Alojamiento alojamiento) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
+		this.alojamiento = alojamiento;
 	}
 
 	public Servicio() {
@@ -67,6 +76,14 @@ public class Servicio implements Serializable {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	public Alojamiento getAlojamiento() {
+		return alojamiento;
+	}
+
+	public void setAlojamiento(Alojamiento alojamiento) {
+		this.alojamiento = alojamiento;
 	}
 
 	/**

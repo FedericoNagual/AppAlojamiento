@@ -1,7 +1,7 @@
 package ar.edu.utn.frlp.ds.miAlojamiento.entidad;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,15 +9,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * 
  * Modelo de la clase Oferta con sus atributos
  * 
  * @author Mauro
- * 
+ * @author Federico
  *
  */
 @Entity(name = "Oferta")
@@ -35,9 +37,11 @@ public class Oferta implements Serializable {
 	private String nombre;
 
 	@Column(name = "\"fechaInicio\"")
+	@Temporal(TemporalType.DATE)
 	private Date fechaInicio;
 
 	@Column(name = "\"fechaFin\"")
+	@Temporal(TemporalType.DATE)
 	private Date fechaFin;
 
 	@Column(name = "descuento")
@@ -46,7 +50,7 @@ public class Oferta implements Serializable {
 	@Column(name = "descripcion")
 	private String descripcion;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "\"alojamientoId\"")
 	private Alojamiento alojamiento;
 

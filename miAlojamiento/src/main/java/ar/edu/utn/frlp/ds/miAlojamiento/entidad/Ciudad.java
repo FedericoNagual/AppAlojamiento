@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -16,6 +17,7 @@ import javax.persistence.Table;
  * Modelo de la clase Ciudad con sus atributos
  * 
  * @author Mauro
+ * @author Federico
  * 
  */
 @Entity(name = "Ciudad")
@@ -32,24 +34,36 @@ public class Ciudad implements Serializable {
 	@Column(name = "nombre")
 	private String nombre;
 
-	@OneToMany
-	@JoinColumn(name = "\"domicilioId\"")
+	@OneToMany(mappedBy = "ciudad")
 	private List<Domicilio> listaDomicilio;
 	
-	@OneToMany
-	@JoinColumn(name = "\"alojamientoId\"")
+	@OneToMany(mappedBy = "ciudad")
 	private List<Alojamiento> listaAlojamiento;
 
-	public Ciudad(Long id, String nombre, List<Domicilio> listaDomicilio, List<Alojamiento> listaAlojamiento) {
+	@ManyToOne
+	@JoinColumn(name = "\"provinciaId\"")
+	private Provincia provincia;
+
+	public Ciudad(Long id, String nombre, List<Domicilio> listaDomicilio, List<Alojamiento> listaAlojamiento,
+			Provincia provincia) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.listaDomicilio = listaDomicilio;
 		this.listaAlojamiento = listaAlojamiento;
+		this.provincia = provincia;
 	}
 
 	public Ciudad() {
 		super();
+	}
+
+	public Provincia getProvincia() {
+		return provincia;
+	}
+
+	public void setProvincia(Provincia provincia) {
+		this.provincia = provincia;
 	}
 
 	public Long getId() {

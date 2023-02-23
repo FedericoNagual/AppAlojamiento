@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,15 +13,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 /**
  * 
  * Modelo de la clase Provincia con sus atributos
  * 
  * @author Mauro
- * 
+ * @author Federico
  *
  */
 @Entity(name = "Provincia")
@@ -39,21 +36,16 @@ public class Provincia implements Serializable {
 	@Column(name = "nombre")
 	private String nombre;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+//	@ManyToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name = "\"paisId\"")
+//	@JsonProperty(access= Access.WRITE_ONLY)
+	@ManyToOne
 	@JoinColumn(name = "\"paisId\"")
-	@JsonProperty(access= Access.WRITE_ONLY)
 	private Pais pais;
 
-	@OneToMany
-	@JoinColumn(name = "\"ciudadId\"")
+	@OneToMany(mappedBy = "provincia")
 	private List<Ciudad> listaCiudad;
 
-	public Provincia(Long id, String nombre, List<Ciudad> listaCiudad) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-		this.listaCiudad = listaCiudad;
-	}
 
 	public Provincia() {
 		super();
@@ -81,6 +73,14 @@ public class Provincia implements Serializable {
 
 	public void setListaCiudad(List<Ciudad> listaCiudad) {
 		this.listaCiudad = listaCiudad;
+	}
+
+	public Pais getPais() {
+		return pais;
+	}
+
+	public void setPais(Pais pais) {
+		this.pais = pais;
 	}
 
 	/**

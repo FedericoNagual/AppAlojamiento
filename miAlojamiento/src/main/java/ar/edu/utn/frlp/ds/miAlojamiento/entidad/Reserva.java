@@ -1,8 +1,7 @@
 package ar.edu.utn.frlp.ds.miAlojamiento.entidad;
 
 import java.io.Serializable;
-import java.sql.Date;
-import java.util.List;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,15 +9,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * 
  * Modelo de la clase Reserva con sus atributos
  * 
  * @author Mauro
- * 
+ * @author Federico
  *
  */
 @Entity(name = "Reserva")
@@ -36,34 +37,63 @@ public class Reserva implements Serializable {
 	private String servicio;
 
 	@Column(name = "fechaInicio")
+	@Temporal(TemporalType.DATE)
 	private Date fechaInicio;
 
 	@Column(name = "fechaFin")
+	@Temporal(TemporalType.DATE)
 	private Date fechaFin;
 
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name = "\"paqueteId\"")
-	private List<Paquete> listaPaquete;
+	private Paquete paquete;
+	
+	@ManyToOne
+	@JoinColumn(name = "\"usuarioId\"")
+	private Usuario usuario;
+	
+	@ManyToOne
+	@JoinColumn(name = "\"pagoId\"")
+	private Pago pago;
 
-	public Reserva(Long id, String servicio, Date fechaInicio, Date fechaFin, List<Paquete> listaPaquete) {
+	public Reserva(Long id, String servicio, Date fechaInicio, Date fechaFin, Paquete paquete, Usuario usuario,
+			Pago pago) {
 		super();
 		this.id = id;
 		this.servicio = servicio;
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
-		this.listaPaquete = listaPaquete;
+		this.paquete = paquete;
+		this.usuario = usuario;
+		this.pago = pago;
 	}
 
 	public Reserva() {
 		super();
 	}
 
-	public List<Paquete> getListaPaquete() {
-		return listaPaquete;
+	public Paquete getPaquete() {
+		return paquete;
 	}
 
-	public void setListaPaquete(List<Paquete> listaPaquete) {
-		this.listaPaquete = listaPaquete;
+	public void setPaquete(Paquete paquete) {
+		this.paquete = paquete;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public Pago getPago() {
+		return pago;
+	}
+
+	public void setPago(Pago pago) {
+		this.pago = pago;
 	}
 
 	public Long getId() {
@@ -101,7 +131,7 @@ public class Reserva implements Serializable {
 	@Override
 	public String toString() {
 		return "Reserva [id=" + id + ", servicio=" + servicio + ", fechaInicio=" + fechaInicio + ", fechaFin="
-				+ fechaFin + ", listaPaquete=" + listaPaquete + "]";
+				+ fechaFin + "]";
 	}
 
 }

@@ -1,7 +1,5 @@
 package ar.edu.utn.frlp.ds.miAlojamiento.controler;
 
-import java.sql.Date;
-
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
@@ -9,14 +7,12 @@ import javax.inject.Named;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
-import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Habitacion;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Pago;
 import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioPagoImpl;
 
-
 /**
  * 
- * @author 
+ * @author Federico
  *
  */
 @Named("altaPagoBean")
@@ -31,8 +27,8 @@ public class AltaPagoBean extends GenericBean {
 	private ServicioPagoImpl servicio;
 
 	/**
-	 * Se llama cuando se inicia la clase AltaPagoBean que setea a la clase
-	 * Pago creando una nueva instancia
+	 * Se llama cuando se inicia la clase AltaPagoBean que setea a la clase Pago
+	 * creando una nueva instancia
 	 */
 	@PostConstruct
 	public void init() {
@@ -47,7 +43,6 @@ public class AltaPagoBean extends GenericBean {
 		this.titulo = titulo;
 	}
 
-
 	public Pago getPago() {
 		return pago;
 	}
@@ -56,7 +51,6 @@ public class AltaPagoBean extends GenericBean {
 		this.pago = pago;
 	}
 
-	
 	/**
 	 * Guarda una entity Pago y muestra un msj con los resultados
 	 */

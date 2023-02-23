@@ -1,10 +1,11 @@
 package ar.edu.utn.frlp.ds.miAlojamiento.entidad;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 /**
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 public interface DatosPago {

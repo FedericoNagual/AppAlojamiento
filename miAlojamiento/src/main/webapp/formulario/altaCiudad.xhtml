@@ -5,25 +5,34 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="content">
-		<p:panel id="panelDatoPais"
-			header="#{altaPaisBean.titulo}" style="text-align: center;">
+		<p:panel id="panelDatoCiudad"
+			header="#{altaCiudadBean.titulo}" style="text-align: center;">
 			<p:panelGrid columns="2" cellpadding="5"
 				style="margin-left: auto; margin-right: auto; margin-top:1rem; margin-bottom:1rem; text-align: left;"
 				styleClass="ui-noborder">
 				<p:outputLabel value="nombre" indicateRequired="true"></p:outputLabel>
 				<p:inputText placeholder="Nombre" required="true"
-					value="#{altaPaisBean.pais.nombre}"></p:inputText>
+					value="#{altaCiudadBean.ciudad.nombre}"></p:inputText>
+				<p:outputLabel value="Provincia: " indicateRequired="true" />
+				<p:selectOneMenu value="#{altaCiudadBean.ciudad.provincia}"
+					required="#{not empty param.combo}">
+					<f:selectItem itemLabel="--Seleccione--" />
+					<f:selectItems value="#{altaCiudadBean.datoCombo}"
+						var="provincia" itemLabel="#{provincia.formatoCombo}"
+						itemValue="#{provincia.id}" />
+					<p:ajax event="valueChange" update="panelDatoCiudad" />
+				</p:selectOneMenu>
 	
 			</p:panelGrid>
 			<p:toolbar>
 				<p:toolbarGroup align="right" style=" margin:0.3rem;">
-					<p:commandButton value="Crear/Dar Alta de Pais"
-						update="panelDatoPais"
-						action="#{altaPaisBean.guardarPais()}"
+					<p:commandButton value="Crear/Dar Alta de Ciudad"
+						update="panelDatoCiudad"
+						action="#{altaCiudadBean.guardarCiudad()}"
 						styleClass="classBlock" />
 					<p:spacer width="20" />
 					<p:commandButton value="Volver" immediate="true"
-						styleClass="classBlock" action="#{altaPaisBean.volver()}" />
+						styleClass="classBlock" action="#{altaCiudadBean.volver()}" />
 				</p:toolbarGroup>
 			</p:toolbar>
 		</p:panel>

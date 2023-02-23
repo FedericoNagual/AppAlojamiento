@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -33,19 +35,25 @@ public class Habitacion implements Serializable {
 	@Column(name = "capacidad", nullable = false, length = 80)
 	private Integer capacidad;
 
-	@Column(name = "\"precioNoche\"", nullable = false, length =10)
+	@Column(name = "\"precioNoche\"", nullable = false, length = 10)
 	private Double precioNoche;
 
 	@Column(name = "descripcion", nullable = false, length = 80)
 	private String descripcion;
 
-	public Habitacion(Long habitacionId, String nombre, Integer capacidad, Double precioNoche, String descripcion) {
+	@ManyToOne
+	@JoinColumn(name = "\"alojamientoId\"")
+	private Alojamiento alojamiento;
+
+	public Habitacion(Long habitacionId, String nombre, Integer capacidad, Double precioNoche, String descripcion,
+			Alojamiento alojamiento) {
 		super();
 		this.habitacionId = habitacionId;
 		this.nombre = nombre;
 		this.capacidad = capacidad;
 		this.precioNoche = precioNoche;
 		this.descripcion = descripcion;
+		this.alojamiento = alojamiento;
 	}
 
 	public Habitacion() {
@@ -90,6 +98,14 @@ public class Habitacion implements Serializable {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	public Alojamiento getAlojamiento() {
+		return alojamiento;
+	}
+
+	public void setAlojamiento(Alojamiento alojamiento) {
+		this.alojamiento = alojamiento;
 	}
 
 	/**

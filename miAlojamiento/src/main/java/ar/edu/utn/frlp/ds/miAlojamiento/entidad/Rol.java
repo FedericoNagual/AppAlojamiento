@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -17,6 +16,7 @@ import javax.persistence.Table;
  * Modelo de la clase Rol con sus atributos
  * 
  * @author Mauro
+ * @author Federico
  * 
  *
  */
@@ -34,11 +34,10 @@ public class Rol implements Serializable {
 	@Column(name = "descripcion")
 	private String descripcion;
 	
-	@OneToMany
-	@JoinColumn(name = "\"loginId\"")
-	private List<Login> listaUsuario;
+	@OneToMany(mappedBy = "rol")
+	private List<Usuario> listaUsuario;	//1 Rol puede estar en muchos usuarios
 
-	public Rol(Long id, String descripcion, List<Login> listaUsuario) {
+	public Rol(Long id, String descripcion, List<Usuario> listaUsuario) {
 		super();
 		this.id = id;
 		this.descripcion = descripcion;
@@ -65,11 +64,11 @@ public class Rol implements Serializable {
 		this.descripcion = descripcion;
 	}
 
-	public List<Login> getListaUsuario() {
+	public List<Usuario> getListaUsuario() {
 		return listaUsuario;
 	}
 
-	public void setListaUsuario(List<Login> listaUsuario) {
+	public void setListaUsuario(List<Usuario> listaUsuario) {
 		this.listaUsuario = listaUsuario;
 	}
 
