@@ -38,7 +38,7 @@ public class ConsultaHabitacionBean extends GenericBean {
 	private Habitacion habSeleccionada;
 
 	@Autowired
-	private ServicioHabitacionImpl servicio;
+	private ServicioHabitacionImpl servicioHab;
 
 	/**
 	 * Se llama cuando se inicia la clase ConsutaHabitacionBean que setea a
@@ -47,8 +47,8 @@ public class ConsultaHabitacionBean extends GenericBean {
 	@PostConstruct
 	public void init() {
 		setAceptarListado(Boolean.TRUE);
-		setDatosCombo(servicio.obtenerDatosComboHabitacion());
-		setLista(servicio.buscarHabitacionAll());
+		setDatosCombo(servicioHab.obtenerDatosComboHabitacion());
+		setLista(servicioHab.buscarHabitacionAll());
 		setIdSeleccionado(null);
 		setHabitacion(null);
 	}
@@ -115,7 +115,7 @@ public class ConsultaHabitacionBean extends GenericBean {
 	 */
 	public void consultaHabitacion() {
 		if (idSeleccionado != null) {
-			setHabitacion(servicio.buscarHabitacionXId(getIdSeleccionado()));
+			setHabitacion(servicioHab.buscarHabitacionXId(getIdSeleccionado()));
 		}
 	}
 
@@ -124,7 +124,7 @@ public class ConsultaHabitacionBean extends GenericBean {
 	 * grilla
 	 */
 	public void consultaTotalHabitacion() {
-		//Por completar
+		// Por completar
 	}
 
 	/**

@@ -49,6 +49,7 @@ public class Provincia implements Serializable {
 
 	public Provincia() {
 		super();
+		setPais(new Pais());
 	}
 
 	public Long getId() {

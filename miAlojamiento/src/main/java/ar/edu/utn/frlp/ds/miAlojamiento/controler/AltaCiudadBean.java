@@ -31,7 +31,8 @@ public class AltaCiudadBean extends GenericBean {
 	private List<DatoProvincia> datoCombo;
 
 	@Autowired
-	private ServicioCiudadImpl servicio;
+	private ServicioCiudadImpl servicioCiu;
+	@Autowired
 	private ServicioProvinciaImpl servicioProv;
 
 	/**
@@ -69,11 +70,11 @@ public class AltaCiudadBean extends GenericBean {
 	}
 
 	public ServicioCiudadImpl getServicio() {
-		return servicio;
+		return servicioCiu;
 	}
 
 	public void setServicio(ServicioCiudadImpl servicio) {
-		this.servicio = servicio;
+		this.servicioCiu = servicio;
 	}
 
 	public ServicioProvinciaImpl getServicioProv() {
@@ -88,7 +89,7 @@ public class AltaCiudadBean extends GenericBean {
 	 * Guarda una entity Ciudad y muestra un msj con los resultados
 	 */
 	public void guardarCiudad() {
-		Ciudad resultado = servicio.guardarCiudad(getCiudad());
+		Ciudad resultado = servicioCiu.guardarCiudad(getCiudad());
 		mostrarMensaje("Se creó la Ciudad: " + resultado.getNombre() + " con el ID: " + resultado.getId());
 		init();
 	}

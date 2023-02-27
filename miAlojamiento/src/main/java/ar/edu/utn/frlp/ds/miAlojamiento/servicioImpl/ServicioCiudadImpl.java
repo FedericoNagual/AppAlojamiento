@@ -16,13 +16,13 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicio.ServicioCiudad;
  * Implementacion del Servicio Ciudad
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 
 @SessionScope
 @Service
-
-public class ServicioCiudadImpl implements ServicioCiudad{
+public class ServicioCiudadImpl implements ServicioCiudad {
 	@Autowired
 	private CiudadRepository ciudadRepository;
 
@@ -43,12 +43,12 @@ public class ServicioCiudadImpl implements ServicioCiudad{
 	 */
 	@Override
 	public List<Ciudad> buscarCiudadXNombre(String nombre) {
-		//Implementar metodo que devuelva todas las Ciudad por el nombre pasado
+		// Implementar metodo que devuelva todas las Ciudad por el nombre pasado
 		// por parametro
 		// Traer la lista, filtrarla por nombre
 		List<Ciudad> listaGeneral = ciudadRepository.findAll();
 		List<Ciudad> lista = new ArrayList<Ciudad>();
-		
+
 		for (int i = 0; i < listaGeneral.size(); i++) {
 			if (nombre.equals(listaGeneral.get(i).getNombre())) {
 				lista.add(listaGeneral.get(i));
@@ -87,19 +87,15 @@ public class ServicioCiudadImpl implements ServicioCiudad{
 		ciudadRepository.deleteById(id);
 	}
 
-
 	/**
 	 * Busca todos las Tuplas de Ciudad que existen
-	 * @return List<Ciudad> resultado del metodo findAll() 
+	 * 
+	 * @return List<Ciudad> resultado del metodo findAll()
 	 */
 	@Override
 	public List<Ciudad> buscarCiudadAll() {
-		List<Ciudad> ListaCompleta= ciudadRepository.findAll();
+		List<Ciudad> ListaCompleta = ciudadRepository.findAll();
 		return ListaCompleta;
 	}
-	
 
 }
-
-
-

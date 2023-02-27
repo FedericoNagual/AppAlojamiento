@@ -11,16 +11,18 @@ import ar.edu.utn.frlp.ds.miAlojamiento.entidad.DatosRol;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Rol;
 import ar.edu.utn.frlp.ds.miAlojamiento.repositorio.RolRepository;
 import ar.edu.utn.frlp.ds.miAlojamiento.servicio.ServicioRol;
+
 /**
  * Implementacion del Servicio Rol
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 
 @SessionScope
 @Service
-public class ServicioRolImpl implements ServicioRol{
+public class ServicioRolImpl implements ServicioRol {
 
 	@Autowired
 	private RolRepository rolRepository;
@@ -42,12 +44,12 @@ public class ServicioRolImpl implements ServicioRol{
 	 */
 	@Override
 	public List<Rol> buscarRolXDescripcion(String descripcion) {
-		//Implementar metodo que devuelva todas las Rol por el nombre pasado
+		// Implementar metodo que devuelva todas las Rol por el nombre pasado
 		// por parametro
 		// Traer la lista, filtrarla por nombre
 		List<Rol> listaGeneral = rolRepository.findAll();
 		List<Rol> lista = new ArrayList<Rol>();
-		
+
 		for (int i = 0; i < listaGeneral.size(); i++) {
 			if (descripcion.equals(listaGeneral.get(i).getDescripcion())) {
 				lista.add(listaGeneral.get(i));
@@ -88,15 +90,13 @@ public class ServicioRolImpl implements ServicioRol{
 
 	/**
 	 * Busca todos las Tuplas de Rol que existen
-	 * @return List<Rol> resultado del metodo findAll() 
+	 * 
+	 * @return List<Rol> resultado del metodo findAll()
 	 */
 	@Override
 	public List<Rol> buscarRolAll() {
-		List<Rol> ListaCompleta= rolRepository.findAll();
+		List<Rol> ListaCompleta = rolRepository.findAll();
 		return ListaCompleta;
 	}
-	
 
 }
-
-

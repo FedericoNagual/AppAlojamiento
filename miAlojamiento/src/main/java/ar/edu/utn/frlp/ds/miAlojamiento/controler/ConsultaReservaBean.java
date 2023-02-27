@@ -3,7 +3,7 @@ package ar.edu.utn.frlp.ds.miAlojamiento.controler;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ViewScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,16 +13,16 @@ import ar.edu.utn.frlp.ds.miAlojamiento.entidad.DatosReserva;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Reserva;
 import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioReservaImpl;
 
-
 /**
  * Implementacion del Servicio Reserva
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 @Named("consultaReservaBean")
 @ViewScoped
-public class ConsultaReservaBean extends GenericBean{
+public class ConsultaReservaBean extends GenericBean {
 	@Value("${consultaProvincia}")
 	private Reserva reserva;
 	private Long idSeleccionado;
@@ -36,21 +36,20 @@ public class ConsultaReservaBean extends GenericBean{
 	private Reserva reservaSeleccionada;
 
 	@Autowired
-	private ServicioReservaImpl servicio;
+	private ServicioReservaImpl servicioReser;
 
 	/**
-	 * Se llama cuando se inicia la clase ConsutaReservaBean que setea a
-	 * Reserva creando una nueva instancia
+	 * Se llama cuando se inicia la clase ConsutaReservaBean que setea a Reserva
+	 * creando una nueva instancia
 	 */
 	@PostConstruct
 	public void init() {
 		setAceptarListado(Boolean.TRUE);
-		setDatosCombo(servicio.obtenerDatosReserva());
-		setLista(servicio.buscarReservaAll());
+		setDatosCombo(servicioReser.obtenerDatosReserva());
+		setLista(servicioReser.buscarReservaAll());
 		setIdSeleccionado(null);
 		setReserva(null);
 	}
-
 
 	public Reserva getReserva() {
 		return reserva;
@@ -59,7 +58,7 @@ public class ConsultaReservaBean extends GenericBean{
 	public void setReserva(Reserva reserva) {
 		this.reserva = reserva;
 	}
-	
+
 	public Long getIdSeleccionado() {
 		return idSeleccionado;
 	}
@@ -92,7 +91,7 @@ public class ConsultaReservaBean extends GenericBean{
 		this.lista = lista;
 	}
 
-	public Reserva  getReservaSeleccionada() {
+	public Reserva getReservaSeleccionada() {
 		return reservaSeleccionada;
 	}
 
@@ -101,12 +100,12 @@ public class ConsultaReservaBean extends GenericBean{
 	}
 
 	/**
-	 * Consulta las Reserva y busca sus datos por el Id seleccionado y los
-	 * muestra en la vista
+	 * Consulta las Reserva y busca sus datos por el Id seleccionado y los muestra
+	 * en la vista
 	 */
 	public void consultaProvincia() {
 		if (idSeleccionado != null) {
-			setReserva(servicio.buscarReservaXId(getIdSeleccionado()));
+			setReserva(servicioReser.buscarReservaXId(getIdSeleccionado()));
 		}
 	}
 

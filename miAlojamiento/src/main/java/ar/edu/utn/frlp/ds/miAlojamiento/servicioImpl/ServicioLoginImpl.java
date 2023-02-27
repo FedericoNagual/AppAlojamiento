@@ -11,16 +11,18 @@ import ar.edu.utn.frlp.ds.miAlojamiento.entidad.DatosLogin;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Login;
 import ar.edu.utn.frlp.ds.miAlojamiento.repositorio.LoginRepository;
 import ar.edu.utn.frlp.ds.miAlojamiento.servicio.ServicioLogin;
+
 /**
  * Implementacion del Servicio Login
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 
 @SessionScope
 @Service
-public class ServicioLoginImpl implements ServicioLogin{
+public class ServicioLoginImpl implements ServicioLogin {
 
 	@Autowired
 	private LoginRepository loginRepository;
@@ -42,12 +44,12 @@ public class ServicioLoginImpl implements ServicioLogin{
 	 */
 	@Override
 	public List<Login> buscarLoginXNombre(String nombre) {
-		//Implementar metodo que devuelva todas las Login por el nombre pasado
+		// Implementar metodo que devuelva todas las Login por el nombre pasado
 		// por parametro
 		// Traer la lista, filtrarla por nombre
 		List<Login> listaGeneral = loginRepository.findAll();
 		List<Login> lista = new ArrayList<Login>();
-		
+
 		for (int i = 0; i < listaGeneral.size(); i++) {
 			if (nombre.equals(listaGeneral.get(i).getNombre())) {
 				lista.add(listaGeneral.get(i));
@@ -88,15 +90,13 @@ public class ServicioLoginImpl implements ServicioLogin{
 
 	/**
 	 * Busca todos las Tuplas de Login que existen
-	 * @return List<Login> resultado del metodo findAll() 
+	 * 
+	 * @return List<Login> resultado del metodo findAll()
 	 */
 	@Override
 	public List<Login> buscarLoginAll() {
-		List<Login> ListaCompleta= loginRepository.findAll();
+		List<Login> ListaCompleta = loginRepository.findAll();
 		return ListaCompleta;
 	}
-	
 
 }
-
-

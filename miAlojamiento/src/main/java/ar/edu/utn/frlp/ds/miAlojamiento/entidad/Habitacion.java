@@ -58,6 +58,7 @@ public class Habitacion implements Serializable {
 
 	public Habitacion() {
 		super();
+		setAlojamiento(new Alojamiento());
 	}
 
 	public Long getHabitacionId() {

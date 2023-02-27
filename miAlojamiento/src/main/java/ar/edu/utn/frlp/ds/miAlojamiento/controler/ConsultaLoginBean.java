@@ -17,6 +17,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioLoginImpl;
  * Clase Bean del Consulta de Login
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 @Named("consultaLoginBean")
@@ -38,17 +39,17 @@ public class ConsultaLoginBean extends GenericBean {
 	private Login LoginSeleccionado;
 
 	@Autowired
-	private ServicioLoginImpl servicio;
+	private ServicioLoginImpl servicioLogin;
 
 	/**
-	 * Se llama cuando se inicia la clase ConsutaLoginBean que setea a
-	 * Login creando una nueva instancia
+	 * Se llama cuando se inicia la clase ConsutaLoginBean que setea a Login creando
+	 * una nueva instancia
 	 */
 	@PostConstruct
 	public void init() {
 		setAceptarListado(Boolean.TRUE);
-		setDatosCombo(servicio.obtenerDatosLogin());
-		setLista(servicio.buscarLoginAll());
+		setDatosCombo(servicioLogin.obtenerDatosLogin());
+		setLista(servicioLogin.buscarLoginAll());
 		setIdSeleccionado(null);
 		setLogin(null);
 	}
@@ -110,12 +111,12 @@ public class ConsultaLoginBean extends GenericBean {
 	}
 
 	/**
-	 * Consulta las Logins y busca sus datos por el Id seleccionado y los
-	 * muestra en la vista
+	 * Consulta las Logins y busca sus datos por el Id seleccionado y los muestra en
+	 * la vista
 	 */
 	public void consultaLogin() {
 		if (idSeleccionado != null) {
-			setLogin(servicio.buscarLoginXId(getIdSeleccionado()));
+			setLogin(servicioLogin.buscarLoginXId(getIdSeleccionado()));
 		}
 	}
 

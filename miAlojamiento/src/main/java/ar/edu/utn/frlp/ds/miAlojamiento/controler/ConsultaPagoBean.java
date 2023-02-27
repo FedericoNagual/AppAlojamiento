@@ -17,6 +17,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioPagoImpl;
  * Clase Bean del Consulta de Pago
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 @Named("consultaPagoBean")
@@ -38,17 +39,17 @@ public class ConsultaPagoBean extends GenericBean {
 	private Pago pagoSeleccionado;
 
 	@Autowired
-	private ServicioPagoImpl servicio;
+	private ServicioPagoImpl servicioPago;
 
 	/**
-	 * Se llama cuando se inicia la clase ConsutaPagoBean que setea a
-	 * Pago creando una nueva instancia
+	 * Se llama cuando se inicia la clase ConsutaPagoBean que setea a Pago creando
+	 * una nueva instancia
 	 */
 	@PostConstruct
 	public void init() {
 		setAceptarListado(Boolean.TRUE);
-		setDatosCombo(servicio.obtenerDatosPago());
-		setLista(servicio.buscarPagoAll());
+		setDatosCombo(servicioPago.obtenerDatosPago());
+		setLista(servicioPago.buscarPagoAll());
 		setIdSeleccionado(null);
 		setPago(null);
 	}
@@ -110,12 +111,12 @@ public class ConsultaPagoBean extends GenericBean {
 	}
 
 	/**
-	 * Consulta las Pagos y busca sus datos por el Id seleccionado y los
-	 * muestra en la vista
+	 * Consulta las Pagos y busca sus datos por el Id seleccionado y los muestra en
+	 * la vista
 	 */
 	public void consultaPago() {
 		if (idSeleccionado != null) {
-			setPago(servicio.buscarPagoXId(getIdSeleccionado()));
+			setPago(servicioPago.buscarPagoXId(getIdSeleccionado()));
 		}
 	}
 

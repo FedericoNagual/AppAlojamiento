@@ -12,6 +12,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioLoginImpl;
 
 /**
  * Clase Bean del Alta de Login
+ * 
  * @author Federico
  *
  */
@@ -25,11 +26,11 @@ public class AltaLoginBean extends GenericBean {
 	private Login Login;
 
 	@Autowired
-	private ServicioLoginImpl servicio;
+	private ServicioLoginImpl servicioLogin;
 
 	/**
-	 * Se llama cuando se inicia la clase AltaLoginBean que setea a la clase
-	 * Login creando una nueva instancia
+	 * Se llama cuando se inicia la clase AltaLoginBean que setea a la clase Login
+	 * creando una nueva instancia
 	 */
 	@PostConstruct
 	public void init() {
@@ -56,7 +57,7 @@ public class AltaLoginBean extends GenericBean {
 	 * Guarda una entity Login y muestra un msj con los resultados
 	 */
 	public void guardarLogin() {
-		Login resultado = servicio.guardarLogin(getLogin());
+		Login resultado = servicioLogin.guardarLogin(getLogin());
 		mostrarMensaje("Se creó el Login: " + resultado.getNombre() + " con el ID: " + resultado.getId());
 		init();
 	}

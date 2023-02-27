@@ -1,7 +1,6 @@
 package ar.edu.utn.frlp.ds.miAlojamiento.controler;
 
 
-import java.sql.Time;
 
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
@@ -11,16 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Alojamiento;
-import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Ciudad;
-import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Foto;
-import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Habitacion;
-import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Servicio;
 import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioAlojamientoImpl;
 
 
 /**
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 @Named("altaAlojamientoBean")
@@ -32,7 +28,7 @@ public class AltaAlojamientoBean extends GenericBean {
 	private Alojamiento alojamiento;
 
 	@Autowired
-	private ServicioAlojamientoImpl servicioI;
+	private ServicioAlojamientoImpl servicioAloj;
 
 	/**
 	 * Se llama cuando se inicia la clase AltaAlojamientoBean que setea a la clase
@@ -63,7 +59,7 @@ public class AltaAlojamientoBean extends GenericBean {
 	 * Guarda una entity Alojamiento y muestra un msj con los resultados
 	 */
 	public void guardarAlojamiento() {
-		Alojamiento resultado = servicioI.guardarAlojamiento(getAlojamiento());
+		Alojamiento resultado = servicioAloj.guardarAlojamiento(getAlojamiento());
 		mostrarMensaje("Se creó el Alojamiento: " + resultado.getNombre() + " con el ID: " + resultado.getId());
 		init();
 	}

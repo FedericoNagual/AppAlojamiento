@@ -1,6 +1,5 @@
 package ar.edu.utn.frlp.ds.miAlojamiento.controler;
 
-
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
@@ -10,7 +9,6 @@ import org.springframework.beans.factory.annotation.Value;
 
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Oferta;
 import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioOfertaImpl;
-
 
 /**
  * 
@@ -26,11 +24,11 @@ public class AltaOfertaBean extends GenericBean {
 	private Oferta Oferta;
 
 	@Autowired
-	private ServicioOfertaImpl servicio;
+	private ServicioOfertaImpl servicioOfer;
 
 	/**
-	 * Se llama cuando se inicia la clase AltaOfertaBean que setea a la clase
-	 * Oferta creando una nueva instancia
+	 * Se llama cuando se inicia la clase AltaOfertaBean que setea a la clase Oferta
+	 * creando una nueva instancia
 	 */
 	@PostConstruct
 	public void init() {
@@ -45,7 +43,6 @@ public class AltaOfertaBean extends GenericBean {
 		this.titulo = titulo;
 	}
 
-
 	public Oferta getOferta() {
 		return Oferta;
 	}
@@ -54,12 +51,11 @@ public class AltaOfertaBean extends GenericBean {
 		this.Oferta = Oferta;
 	}
 
-	
 	/**
 	 * Guarda una entity Oferta y muestra un msj con los resultados
 	 */
 	public void guardarOferta() {
-		Oferta resultado = servicio.guardarOferta(getOferta());
+		Oferta resultado = servicioOfer.guardarOferta(getOferta());
 		mostrarMensaje("Se creó el Oferta  con el ID: " + resultado.getId());
 		init();
 	}

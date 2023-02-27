@@ -11,16 +11,17 @@ import ar.edu.utn.frlp.ds.miAlojamiento.entidad.DatosUsuario;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Usuario;
 import ar.edu.utn.frlp.ds.miAlojamiento.repositorio.UsuarioRepository;
 import ar.edu.utn.frlp.ds.miAlojamiento.servicio.ServicioUsuario;
+
 /**
  * Implementacion del Servicio Usuario
  * 
  * @author Mauro
+ * @author Federico
  *
  */
-
 @SessionScope
 @Service
-public class ServicioUsuarioImpl implements ServicioUsuario{
+public class ServicioUsuarioImpl implements ServicioUsuario {
 
 	@Autowired
 	private UsuarioRepository usuarioRepository;
@@ -42,12 +43,12 @@ public class ServicioUsuarioImpl implements ServicioUsuario{
 	 */
 	@Override
 	public List<Usuario> buscarUsuarioXDNI(String dni) {
-		//Implementar metodo que devuelva todas las Usuario por el nombre pasado
+		// Implementar metodo que devuelva todas las Usuario por el nombre pasado
 		// por parametro
 		// Traer la lista, filtrarla por nombre
 		List<Usuario> listaGeneral = usuarioRepository.findAll();
 		List<Usuario> lista = new ArrayList<Usuario>();
-		
+
 		for (int i = 0; i < listaGeneral.size(); i++) {
 			if (dni.equals(listaGeneral.get(i).getDni())) {
 				lista.add(listaGeneral.get(i));
@@ -88,15 +89,13 @@ public class ServicioUsuarioImpl implements ServicioUsuario{
 
 	/**
 	 * Busca todos las Tuplas de Usuario que existen
-	 * @return List<Usuario> resultado del metodo findAll() 
+	 * 
+	 * @return List<Usuario> resultado del metodo findAll()
 	 */
 	@Override
 	public List<Usuario> buscarUsuarioAll() {
-		List<Usuario> ListaCompleta= usuarioRepository.findAll();
+		List<Usuario> ListaCompleta = usuarioRepository.findAll();
 		return ListaCompleta;
 	}
-	
 
 }
-
-

@@ -24,7 +24,7 @@ public class AltaPagoBean extends GenericBean {
 	private Pago pago;
 
 	@Autowired
-	private ServicioPagoImpl servicio;
+	private ServicioPagoImpl servicioPago;
 
 	/**
 	 * Se llama cuando se inicia la clase AltaPagoBean que setea a la clase Pago
@@ -55,7 +55,7 @@ public class AltaPagoBean extends GenericBean {
 	 * Guarda una entity Pago y muestra un msj con los resultados
 	 */
 	public void guardarPago() {
-		Pago resultado = servicio.guardarPago(getPago());
+		Pago resultado = servicioPago.guardarPago(getPago());
 		mostrarMensaje("Se creó el pago  con el ID: " + resultado.getId());
 		init();
 	}

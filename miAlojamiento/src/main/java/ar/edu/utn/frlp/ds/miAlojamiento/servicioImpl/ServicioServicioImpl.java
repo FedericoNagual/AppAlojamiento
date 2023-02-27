@@ -8,23 +8,21 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
 
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.DatosServicio;
-import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Provincia;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Servicio;
 import ar.edu.utn.frlp.ds.miAlojamiento.repositorio.ServicioRepository;
 import ar.edu.utn.frlp.ds.miAlojamiento.servicio.ServicioServicio;
-
-
 
 /**
  * Implementacion del Servicio Servicio
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 
 @SessionScope
 @Service
-public class ServicioServicioImpl implements ServicioServicio{
+public class ServicioServicioImpl implements ServicioServicio {
 	@Autowired
 	private ServicioRepository servicioRepository;
 
@@ -45,12 +43,12 @@ public class ServicioServicioImpl implements ServicioServicio{
 	 */
 	@Override
 	public List<Servicio> buscarServicioXNombre(String nombre) {
-		//Implementar metodo que devuelva todas las Imagenes por el nombre pasado
+		// Implementar metodo que devuelva todas las Imagenes por el nombre pasado
 		// por parametro
 		// Traer la lista, filtrarla por nombre
 		List<Servicio> listaGeneral = servicioRepository.findAll();
 		List<Servicio> lista = new ArrayList<Servicio>();
-		
+
 		for (int i = 0; i < listaGeneral.size(); i++) {
 			if (nombre.equals(listaGeneral.get(i).getNombre())) {
 				lista.add(listaGeneral.get(i));
@@ -89,14 +87,14 @@ public class ServicioServicioImpl implements ServicioServicio{
 		servicioRepository.deleteById(id);
 	}
 
-	
 	/**
 	 * Busca todos las Tuplas de Servicio que existen
-	 * @return List<Servicio> resultado del metodo findAll() 
+	 * 
+	 * @return List<Servicio> resultado del metodo findAll()
 	 */
 	@Override
 	public List<Servicio> buscarServicioAll() {
-		List<Servicio> ListaCompleta= servicioRepository.findAll();
+		List<Servicio> ListaCompleta = servicioRepository.findAll();
 		return ListaCompleta;
 	}
 

@@ -17,11 +17,12 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioPaisImpl;
  * Implementacion del Servicio Pais
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 @Named("consultaPaisBean")
 @ViewScoped
-public class ConsultaPaisBean extends GenericBean{
+public class ConsultaPaisBean extends GenericBean {
 	@Value("${consultaPais}")
 	private String nombre;
 
@@ -37,17 +38,17 @@ public class ConsultaPaisBean extends GenericBean{
 	private Pais paisSeleccionado;
 
 	@Autowired
-	private ServicioPaisImpl servicio;
+	private ServicioPaisImpl servicioPais;
 
 	/**
-	 * Se llama cuando se inicia la clase ConsutaPaisBean que setea a
-	 * Pais creando una nueva instancia
+	 * Se llama cuando se inicia la clase ConsutaPaisBean que setea a Pais creando
+	 * una nueva instancia
 	 */
 	@PostConstruct
 	public void init() {
 		setAceptarListado(Boolean.TRUE);
-		setDatosCombo(servicio.obtenerDatosComboPais());
-		setLista(servicio.buscarPaisAll());
+		setDatosCombo(servicioPais.obtenerDatosComboPais());
+		setLista(servicioPais.buscarPaisAll());
 		setIdSeleccionado(null);
 		setPais(null);
 	}
@@ -109,12 +110,12 @@ public class ConsultaPaisBean extends GenericBean{
 	}
 
 	/**
-	 * Consulta los paises y busca sus datos por el Id seleccionado y los
-	 * muestra en la vista
+	 * Consulta los paises y busca sus datos por el Id seleccionado y los muestra en
+	 * la vista
 	 */
 	public void consultaPais() {
 		if (idSeleccionado != null) {
-			setPais(servicio.buscarPaisXId(getIdSeleccionado()));
+			setPais(servicioPais.buscarPaisXId(getIdSeleccionado()));
 		}
 	}
 

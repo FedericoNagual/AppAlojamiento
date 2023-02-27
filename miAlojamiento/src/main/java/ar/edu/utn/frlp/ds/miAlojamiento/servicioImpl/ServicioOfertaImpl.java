@@ -20,7 +20,6 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicio.ServicioOferta;
  * @author Federico
  *
  */
-
 @SessionScope
 @Service
 public class ServicioOfertaImpl implements ServicioOferta {

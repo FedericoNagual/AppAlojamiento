@@ -3,7 +3,7 @@ package ar.edu.utn.frlp.ds.miAlojamiento.controler;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ViewScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +14,15 @@ import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Servicio;
 import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioServicioImpl;
 
 /**
- * Implementacion del Servicio  
+ * Implementacion del Servicio
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 @Named("consultaServicioBean")
 @ViewScoped
-public class ConsultaServicioBean extends GenericBean{
+public class ConsultaServicioBean extends GenericBean {
 	@Value("${consultaPaquete}")
 	private String name;
 	private Servicio servicio;
@@ -36,17 +37,17 @@ public class ConsultaServicioBean extends GenericBean{
 	private Servicio servicioSeleccionado;
 
 	@Autowired
-	private ServicioServicioImpl servicios;
+	private ServicioServicioImpl serviciosServ;
 
 	/**
-	 * Se llama cuando se inicia la clase ConsutaServicioBean que setea a
-	 * Servicio creando una nueva instancia
+	 * Se llama cuando se inicia la clase ConsutaServicioBean que setea a Servicio
+	 * creando una nueva instancia
 	 */
 	@PostConstruct
 	public void init() {
 		setAceptarListado(Boolean.TRUE);
-		setDatosCombo(servicios.obtenerDatosServicio());
-		setLista(servicios.buscarServicioAll());
+		setDatosCombo(serviciosServ.obtenerDatosServicio());
+		setLista(serviciosServ.buscarServicioAll());
 		setIdSeleccionado(null);
 		setServicio(null);
 	}
@@ -58,6 +59,7 @@ public class ConsultaServicioBean extends GenericBean{
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public Servicio getServicio() {
 		return servicio;
 	}
@@ -65,7 +67,6 @@ public class ConsultaServicioBean extends GenericBean{
 	public void setServicio(Servicio servicio) {
 		this.servicio = servicio;
 	}
-
 
 	public Long getIdSeleccionado() {
 		return idSeleccionado;
@@ -99,7 +100,7 @@ public class ConsultaServicioBean extends GenericBean{
 		this.lista = lista;
 	}
 
-	public Servicio  getServicioSeleccionado() {
+	public Servicio getServicioSeleccionado() {
 		return servicioSeleccionado;
 	}
 
@@ -108,12 +109,12 @@ public class ConsultaServicioBean extends GenericBean{
 	}
 
 	/**
-	 * Consulta los Servicios y busca sus datos por el Id seleccionado y los
-	 * muestra en la vista
+	 * Consulta los Servicios y busca sus datos por el Id seleccionado y los muestra
+	 * en la vista
 	 */
 	public void consultaPaquete() {
 		if (idSeleccionado != null) {
-			setServicio(servicios.buscarServicioXId(getIdSeleccionado()));
+			setServicio(serviciosServ.buscarServicioXId(getIdSeleccionado()));
 		}
 	}
 

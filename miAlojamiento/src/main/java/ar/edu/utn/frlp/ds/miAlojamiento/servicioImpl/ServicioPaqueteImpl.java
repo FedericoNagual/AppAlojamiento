@@ -1,6 +1,5 @@
 package ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,12 +16,13 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicio.ServicioPaquete;
  * Implementacion del Servicio Paquete
  * 
  * @author Mauro
+ * @author Federico+
  *
  */
 
 @SessionScope
 @Service
-public class ServicioPaqueteImpl implements ServicioPaquete{
+public class ServicioPaqueteImpl implements ServicioPaquete {
 	@Autowired
 	private PaqueteRepository paqueteRepository;
 
@@ -43,12 +43,12 @@ public class ServicioPaqueteImpl implements ServicioPaquete{
 	 */
 	@Override
 	public List<Paquete> buscarPaqueteXNombre(String nombre) {
-		//Implementar metodo que devuelva todas las Paquete por el nombre pasado
+		// Implementar metodo que devuelva todas las Paquete por el nombre pasado
 		// por parametro
 		// Traer la lista, filtrarla por nombre
 		List<Paquete> listaGeneral = paqueteRepository.findAll();
 		List<Paquete> lista = new ArrayList<Paquete>();
-		
+
 		for (int i = 0; i < listaGeneral.size(); i++) {
 			if (nombre.equals(listaGeneral.get(i).getNombre())) {
 				lista.add(listaGeneral.get(i));
@@ -85,14 +85,16 @@ public class ServicioPaqueteImpl implements ServicioPaquete{
 	@Override
 	public void eliminarPaquete(Long id) {
 		paqueteRepository.deleteById(id);
-	}	
+	}
+
 	/**
 	 * Busca todos las Tuplas de Provincia que existen
-	 * @return List<Paquete> resultado del metodo findAll() 
+	 * 
+	 * @return List<Paquete> resultado del metodo findAll()
 	 */
 	@Override
 	public List<Paquete> buscarPaqueteAll() {
-		List<Paquete> ListaCompleta= paqueteRepository.findAll();
+		List<Paquete> ListaCompleta = paqueteRepository.findAll();
 		return ListaCompleta;
 	}
 }

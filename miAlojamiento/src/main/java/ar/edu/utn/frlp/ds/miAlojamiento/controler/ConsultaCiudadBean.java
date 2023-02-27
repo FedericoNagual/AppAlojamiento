@@ -3,7 +3,7 @@ package ar.edu.utn.frlp.ds.miAlojamiento.controler;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ViewScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +13,11 @@ import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Ciudad;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.DatoCiudad;
 import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioCiudadImpl;
 
-
 /**
  * Clase Bean del Consulta de Ciudad
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 @Named("consultaCiudadBean")
@@ -39,17 +39,17 @@ public class ConsultaCiudadBean extends GenericBean {
 	private Ciudad ciudadSeleccionada;
 
 	@Autowired
-	private ServicioCiudadImpl servicio;
+	private ServicioCiudadImpl servicioCiu;
 
 	/**
-	 * Se llama cuando se inicia la clase ConsutaCiudadBean que setea a
-	 * Ciudad creando una nueva instancia
+	 * Se llama cuando se inicia la clase ConsutaCiudadBean que setea a Ciudad
+	 * creando una nueva instancia
 	 */
 	@PostConstruct
 	public void init() {
 		setAceptarListado(Boolean.TRUE);
-		setDatosCombo(servicio.obtenerDatosCiudad());
-		setLista(servicio.buscarCiudadAll());
+		setDatosCombo(servicioCiu.obtenerDatosCiudad());
+		setLista(servicioCiu.buscarCiudadAll());
 		setIdSeleccionado(null);
 		setCiudad(null);
 	}
@@ -111,12 +111,12 @@ public class ConsultaCiudadBean extends GenericBean {
 	}
 
 	/**
-	 * Consulta las Ciudades y busca sus datos por el Id seleccionado y los
-	 * muestra en la vista
+	 * Consulta las Ciudades y busca sus datos por el Id seleccionado y los muestra
+	 * en la vista
 	 */
 	public void consultaCiudad() {
 		if (idSeleccionado != null) {
-			setCiudad(servicio.buscarCiudadXId(getIdSeleccionado()));
+			setCiudad(servicioCiu.buscarCiudadXId(getIdSeleccionado()));
 		}
 	}
 

@@ -16,7 +16,7 @@ public interface ServicioDomicilio {
 	public Domicilio buscarDomicilioXId(Long id);
 
 
-	public List<Domicilio> buscarDomicilioXNombre(String nombre);
+	public List<Domicilio> buscarDomicilioXCalle(String calle);
 	
 	public List<DatosDomicilio> obtenerDatosDomicilio();
 

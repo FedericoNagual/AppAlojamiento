@@ -3,7 +3,7 @@ package ar.edu.utn.frlp.ds.miAlojamiento.controler;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ViewScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +17,12 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioPaqueteImpl;
  * Implementacion del Servicio Paquete
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 @Named("consultaPaqueteBean")
 @ViewScoped
-public class ConsultaPaqueteBean extends GenericBean{
+public class ConsultaPaqueteBean extends GenericBean {
 	@Value("${consultaPaquete}")
 	private String name;
 	private Paquete paquete;
@@ -36,17 +37,17 @@ public class ConsultaPaqueteBean extends GenericBean{
 	private Paquete paqueteSeleccionado;
 
 	@Autowired
-	private ServicioPaqueteImpl servicio;
+	private ServicioPaqueteImpl servicioPaque;
 
 	/**
-	 * Se llama cuando se inicia la clase ConsutaPaqueteBean que setea a
-	 * Paquete creando una nueva instancia
+	 * Se llama cuando se inicia la clase ConsutaPaqueteBean que setea a Paquete
+	 * creando una nueva instancia
 	 */
 	@PostConstruct
 	public void init() {
 		setAceptarListado(Boolean.TRUE);
-		setDatosCombo(servicio.obtenerDatosPaquete());
-		setLista(servicio.buscarPaqueteAll());
+		setDatosCombo(servicioPaque.obtenerDatosPaquete());
+		setLista(servicioPaque.buscarPaqueteAll());
 		setIdSeleccionado(null);
 		setPaquete(null);
 	}
@@ -58,6 +59,7 @@ public class ConsultaPaqueteBean extends GenericBean{
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public Paquete getPaquete() {
 		return paquete;
 	}
@@ -65,7 +67,6 @@ public class ConsultaPaqueteBean extends GenericBean{
 	public void setPaquete(Paquete paquete) {
 		this.paquete = paquete;
 	}
-
 
 	public Long getIdSeleccionado() {
 		return idSeleccionado;
@@ -99,7 +100,7 @@ public class ConsultaPaqueteBean extends GenericBean{
 		this.lista = lista;
 	}
 
-	public Paquete  getPaqueteSeleccionado() {
+	public Paquete getPaqueteSeleccionado() {
 		return paqueteSeleccionado;
 	}
 
@@ -108,12 +109,12 @@ public class ConsultaPaqueteBean extends GenericBean{
 	}
 
 	/**
-	 * Consulta los Paquete y busca sus datos por el Id seleccionado y los
-	 * muestra en la vista
+	 * Consulta los Paquete y busca sus datos por el Id seleccionado y los muestra
+	 * en la vista
 	 */
 	public void consultaPaquete() {
 		if (idSeleccionado != null) {
-			setPaquete(servicio.buscarPaqueteXId(getIdSeleccionado()));
+			setPaquete(servicioPaque.buscarPaqueteXId(getIdSeleccionado()));
 		}
 	}
 

@@ -1,4 +1,5 @@
 package ar.edu.utn.frlp.ds.miAlojamiento.controler;
+
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
@@ -9,10 +10,10 @@ import org.springframework.beans.factory.annotation.Value;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Servicio;
 import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioServicioImpl;
 
-
 /**
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 @Named("altaServicioBean")
@@ -25,7 +26,7 @@ public class AltaServicioBean extends GenericBean {
 	private Servicio servicio;
 
 	@Autowired
-	private ServicioServicioImpl servicioI;
+	private ServicioServicioImpl servicioServi;
 
 	/**
 	 * Se llama cuando se inicia la clase AltaServicioBean que setea a la clase
@@ -56,10 +57,9 @@ public class AltaServicioBean extends GenericBean {
 	 * Guarda una entity Servicio y muestra un msj con los resultados
 	 */
 	public void guardarServicio() {
-		Servicio resultado = servicioI.guardarServicio(getServicio());
+		Servicio resultado = servicioServi.guardarServicio(getServicio());
 		mostrarMensaje("Se creó el servicio: " + resultado.getNombre() + " con el ID: " + resultado.getId());
 		init();
 	}
-
 
 }

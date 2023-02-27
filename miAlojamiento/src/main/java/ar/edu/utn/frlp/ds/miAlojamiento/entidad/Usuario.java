@@ -39,18 +39,21 @@ public class Usuario implements Serializable {
 	@Column(name = "nombre")
 	private String nombre;
 
+	@Column(name = "apellido")
+	private String apellido;
+
 	@Column(name = "\"fechaNacimiento\"")
 	@Temporal(TemporalType.DATE)
 	private Date fechaNacimiento;
+
+	@Column(name = "\"tipoDocumento\"")
+	private String tipoDocumento;
 
 	@Column(name = "\"dni\"")
 	private String dni;
 
 	@Column(name = "telefono")
 	private Long telefono;
-
-	@Column(name = "\"tipoDocumento\"")
-	private String tipoDocumento;
 
 	@OneToOne
 	@JoinColumn(name = "\"domicilioId\"")
@@ -69,17 +72,22 @@ public class Usuario implements Serializable {
 
 	public Usuario() {
 		super();
+		setDomicilio(new Domicilio());
+		setLogin(new Login());
+		setRol(new Rol());
+		setFechaNacimiento(new Date());
 	}
 
-	public Usuario(Long id, String nombre, Date fechaNacimiento, String dni, Long telefono, String tipoDocumento,
-			Domicilio domicilio, Login login, List<Reserva> listaReserva, Rol rol) {
+	public Usuario(Long id, String nombre, String apellido, Date fechaNacimiento, String tipoDocumento, String dni,
+			Long telefono, Domicilio domicilio, Login login, List<Reserva> listaReserva, Rol rol) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
+		this.apellido = apellido;
 		this.fechaNacimiento = fechaNacimiento;
+		this.tipoDocumento = tipoDocumento;
 		this.dni = dni;
 		this.telefono = telefono;
-		this.tipoDocumento = tipoDocumento;
 		this.domicilio = domicilio;
 		this.login = login;
 		this.listaReserva = listaReserva;
@@ -166,8 +174,17 @@ public class Usuario implements Serializable {
 		this.rol = rol;
 	}
 
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apelido) {
+		this.apellido = apelido;
+	}
+
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nombre=" + nombre + ", fechaNacimiento=" + fechaNacimiento + ", dni=" + dni+ "]";
+		return "Usuario [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", fechaNacimiento="
+				+ fechaNacimiento + ", dni=" + dni + "]";
 	}
 }

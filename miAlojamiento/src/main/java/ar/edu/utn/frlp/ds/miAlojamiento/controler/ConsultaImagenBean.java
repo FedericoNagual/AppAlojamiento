@@ -3,7 +3,7 @@ package ar.edu.utn.frlp.ds.miAlojamiento.controler;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ViewScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +13,11 @@ import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Imagen;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.DatosImagen;
 import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioImagenImpl;
 
-
 /**
  * Clase Bean del Consulta de Imagen
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 @Named("consultaImagenBean")
@@ -39,17 +39,17 @@ public class ConsultaImagenBean extends GenericBean {
 	private Imagen ImagenSeleccionada;
 
 	@Autowired
-	private ServicioImagenImpl servicio;
+	private ServicioImagenImpl servicioIma;
 
 	/**
-	 * Se llama cuando se inicia la clase ConsutaImagenBean que setea a
-	 * Imagen creando una nueva instancia
+	 * Se llama cuando se inicia la clase ConsutaImagenBean que setea a Imagen
+	 * creando una nueva instancia
 	 */
 	@PostConstruct
 	public void init() {
 		setAceptarListado(Boolean.TRUE);
-		setDatosCombo(servicio.obtenerDatosImagen());
-		setLista(servicio.buscarImagenAll());
+		setDatosCombo(servicioIma.obtenerDatosImagen());
+		setLista(servicioIma.buscarImagenAll());
 		setIdSeleccionado(null);
 		setImagen(null);
 	}
@@ -111,12 +111,12 @@ public class ConsultaImagenBean extends GenericBean {
 	}
 
 	/**
-	 * Consulta las Imagenes y busca sus datos por el Id seleccionado y los
-	 * muestra en la vista
+	 * Consulta las Imagenes y busca sus datos por el Id seleccionado y los muestra
+	 * en la vista
 	 */
 	public void consultaImagen() {
 		if (idSeleccionado != null) {
-			setImagen(servicio.buscarImagenXId(getIdSeleccionado()));
+			setImagen(servicioIma.buscarImagenXId(getIdSeleccionado()));
 		}
 	}
 

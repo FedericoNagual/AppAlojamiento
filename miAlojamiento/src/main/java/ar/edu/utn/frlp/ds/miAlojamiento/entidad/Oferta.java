@@ -67,6 +67,9 @@ public class Oferta implements Serializable {
 
 	public Oferta() {
 		super();
+		setFechaFin(new Date());
+		setFechaInicio(new Date());
+		setAlojamiento(new Alojamiento());
 	}
 
 	public Long getId() {

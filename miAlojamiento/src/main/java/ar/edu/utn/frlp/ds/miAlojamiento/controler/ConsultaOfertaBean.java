@@ -17,6 +17,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioOfertaImpl;
  * Clase Bean del Consulta de Oferta
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 @Named("consultaOfertaBean")
@@ -38,17 +39,17 @@ public class ConsultaOfertaBean extends GenericBean {
 	private Oferta OfertaSeleccionado;
 
 	@Autowired
-	private ServicioOfertaImpl servicio;
+	private ServicioOfertaImpl servicioOfer;
 
 	/**
-	 * Se llama cuando se inicia la clase ConsutaOfertaBean que setea a
-	 * Oferta creando una nueva instancia
+	 * Se llama cuando se inicia la clase ConsutaOfertaBean que setea a Oferta
+	 * creando una nueva instancia
 	 */
 	@PostConstruct
 	public void init() {
 		setAceptarListado(Boolean.TRUE);
-		setDatosCombo(servicio.obtenerDatosOferta());
-		setLista(servicio.buscarOfertaAll());
+		setDatosCombo(servicioOfer.obtenerDatosOferta());
+		setLista(servicioOfer.buscarOfertaAll());
 		setIdSeleccionado(null);
 		setOferta(null);
 	}
@@ -110,12 +111,12 @@ public class ConsultaOfertaBean extends GenericBean {
 	}
 
 	/**
-	 * Consulta las Ofertas y busca sus datos por el Id seleccionado y los
-	 * muestra en la vista
+	 * Consulta las Ofertas y busca sus datos por el Id seleccionado y los muestra
+	 * en la vista
 	 */
 	public void consultaOferta() {
 		if (idSeleccionado != null) {
-			setOferta(servicio.buscarOfertaXId(getIdSeleccionado()));
+			setOferta(servicioOfer.buscarOfertaXId(getIdSeleccionado()));
 		}
 	}
 

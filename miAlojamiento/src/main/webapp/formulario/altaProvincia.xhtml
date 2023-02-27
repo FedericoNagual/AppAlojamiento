@@ -7,26 +7,34 @@
 	<ui:define name="content">
 		<p:panel id="panelDatoProvincia"
 			header="#{altaProvinciaBean.titulo}" style="text-align: center;">
-			<p:panelGrid columns="2" cellpadding="5"
+			<h:form>
+			<p:messages id="msgs"/>
+			<p:panelGrid columns="3" cellpadding="7"
 				style="margin-left: auto; margin-right: auto; margin-top:1rem; margin-bottom:1rem; text-align: left;"
-				styleClass="ui-noborder">
-				<p:outputLabel value="nombre" indicateRequired="true"></p:outputLabel>
-				<p:inputText placeholder="Nombre" required="true"
-					value="#{altaProvinciaBean.provincia.nombre}"></p:inputText>
-				<p:outputLabel value="Pais: " indicateRequired="true" />
-				<p:selectOneMenu value="#{altaProvinciaBean.provincia.pais}"
-					required="#{not empty param.combo}">
-					<f:selectItem itemLabel="--Seleccione--" />
-					<f:selectItems value="#{altaProvinciaBean.datosCombo}"
-						var="pais" itemLabel="#{pais.formatoCombo}"
-						itemValue="#{pais.id}" />
-					<p:ajax event="valueChange" update="panelDatoProvincia" />
-				</p:selectOneMenu>
-	
+				styleClass="ui-noborder" >
+					<p:outputLabel value="Nombre" indicateRequired="true"></p:outputLabel>
+					<p:inputText placeholder="Nombre" id="Nombre"  for="nombre"
+						value="#{altaProvinciaBean.provincia.nombre}" 
+						required="true">
+						<p:ajax update="msgNombre" event="keyup"/>
+					</p:inputText>
+					<p:message id="msgNombre" for="Nombre" display="icon"/>
+					
+					<p:outputLabel value="Pais: " indicateRequired="true" />
+					<p:selectOneMenu value="#{altaProvinciaBean.provincia.pais.id}"
+						required="true" id="Pais" for="Pais" >
+						<f:selectItem itemLabel="--Seleccione--" />
+						<f:selectItems value="#{altaProvinciaBean.datosCombo}"
+							var="pais" itemLabel="#{pais.formatoCombo}"
+							itemValue="#{pais.id}" />
+						<p:ajax update="msgPais" event="itemSelect"/>
+					</p:selectOneMenu>
+					<p:message id="msgPais" for="Pais" display="icon"/>					
 			</p:panelGrid>
+			</h:form>
 			<p:toolbar>
 				<p:toolbarGroup align="right" style=" margin:0.3rem;">
-					<p:commandButton value="Crear/Dar Alta de Provincia"
+					<p:commandButton value="Crear Provincia"
 						update="panelDatoProvincia"
 						action="#{altaProvinciaBean.guardarProvincia()}"
 						styleClass="classBlock" />
@@ -34,6 +42,13 @@
 					<p:commandButton value="Volver" immediate="true"
 						styleClass="classBlock" action="#{altaProvinciaBean.volver()}" />
 				</p:toolbarGroup>
+				<p:toolbarGroup align="left" style="margin:0.3rem;">
+					<p:commandButton value="Limpiar" styleClass="classBlock" process="@this">
+						<p:resetInput target="panelDatoProvincia"/>
+						<p:ajax update="panelDatoProvincia" resetValues="true"/>
+					</p:commandButton>
+				</p:toolbarGroup>
+				
 			</p:toolbar>
 		</p:panel>
 	</ui:define>

@@ -16,12 +16,13 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicio.ServicioProvincia;
  * Implementacion del Servicio Provincia
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 
 @SessionScope
 @Service
-public class ServicioProvinciaImpl implements ServicioProvincia{
+public class ServicioProvinciaImpl implements ServicioProvincia {
 	@Autowired
 	private ProvinciaRepository provinciaRepository;
 
@@ -42,12 +43,12 @@ public class ServicioProvinciaImpl implements ServicioProvincia{
 	 */
 	@Override
 	public List<Provincia> buscarProvinciaXNombre(String nombre) {
-		//Implementar metodo que devuelva todas las Provincia por el nombre pasado
+		// Implementar metodo que devuelva todas las Provincia por el nombre pasado
 		// por parametro
 		// Traer la lista, filtrarla por nombre
 		List<Provincia> listaGeneral = provinciaRepository.findAll();
 		List<Provincia> lista = new ArrayList<Provincia>();
-		
+
 		for (int i = 0; i < listaGeneral.size(); i++) {
 			if (nombre.equals(listaGeneral.get(i).getNombre())) {
 				lista.add(listaGeneral.get(i));
@@ -88,16 +89,13 @@ public class ServicioProvinciaImpl implements ServicioProvincia{
 
 	/**
 	 * Busca todos las Tuplas de Provincia que existen
-	 * @return List<Provincia> resultado del metodo findAll() 
+	 * 
+	 * @return List<Provincia> resultado del metodo findAll()
 	 */
 	@Override
 	public List<Provincia> buscarProvinciaAll() {
-		List<Provincia> ListaCompleta= provinciaRepository.findAll();
+		List<Provincia> ListaCompleta = provinciaRepository.findAll();
 		return ListaCompleta;
 	}
-	
 
 }
-
-
-

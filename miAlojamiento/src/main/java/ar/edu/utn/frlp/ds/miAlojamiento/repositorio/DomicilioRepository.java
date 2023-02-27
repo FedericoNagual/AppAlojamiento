@@ -9,9 +9,6 @@ import org.springframework.stereotype.Repository;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.DatosDomicilio;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Domicilio;
 
-
-
-
 /**
  * Repositorio de la entidad Domicilio
  * 

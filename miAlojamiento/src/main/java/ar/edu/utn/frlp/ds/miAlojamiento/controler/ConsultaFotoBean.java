@@ -17,6 +17,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioFotoImpl;
  * Clase Bean del Consulta de Foto
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 @Named("consultaFotoBean")
@@ -38,17 +39,17 @@ public class ConsultaFotoBean extends GenericBean {
 	private Foto fotoSeleccionada;
 
 	@Autowired
-	private ServicioFotoImpl servicio;
+	private ServicioFotoImpl servicioFoto;
 
 	/**
-	 * Se llama cuando se inicia la clase ConsutaFotoBean que setea a
-	 * Foto creando una nueva instancia
+	 * Se llama cuando se inicia la clase ConsutaFotoBean que setea a Foto creando
+	 * una nueva instancia
 	 */
 	@PostConstruct
 	public void init() {
 		setAceptarListado(Boolean.TRUE);
-		setDatosCombo(servicio.obtenerDatosFoto());
-		setLista(servicio.buscarFotoAll());
+		setDatosCombo(servicioFoto.obtenerDatosFoto());
+		setLista(servicioFoto.buscarFotoAll());
 		setIdSeleccionado(null);
 		setFoto(null);
 	}
@@ -110,12 +111,12 @@ public class ConsultaFotoBean extends GenericBean {
 	}
 
 	/**
-	 * Consulta las Fotos y busca sus datos por el Id seleccionado y los
-	 * muestra en la vista
+	 * Consulta las Fotos y busca sus datos por el Id seleccionado y los muestra en
+	 * la vista
 	 */
 	public void consultaFoto() {
 		if (idSeleccionado != null) {
-			setFoto(servicio.buscarFotoXId(getIdSeleccionado()));
+			setFoto(servicioFoto.buscarFotoXId(getIdSeleccionado()));
 		}
 	}
 

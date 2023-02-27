@@ -10,10 +10,10 @@ import org.springframework.beans.factory.annotation.Value;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Reserva;
 import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioReservaImpl;
 
-
 /**
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 @Named("altaReservaBean")
@@ -22,11 +22,11 @@ public class AltaReservaBean extends GenericBean {
 
 	@Value("${altaReserva}")
 	private String titulo;
-	
+
 	private Reserva reserva;
 
 	@Autowired
-	private ServicioReservaImpl servicio;
+	private ServicioReservaImpl servicioReser;
 
 	/**
 	 * Se llama cuando se inicia la clase AltaReservaBean que setea a la clase
@@ -36,7 +36,7 @@ public class AltaReservaBean extends GenericBean {
 	public void init() {
 		setReserva(new Reserva());
 	}
-	
+
 	public String getTitulo() {
 		return titulo;
 	}
@@ -44,6 +44,7 @@ public class AltaReservaBean extends GenericBean {
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
+
 	public Reserva getReserva() {
 		return reserva;
 	}
@@ -52,13 +53,12 @@ public class AltaReservaBean extends GenericBean {
 		this.reserva = reserva;
 	}
 
-
 	/**
 	 * Guarda una entity Reserva y muestra un msj con los resultados
 	 */
 	public void guardarReserva() {
-		Reserva resultado = servicio.guardarReserva(getReserva());
-		mostrarMensaje("Se creó la Reserva: " +   resultado.getId());
+		Reserva resultado = servicioReser.guardarReserva(getReserva());
+		mostrarMensaje("Se creó la Reserva: " + resultado.getId());
 		init();
 	}
 

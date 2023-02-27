@@ -11,16 +11,18 @@ import ar.edu.utn.frlp.ds.miAlojamiento.entidad.DatosReserva;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Reserva;
 import ar.edu.utn.frlp.ds.miAlojamiento.repositorio.ReservaRepository;
 import ar.edu.utn.frlp.ds.miAlojamiento.servicio.ServicioReserva;
+
 /**
  * Implementacion del Servicio Reserva
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 
 @SessionScope
 @Service
-public class ServicioReservaImpl implements ServicioReserva{
+public class ServicioReservaImpl implements ServicioReserva {
 
 	@Autowired
 	private ReservaRepository reservaRepository;
@@ -42,14 +44,14 @@ public class ServicioReservaImpl implements ServicioReserva{
 	 */
 	@Override
 	public List<Reserva> buscarReservaXFechaInicio(String fechaInicio) {
-		//Implementar metodo que devuelva todas las Reserva por el nombre pasado
+		// Implementar metodo que devuelva todas las Reserva por el nombre pasado
 		// por parametro
 		// Traer la lista, filtrarla por nombre
 		List<Reserva> listaGeneral = reservaRepository.findAll();
 		List<Reserva> lista = new ArrayList<Reserva>();
-		
+
 		for (int i = 0; i < listaGeneral.size(); i++) {
-			if (fechaInicio.equals(listaGeneral.get(i).getFechaInicio())) {
+			if (fechaInicio.equals(listaGeneral.get(i).getFechaInicio().toString())) {
 				lista.add(listaGeneral.get(i));
 			}
 			i++;
@@ -88,15 +90,13 @@ public class ServicioReservaImpl implements ServicioReserva{
 
 	/**
 	 * Busca todos las Tuplas de Reserva que existen
-	 * @return List<Reserva> resultado del metodo findAll() 
+	 * 
+	 * @return List<Reserva> resultado del metodo findAll()
 	 */
 	@Override
 	public List<Reserva> buscarReservaAll() {
-		List<Reserva> ListaCompleta= reservaRepository.findAll();
+		List<Reserva> ListaCompleta = reservaRepository.findAll();
 		return ListaCompleta;
 	}
-	
 
 }
-
-

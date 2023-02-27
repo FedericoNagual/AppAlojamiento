@@ -71,6 +71,8 @@ public class Paquete implements Serializable {
 
 	public Paquete() {
 		super();
+		setAlojamiento(new Alojamiento());
+		setImagen(new Imagen());
 	}
 
 	public Long getId() {

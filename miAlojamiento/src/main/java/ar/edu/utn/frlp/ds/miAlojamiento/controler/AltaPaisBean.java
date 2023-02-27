@@ -10,18 +10,17 @@ import org.springframework.beans.factory.annotation.Value;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Pais;
 import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioPaisImpl;
 
-
 @Named("altaPaisBean")
 @ViewScoped
 public class AltaPaisBean extends GenericBean {
 
 	@Value("${altaPais}")
 	private String titulo;
- 
+
 	private Pais pais;
 
 	@Autowired
-	private ServicioPaisImpl servicio;
+	private ServicioPaisImpl servicioPais;
 
 	@PostConstruct
 	public void init() {
@@ -35,6 +34,7 @@ public class AltaPaisBean extends GenericBean {
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
+
 	public Pais getPais() {
 		return pais;
 	}
@@ -43,12 +43,11 @@ public class AltaPaisBean extends GenericBean {
 		this.pais = pais;
 	}
 
-
 	/**
 	 * Guarda una entity Pais y muestra un msj con los resultados
 	 */
 	public void guardarPais() {
-		Pais resultado = servicio.guardarPais(getPais());
+		Pais resultado = servicioPais.guardarPais(getPais());
 		mostrarMensaje("Se creó el Pais: " + resultado.getNombre() + " con el ID: " + resultado.getId());
 		init();
 	}

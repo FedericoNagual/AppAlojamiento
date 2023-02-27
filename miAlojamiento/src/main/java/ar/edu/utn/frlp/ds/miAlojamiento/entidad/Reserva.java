@@ -33,8 +33,9 @@ public class Reserva implements Serializable {
 	@Column(name = "\"reservaId\"", unique = true, nullable = false)
 	private Long id;
 
-	@Column(name = "servicio")
-	private String servicio;
+	@ManyToOne
+	@JoinColumn(name = "\"servicioPagoId\"")
+	private ServicioPago servicioPago;// servicio de pago utilizado de los cuales armamos una tabla para extraerlo y elegir cual usar
 
 	@Column(name = "fechaInicio")
 	@Temporal(TemporalType.DATE)
@@ -55,21 +56,33 @@ public class Reserva implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "\"pagoId\"")
 	private Pago pago;
+	
+	@ManyToOne
+	@JoinColumn(name = "\"estadoReservaId\"")
+	private EstadoReserva estadoReserva;
 
-	public Reserva(Long id, String servicio, Date fechaInicio, Date fechaFin, Paquete paquete, Usuario usuario,
-			Pago pago) {
+	public Reserva(Long id, ServicioPago servicioPago, Date fechaInicio, Date fechaFin, Paquete paquete,
+			Usuario usuario, Pago pago, EstadoReserva estadoReserva) {
 		super();
 		this.id = id;
-		this.servicio = servicio;
+		this.servicioPago = servicioPago;
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
 		this.paquete = paquete;
 		this.usuario = usuario;
 		this.pago = pago;
+		this.estadoReserva = estadoReserva;
 	}
 
 	public Reserva() {
 		super();
+		setPaquete(new Paquete());
+		setUsuario(new Usuario());
+		setPago(new Pago());
+		setFechaFin(new Date());
+		setFechaInicio(new Date());
+		setServicioPago(new ServicioPago());
+		setEstadoReserva(new EstadoReserva());
 	}
 
 	public Paquete getPaquete() {
@@ -104,12 +117,12 @@ public class Reserva implements Serializable {
 		this.id = id;
 	}
 
-	public String getServicio() {
-		return servicio;
+	public ServicioPago getServicioPago() {
+		return servicioPago;
 	}
 
-	public void setServicio(String servicio) {
-		this.servicio = servicio;
+	public void setServicioPago(ServicioPago servicioPago) {
+		this.servicioPago = servicioPago;
 	}
 
 	public Date getFechaInicio() {
@@ -128,9 +141,17 @@ public class Reserva implements Serializable {
 		this.fechaFin = fechaFin;
 	}
 
+	public EstadoReserva getEstadoReserva() {
+		return estadoReserva;
+	}
+
+	public void setEstadoReserva(EstadoReserva estadoReserva) {
+		this.estadoReserva = estadoReserva;
+	}
+
 	@Override
 	public String toString() {
-		return "Reserva [id=" + id + ", servicio=" + servicio + ", fechaInicio=" + fechaInicio + ", fechaFin="
+		return "Reserva [id=" + id + ", fechaInicio=" + fechaInicio + ", fechaFin="
 				+ fechaFin + "]";
 	}
 

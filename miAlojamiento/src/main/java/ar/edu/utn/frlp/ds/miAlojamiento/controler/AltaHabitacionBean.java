@@ -25,7 +25,7 @@ public class AltaHabitacionBean extends GenericBean {
 	private Habitacion habitacion;
 
 	@Autowired
-	private ServicioHabitacionImpl servicio;
+	private ServicioHabitacionImpl servicioHab;
 
 	/**
 	 * Se llama cuando se inicia la clase AltaHabitacionBean que setea a la clase
@@ -56,7 +56,7 @@ public class AltaHabitacionBean extends GenericBean {
 	 * Guarda una entity Habitacion y muestra un msj con los resultados
 	 */
 	public void guardarHabitacion() {
-		Habitacion resultado = servicio.guardarHabitacion(getHabitacion());
+		Habitacion resultado = servicioHab.guardarHabitacion(getHabitacion());
 		mostrarMensaje("Se creó la Habitacion: " + resultado.getNombre() + " con el ID: " + resultado.getHabitacionId());
 		init();
 	}

@@ -13,17 +13,16 @@ import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Alojamiento;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.DatosAlojamiento;
 import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioAlojamientoImpl;
 
-
-
 /**
  * Implementacion del Servicio Alojamiento
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 @Named("consultaAlojamientoBean")
 @ViewScoped
-public class ConsultaAlojamientoBean extends GenericBean{
+public class ConsultaAlojamientoBean extends GenericBean {
 	@Value("${consultaAlojamiento}")
 	private String name;
 
@@ -39,7 +38,7 @@ public class ConsultaAlojamientoBean extends GenericBean{
 	private Alojamiento alojamientoSeleccionado;
 
 	@Autowired
-	private ServicioAlojamientoImpl servicio;
+	private ServicioAlojamientoImpl servicioAlo;
 
 	/**
 	 * Se llama cuando se inicia la clase ConsutaAlojamientoBean que setea a
@@ -48,8 +47,8 @@ public class ConsultaAlojamientoBean extends GenericBean{
 	@PostConstruct
 	public void init() {
 		setAceptarListado(Boolean.TRUE);
-		setDatosCombo(servicio.obtenerDatosAlojamiento());
-		setLista(servicio.buscarAlojamientoAll());
+		setDatosCombo(servicioAlo.obtenerDatosAlojamiento());
+		setLista(servicioAlo.buscarAlojamientoAll());
 		setIdSeleccionado(null);
 		setAlojamiento(null);
 	}
@@ -111,12 +110,12 @@ public class ConsultaAlojamientoBean extends GenericBean{
 	}
 
 	/**
-	 * Consulta los paises y busca sus datos por el Id seleccionado y los
-	 * muestra en la vista
+	 * Consulta los paises y busca sus datos por el Id seleccionado y los muestra en
+	 * la vista
 	 */
 	public void consultaAlojamiento() {
 		if (idSeleccionado != null) {
-			setAlojamiento(servicio.buscarAlojamientoXId(getIdSeleccionado()));
+			setAlojamiento(servicioAlo.buscarAlojamientoXId(getIdSeleccionado()));
 		}
 	}
 

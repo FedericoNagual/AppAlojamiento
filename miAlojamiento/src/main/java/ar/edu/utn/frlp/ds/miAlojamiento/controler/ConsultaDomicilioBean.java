@@ -3,7 +3,7 @@ package ar.edu.utn.frlp.ds.miAlojamiento.controler;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ViewScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +13,11 @@ import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Domicilio;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.DatosDomicilio;
 import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioDomicilioImpl;
 
-
 /**
  * Clase Bean del Consulta de Domicilio
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 @Named("consultaDomicilioBean")
@@ -39,17 +39,17 @@ public class ConsultaDomicilioBean extends GenericBean {
 	private Domicilio DomicilioSeleccionada;
 
 	@Autowired
-	private ServicioDomicilioImpl servicio;
+	private ServicioDomicilioImpl servicioDom;
 
 	/**
-	 * Se llama cuando se inicia la clase ConsutaDomicilioBean que setea a
-	 * Domicilio creando una nueva instancia
+	 * Se llama cuando se inicia la clase ConsutaDomicilioBean que setea a Domicilio
+	 * creando una nueva instancia
 	 */
 	@PostConstruct
 	public void init() {
 		setAceptarListado(Boolean.TRUE);
-		setDatosCombo(servicio.obtenerDatosDomicilio());
-		setLista(servicio.buscarDomicilioAll());
+		setDatosCombo(servicioDom.obtenerDatosDomicilio());
+		setLista(servicioDom.buscarDomicilioAll());
 		setIdSeleccionado(null);
 		setDomicilio(null);
 	}
@@ -116,7 +116,7 @@ public class ConsultaDomicilioBean extends GenericBean {
 	 */
 	public void consultaDomicilio() {
 		if (idSeleccionado != null) {
-			setDomicilio(servicio.buscarDomicilioXId(getIdSeleccionado()));
+			setDomicilio(servicioDom.buscarDomicilioXId(getIdSeleccionado()));
 		}
 	}
 

@@ -56,6 +56,7 @@ public class Ciudad implements Serializable {
 
 	public Ciudad() {
 		super();
+		setProvincia(new Provincia());
 	}
 
 	public Provincia getProvincia() {

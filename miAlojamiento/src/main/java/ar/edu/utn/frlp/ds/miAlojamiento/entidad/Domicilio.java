@@ -30,22 +30,31 @@ public class Domicilio implements Serializable {
 	@Column(name = "\"domicilioId\"", unique = true, nullable = false)
 	private Long id;
 
-	@Column(name = "nombre")
-	private String nombre;
+	@Column(name = "calle")
+	private String calle;
+
+	@Column(name = "altura")
+	private String altura;
+
+	@Column(name = "\"codigoPostal\"")
+	private String codigoPostal;
 
 	@ManyToOne
 	@JoinColumn(name = "\"ciudadId\"")
 	private Ciudad ciudad;
 
-	public Domicilio(Long id, String nombre, Ciudad ciudad) {
+	public Domicilio(Long id, String calle, String altura, String codigoPostal, Ciudad ciudad) {
 		super();
 		this.id = id;
-		this.nombre = nombre;
+		this.calle = calle;
+		this.altura = altura;
+		this.codigoPostal = codigoPostal;
 		this.ciudad = ciudad;
 	}
 
 	public Domicilio() {
 		super();
+		setCiudad(new Ciudad());
 	}
 
 	public Long getId() {
@@ -56,20 +65,36 @@ public class Domicilio implements Serializable {
 		this.id = id;
 	}
 
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
 	public Ciudad getCiudad() {
 		return ciudad;
 	}
 
 	public void setCiudad(Ciudad ciudad) {
 		this.ciudad = ciudad;
+	}
+
+	public String getCalle() {
+		return calle;
+	}
+
+	public void setCalle(String calle) {
+		this.calle = calle;
+	}
+
+	public String getAltura() {
+		return altura;
+	}
+
+	public void setAltura(String altura) {
+		this.altura = altura;
+	}
+
+	public String getCodigoPostal() {
+		return codigoPostal;
+	}
+
+	public void setCodigoPostal(String codigoPostal) {
+		this.codigoPostal = codigoPostal;
 	}
 
 	/**
@@ -80,6 +105,8 @@ public class Domicilio implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "Domicilio [id=" + id + ", nombre=" + nombre + "]";
+		return "Domicilio [id=" + id + ", calle=" + calle + ", altura=" + altura + ", codigoPostal=" + codigoPostal
+				+ "]";
 	}
+
 }

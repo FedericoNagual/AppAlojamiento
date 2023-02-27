@@ -14,14 +14,15 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicio.ServicioPais;
 
 /**
  * Implementacion del Servicio Pais
+ * 
  * @author Mauro
  * @author Federico
  *
  */
 @SessionScope
 @Service
-public class ServicioPaisImpl implements ServicioPais{
-	
+public class ServicioPaisImpl implements ServicioPais {
+
 	@Autowired
 	private PaisRepository paisRepository;
 
@@ -42,12 +43,12 @@ public class ServicioPaisImpl implements ServicioPais{
 	 */
 	@Override
 	public List<Pais> buscarPaisXNombre(String nombre) {
-		//Implementar metodo que devuelva todas las Pais por el nombre pasado
+		// Implementar metodo que devuelva todas las Pais por el nombre pasado
 		// por parametro
 		// Traer la lista, filtrarla por nombre
 		List<Pais> listaGeneral = paisRepository.findAll();
 		List<Pais> lista = new ArrayList<Pais>();
-		
+
 		for (int i = 0; i < listaGeneral.size(); i++) {
 			if (nombre.equals(listaGeneral.get(i).getNombre())) {
 				lista.add(listaGeneral.get(i));
@@ -88,15 +89,13 @@ public class ServicioPaisImpl implements ServicioPais{
 
 	/**
 	 * Busca todos las Tuplas de Pais que existen
-	 * @return List<Pais> resultado del metodo findAll() 
+	 * 
+	 * @return List<Pais> resultado del metodo findAll()
 	 */
 	@Override
 	public List<Pais> buscarPaisAll() {
-		List<Pais> ListaCompleta= paisRepository.findAll();
+		List<Pais> ListaCompleta = paisRepository.findAll();
 		return ListaCompleta;
 	}
-	
 
 }
-
-

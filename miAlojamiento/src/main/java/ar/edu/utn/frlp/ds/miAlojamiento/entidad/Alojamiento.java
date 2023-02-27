@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -53,11 +54,16 @@ public class Alojamiento implements Serializable {
 	@Column(name = "\"horarioCheckOut\"")
 	private Long horarioCheckOut;
 
-	@Column(name = "categoria")
-	private String categoria;
+	@Column(name = "disponible")
+	private Boolean disponible;
 
-	@OneToMany(mappedBy = "alojamiento")
-	private List<Servicio> listaServicio;// 1 alojamiento puede contar con muchos servicios
+	@ManyToOne
+	@JoinColumn(name = "\"categoriaId\"")
+	private Categoria categoria; // Sirve para marcar las estrellas del alojamiento
+
+	@ManyToMany
+	@JoinColumn(name = "\"servicioId\"")
+	private List<Servicio> listaServicio;// muchos alojamiento puede contar con muchos servicios
 
 	@OneToMany(mappedBy = "alojamiento")
 	private List<Habitacion> listaHabitacion;// 1 alojamiento puede tener muchas habitaciones
@@ -74,8 +80,9 @@ public class Alojamiento implements Serializable {
 	private List<Paquete> listaPaquete;// 1 alojamiento puede estar en muchos paquetes
 
 	public Alojamiento(Long id, String nombre, String latitud, String longitud, Double precio, String descripcion,
-			Long horarioCheckIn, Long horarioCheckOut, String categoria, List<Servicio> listaServicio,
-			List<Habitacion> listaHabitacion, Ciudad ciudad, Foto foto, List<Paquete> listaPaquete) {
+			Long horarioCheckIn, Long horarioCheckOut, Boolean disponible, Categoria categoria,
+			List<Servicio> listaServicio, List<Habitacion> listaHabitacion, Ciudad ciudad, Foto foto,
+			List<Paquete> listaPaquete) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -85,6 +92,7 @@ public class Alojamiento implements Serializable {
 		this.descripcion = descripcion;
 		this.horarioCheckIn = horarioCheckIn;
 		this.horarioCheckOut = horarioCheckOut;
+		this.disponible = disponible;
 		this.categoria = categoria;
 		this.listaServicio = listaServicio;
 		this.listaHabitacion = listaHabitacion;
@@ -95,6 +103,8 @@ public class Alojamiento implements Serializable {
 
 	public Alojamiento() {
 		super();
+		setCiudad(new Ciudad());
+		setFoto(new Foto());
 	}
 
 	public Long getId() {
@@ -161,14 +171,6 @@ public class Alojamiento implements Serializable {
 		this.horarioCheckOut = horarioCheckOut;
 	}
 
-	public String getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
-	}
-
 	public List<Servicio> getListaServicio() {
 		return listaServicio;
 	}
@@ -209,9 +211,25 @@ public class Alojamiento implements Serializable {
 		this.listaPaquete = listaPaquete;
 	}
 
+	public Boolean getDisponible() {
+		return disponible;
+	}
+
+	public void setDisponible(Boolean disponible) {
+		this.disponible = disponible;
+	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
 	@Override
 	public String toString() {
-		return "Alojamiento [id=" + id + ", nombre=" + nombre + ", precio=" + precio + ", descripcion=" + descripcion
-				+ ", ciudad=" + ciudad + "]";
+		return "Alojamiento [id=" + id + ", nombre=" + nombre + ", latitud=" + latitud + ", longitud=" + longitud
+				+ ", precio=" + precio + ", disponible=" + disponible + ", categoria=" + categoria + "]";
 	}
 }

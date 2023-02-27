@@ -12,6 +12,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioRolImpl;
 
 /**
  * Clase Bean del Alta de Rol
+ * 
  * @author Federico
  *
  */
@@ -25,11 +26,11 @@ public class AltaRolBean extends GenericBean {
 	private Rol Rol;
 
 	@Autowired
-	private ServicioRolImpl servicio;
+	private ServicioRolImpl servicioRol;
 
 	/**
-	 * Se llama cuando se inicia la clase AltaRolBean que setea a la clase
-	 * Rol creando una nueva instancia
+	 * Se llama cuando se inicia la clase AltaRolBean que setea a la clase Rol
+	 * creando una nueva instancia
 	 */
 	@PostConstruct
 	public void init() {
@@ -56,7 +57,7 @@ public class AltaRolBean extends GenericBean {
 	 * Guarda una entity Rol y muestra un msj con los resultados
 	 */
 	public void guardarRol() {
-		Rol resultado = servicio.guardarRol(getRol());
+		Rol resultado = servicioRol.guardarRol(getRol());
 		mostrarMensaje("Se creó el Rol: " + resultado.getDescripcion() + " con el ID: " + resultado.getId());
 		init();
 	}

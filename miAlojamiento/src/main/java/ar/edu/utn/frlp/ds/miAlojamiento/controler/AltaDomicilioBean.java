@@ -7,14 +7,13 @@ import javax.inject.Named;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
-import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Ciudad;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Domicilio;
 import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioDomicilioImpl;
-
 
 /**
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 @Named("altaDomicilioBean")
@@ -27,7 +26,7 @@ public class AltaDomicilioBean extends GenericBean {
 	private Domicilio Domicilio;
 
 	@Autowired
-	private ServicioDomicilioImpl servicio;
+	private ServicioDomicilioImpl servicioDomi;
 
 	/**
 	 * Se llama cuando se inicia la clase AltaDomicilioBean que setea a la clase
@@ -53,12 +52,13 @@ public class AltaDomicilioBean extends GenericBean {
 	public void setDomicilio(Domicilio Domicilio) {
 		this.Domicilio = Domicilio;
 	}
+
 	/**
 	 * Guarda una entity Domicilio y muestra un msj con los resultados
 	 */
 	public void guardarDomicilio() {
-		Domicilio resultado = servicio.guardarDomicilio(getDomicilio());
-		mostrarMensaje("Se creó la Domicilio: " + resultado.getNombre() + " con el ID: " + resultado.getId());
+		Domicilio resultado = servicioDomi.guardarDomicilio(getDomicilio());
+		mostrarMensaje("Se creó la Domicilio: " + resultado.getCalle() + " con el ID: " + resultado.getId());
 		init();
 	}
 

@@ -16,12 +16,13 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicio.ServicioAlojamiento;
  * Implementacion del Servicio Alojamiento
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 
 @SessionScope
 @Service
-public class ServicioAlojamientoImpl implements ServicioAlojamiento{
+public class ServicioAlojamientoImpl implements ServicioAlojamiento {
 	@Autowired
 	private AlojamientoRepository alojamientoRepository;
 
@@ -42,12 +43,12 @@ public class ServicioAlojamientoImpl implements ServicioAlojamiento{
 	 */
 	@Override
 	public List<Alojamiento> buscarAlojamientoXNombre(String nombre) {
-		//Implementar metodo que devuelva todas las Alojamiento por el nombre pasado
+		// Implementar metodo que devuelva todas las Alojamiento por el nombre pasado
 		// por parametro
 		// Traer la lista, filtrarla por nombre
 		List<Alojamiento> listaGeneral = alojamientoRepository.findAll();
 		List<Alojamiento> lista = new ArrayList<Alojamiento>();
-		
+
 		for (int i = 0; i < listaGeneral.size(); i++) {
 			if (nombre.equals(listaGeneral.get(i).getNombre())) {
 				lista.add(listaGeneral.get(i));
@@ -85,13 +86,15 @@ public class ServicioAlojamientoImpl implements ServicioAlojamiento{
 	public void eliminarAlojamiento(Long id) {
 		alojamientoRepository.deleteById(id);
 	}
+
 	/**
 	 * Busca todos las Tuplas de Alojamiento que existen
-	 * @return List<Alojamiento> resultado del metodo findAll() 
+	 * 
+	 * @return List<Alojamiento> resultado del metodo findAll()
 	 */
 	@Override
 	public List<Alojamiento> buscarAlojamientoAll() {
-		List<Alojamiento> ListaCompleta= alojamientoRepository.findAll();
+		List<Alojamiento> ListaCompleta = alojamientoRepository.findAll();
 		return ListaCompleta;
 	}
 }

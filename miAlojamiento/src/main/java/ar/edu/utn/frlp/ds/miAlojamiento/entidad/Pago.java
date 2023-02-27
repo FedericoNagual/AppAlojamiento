@@ -46,11 +46,13 @@ public class Pago implements Serializable {
 	@Column(name = "\"ultimosDigitos\"")
 	private Long ultimosDigitos;
 
+	@Column(name = "cbu")
+	private Long cbu;
+
 	@OneToMany(mappedBy = "pago")
 	private List<Reserva> listaReserva;
 
-
-	public Pago(Long id, Double monto, Date fecha, String codigoBarra, Long ultimosDigitos,
+	public Pago(Long id, Double monto, Date fecha, String codigoBarra, Long ultimosDigitos, Long cbu,
 			List<Reserva> listaReserva) {
 		super();
 		this.id = id;
@@ -58,21 +60,23 @@ public class Pago implements Serializable {
 		this.fecha = fecha;
 		this.codigoBarra = codigoBarra;
 		this.ultimosDigitos = ultimosDigitos;
+		this.cbu = cbu;
 		this.listaReserva = listaReserva;
 	}
 
 	public Pago() {
 		super();
+		setFecha(new Date());
 	}
 
 	public List<Reserva> getListaReserva() {
 		return listaReserva;
 	}
-	
+
 	public void setListaReserva(List<Reserva> listaReserva) {
 		this.listaReserva = listaReserva;
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -113,6 +117,14 @@ public class Pago implements Serializable {
 		this.ultimosDigitos = ultimosDigitos;
 	}
 
+	public Long getCbu() {
+		return cbu;
+	}
+
+	public void setCbu(Long cbu) {
+		this.cbu = cbu;
+	}
+
 	/**
 	 * Imprime en formato String todos los datos de la clase
 	 * 
@@ -122,6 +134,7 @@ public class Pago implements Serializable {
 	@Override
 	public String toString() {
 		return "Pago [id=" + id + ", monto=" + monto + ", fecha=" + fecha + ", codigoBarra=" + codigoBarra
-				+ ", ultimosDigitos=" + ultimosDigitos + "]";
+				+ ", ultimosDigitos=" + ultimosDigitos + ", cbu=" + cbu + "]";
 	}
+
 }

@@ -13,27 +13,31 @@ public interface DatosUsuario {
 	Long getId();
 
 	String getNombre();
+	
+	String getApellido();
 
 	Date getFechaNacimiento();
 
+	String getTipoDocumento();
+	
 	String getDni();
 
 	Long getTelefono();
-
-	String getTipoDocumento();
-
+	
 	Domicilio getDomicilio();
 
 	List<Reserva> getListaReserva();
 
 	Login getLogin();
+	
+	Rol getRol();
 
 	default String getFormatoCombo() {
 		// Parseos de Datos a String para imprimir
 		String id = getId().toString();
 		String nombre = getNombre().toString();
 		String telefono = getTelefono().toString();
-		String domicilio = getDomicilio().getNombre().toString();
+		String domicilio = getDomicilio().getCalle().toString();
 		String fechaNacimiento = getFechaNacimiento().toString();
 		String tipoDocumento = getTipoDocumento().toString();
 		String dni = getDni().toString();

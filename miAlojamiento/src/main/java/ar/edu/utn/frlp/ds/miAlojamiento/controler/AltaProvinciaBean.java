@@ -31,7 +31,8 @@ public class AltaProvinciaBean extends GenericBean {
 	private List<DatosPais> datosCombo;
 
 	@Autowired
-	private ServicioProvinciaImpl servicio;
+	private ServicioProvinciaImpl servicioProv;
+	@Autowired
 	private ServicioPaisImpl servicioPais;
 
 	/**
@@ -69,11 +70,11 @@ public class AltaProvinciaBean extends GenericBean {
 	}
 
 	public ServicioProvinciaImpl getServicio() {
-		return servicio;
+		return servicioProv;
 	}
 
 	public void setServicio(ServicioProvinciaImpl servicio) {
-		this.servicio = servicio;
+		this.servicioProv = servicio;
 	}
 
 	public ServicioPaisImpl getServicioPais() {
@@ -88,9 +89,27 @@ public class AltaProvinciaBean extends GenericBean {
 	 * Guarda una entity Provincia y muestra un msj con los resultados
 	 */
 	public void guardarProvincia() {
-		Provincia resultado = servicio.guardarProvincia(getProvincia());
-		mostrarMensaje("Se creó la Provincia: " + resultado.getNombre() + " con el ID: " + resultado.getId());
+		Boolean isGuardar= true;
+		isGuardar= validarDatos();
+		if (isGuardar) {
+			try {
+				Provincia resultado = servicioProv.guardarProvincia(getProvincia());
+				mostrarMensaje("Se creó la Provincia: " + resultado.getNombre() + " con el ID: " + resultado.getId());
+			} catch (Exception e) {
+				mostrarMensajeError("Error : "+e.toString());
+			}
+		}
 		init();
+	}
+	
+	private Boolean validarDatos() {
+		Boolean flak=true;
+		if (this.provincia == null || this.provincia.getNombre() == null || this.provincia.getPais().getId()== null) {
+			mostrarMensajeFatal("Completar los datos por favor");
+			flak=false;
+		}
+		return flak;
+		
 	}
 
 }

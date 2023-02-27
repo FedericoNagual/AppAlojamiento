@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
 
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.DatosPago;
-import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Imagen;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Pago;
 import ar.edu.utn.frlp.ds.miAlojamiento.repositorio.PagoRepository;
 import ar.edu.utn.frlp.ds.miAlojamiento.servicio.ServicioPago;
@@ -17,12 +16,12 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicio.ServicioPago;
  * Implementacion del Servicio Pago
  * 
  * @author Mauro
+ * @author Federico
  *
  */
-
 @SessionScope
 @Service
-public class ServicioPagoImpl implements ServicioPago{
+public class ServicioPagoImpl implements ServicioPago {
 	@Autowired
 	private PagoRepository pagoRepository;
 
@@ -43,14 +42,14 @@ public class ServicioPagoImpl implements ServicioPago{
 	 */
 	@Override
 	public List<Pago> buscarPagoXUltimosDigitos(String ultimosDigitos) {
-		//Implementar metodo que devuelva todas las Pago por el nombre pasado
+		// Implementar metodo que devuelva todas las Pago por el nombre pasado
 		// por parametro
 		// Traer la lista, filtrarla por nombre
 		List<Pago> listaGeneral = pagoRepository.findAll();
 		List<Pago> lista = new ArrayList<Pago>();
-		
+
 		for (int i = 0; i < listaGeneral.size(); i++) {
-			if (ultimosDigitos.equals(listaGeneral.get(i).getUltimosDigitos())) {
+			if (ultimosDigitos.equals(listaGeneral.get(i).getUltimosDigitos().toString())) {
 				lista.add(listaGeneral.get(i));
 			}
 			i++;
@@ -87,19 +86,15 @@ public class ServicioPagoImpl implements ServicioPago{
 		pagoRepository.deleteById(id);
 	}
 
-	
-
 	/**
 	 * Busca todos las Tuplas de Pago que existen
-	 * @return List<Pago> resultado del metodo findAll() 
+	 * 
+	 * @return List<Pago> resultado del metodo findAll()
 	 */
 	@Override
 	public List<Pago> buscarPagoAll() {
-		List<Pago> ListaCompleta= pagoRepository.findAll();
+		List<Pago> ListaCompleta = pagoRepository.findAll();
 		return ListaCompleta;
 	}
 
 }
-
-
-

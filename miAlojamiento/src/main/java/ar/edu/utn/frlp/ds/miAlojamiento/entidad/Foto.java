@@ -14,6 +14,7 @@ import javax.persistence.Table;
  * Modelo de la clase Foto con sus atributos
  * 
  * @author	Mauro
+ * @author Federico
  *
  */
 @Entity(name = "Foto")

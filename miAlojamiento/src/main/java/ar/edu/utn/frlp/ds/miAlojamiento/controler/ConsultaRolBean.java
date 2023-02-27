@@ -17,6 +17,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioRolImpl;
  * Clase Bean del Consulta de Rol
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 @Named("consultaRolBean")
@@ -38,17 +39,17 @@ public class ConsultaRolBean extends GenericBean {
 	private Rol RolSeleccionado;
 
 	@Autowired
-	private ServicioRolImpl servicio;
+	private ServicioRolImpl servicioRol;
 
 	/**
-	 * Se llama cuando se inicia la clase ConsutaRolBean que setea a
-	 * Rol creando una nueva instancia
+	 * Se llama cuando se inicia la clase ConsutaRolBean que setea a Rol creando una
+	 * nueva instancia
 	 */
 	@PostConstruct
 	public void init() {
 		setAceptarListado(Boolean.TRUE);
-		setDatosCombo(servicio.obtenerDatosRol());
-		setLista(servicio.buscarRolAll());
+		setDatosCombo(servicioRol.obtenerDatosRol());
+		setLista(servicioRol.buscarRolAll());
 		setIdSeleccionado(null);
 		setRol(null);
 	}
@@ -110,12 +111,12 @@ public class ConsultaRolBean extends GenericBean {
 	}
 
 	/**
-	 * Consulta las Rols y busca sus datos por el Id seleccionado y los
-	 * muestra en la vista
+	 * Consulta las Rols y busca sus datos por el Id seleccionado y los muestra en
+	 * la vista
 	 */
 	public void consultaRol() {
 		if (idSeleccionado != null) {
-			setRol(servicio.buscarRolXId(getIdSeleccionado()));
+			setRol(servicioRol.buscarRolXId(getIdSeleccionado()));
 		}
 	}
 

@@ -17,6 +17,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioUsuarioImpl;
  * Clase Bean del Consulta de Usuario
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 @Named("consultaUsuarioBean")
@@ -38,17 +39,17 @@ public class ConsultaUsuarioBean extends GenericBean {
 	private Usuario UsuarioSeleccionado;
 
 	@Autowired
-	private ServicioUsuarioImpl servicio;
+	private ServicioUsuarioImpl servicioUsua;
 
 	/**
-	 * Se llama cuando se inicia la clase ConsutaUsuarioBean que setea a
-	 * Usuario creando una nueva instancia
+	 * Se llama cuando se inicia la clase ConsutaUsuarioBean que setea a Usuario
+	 * creando una nueva instancia
 	 */
 	@PostConstruct
 	public void init() {
 		setAceptarListado(Boolean.TRUE);
-		setDatosCombo(servicio.obtenerDatosUsuario());
-		setLista(servicio.buscarUsuarioAll());
+		setDatosCombo(servicioUsua.obtenerDatosUsuario());
+		setLista(servicioUsua.buscarUsuarioAll());
 		setIdSeleccionado(null);
 		setUsuario(null);
 	}
@@ -110,12 +111,12 @@ public class ConsultaUsuarioBean extends GenericBean {
 	}
 
 	/**
-	 * Consulta las Usuarios y busca sus datos por el Id seleccionado y los
-	 * muestra en la vista
+	 * Consulta las Usuarios y busca sus datos por el Id seleccionado y los muestra
+	 * en la vista
 	 */
 	public void consultaUsuario() {
 		if (idSeleccionado != null) {
-			setUsuario(servicio.buscarUsuarioXId(getIdSeleccionado()));
+			setUsuario(servicioUsua.buscarUsuarioXId(getIdSeleccionado()));
 		}
 	}
 
@@ -136,4 +137,3 @@ public class ConsultaUsuarioBean extends GenericBean {
 		setAceptarListado(Boolean.TRUE);
 	}
 }
-

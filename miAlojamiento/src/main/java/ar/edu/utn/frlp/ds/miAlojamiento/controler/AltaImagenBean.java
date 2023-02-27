@@ -25,7 +25,7 @@ public class AltaImagenBean extends GenericBean {
 	private Imagen Imagen;
 
 	@Autowired
-	private ServicioImagenImpl servicio;
+	private ServicioImagenImpl servicioIma;
 
 	/**
 	 * Se llama cuando se inicia la clase AltaImagenBean que setea a la clase
@@ -55,7 +55,7 @@ public class AltaImagenBean extends GenericBean {
 	 * Guarda una entity Imagen y muestra un msj con los resultados
 	 */
 	public void guardarImagen() {
-		Imagen resultado = servicio.guardarImagen(getImagen());
+		Imagen resultado = servicioIma.guardarImagen(getImagen());
 		mostrarMensaje("Se creó la Imagen: " + resultado.getUrl() + " con el ID: " + resultado.getId());
 		init();
 	}

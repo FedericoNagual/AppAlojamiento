@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
 
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.DatosImagen;
-import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Foto;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Imagen;
 import ar.edu.utn.frlp.ds.miAlojamiento.repositorio.ImagenRepository;
 import ar.edu.utn.frlp.ds.miAlojamiento.servicio.ServicioImagen;
@@ -17,11 +16,12 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicio.ServicioImagen;
  * Implementacion del Servicio Imagen
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 @SessionScope
 @Service
-public class ServicioImagenImpl implements ServicioImagen{
+public class ServicioImagenImpl implements ServicioImagen {
 	@Autowired
 	private ImagenRepository imagenRepository;
 
@@ -42,12 +42,12 @@ public class ServicioImagenImpl implements ServicioImagen{
 	 */
 	@Override
 	public List<Imagen> buscarImagenXUrl(String url) {
-		//Implementar metodo que devuelva todas las Imagenes por el nombre pasado
+		// Implementar metodo que devuelva todas las Imagenes por el nombre pasado
 		// por parametro
 		// Traer la lista, filtrarla por nombre
 		List<Imagen> listaGeneral = imagenRepository.findAll();
 		List<Imagen> lista = new ArrayList<Imagen>();
-		
+
 		for (int i = 0; i < listaGeneral.size(); i++) {
 			if (url.equals(listaGeneral.get(i).getUrl())) {
 				lista.add(listaGeneral.get(i));
@@ -88,14 +88,13 @@ public class ServicioImagenImpl implements ServicioImagen{
 
 	/**
 	 * Busca todos las Tuplas de Imagen que existen
-	 * @return List<Imagen> resultado del metodo findAll() 
+	 * 
+	 * @return List<Imagen> resultado del metodo findAll()
 	 */
 	@Override
 	public List<Imagen> buscarImagenAll() {
-		List<Imagen> ListaCompleta= imagenRepository.findAll();
+		List<Imagen> ListaCompleta = imagenRepository.findAll();
 		return ListaCompleta;
 	}
-	
 
 }
-

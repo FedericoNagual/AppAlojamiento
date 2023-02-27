@@ -3,7 +3,7 @@ package ar.edu.utn.frlp.ds.miAlojamiento.controler;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ViewScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,16 +14,16 @@ import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Pais;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Provincia;
 import ar.edu.utn.frlp.ds.miAlojamiento.servicioImpl.ServicioProvinciaImpl;
 
-
 /**
  * Implementacion del Servicio Provincia
  * 
  * @author Mauro
+ * @author Federico
  *
  */
 @Named("consultaProvinciaBean")
 @ViewScoped
-public class ConsultaProvinciaBean extends GenericBean{
+public class ConsultaProvinciaBean extends GenericBean {
 	@Value("${consultaProvincia}")
 	private String name;
 	private Pais pais;
@@ -39,17 +39,17 @@ public class ConsultaProvinciaBean extends GenericBean{
 	private Provincia provinciaSeleccionada;
 
 	@Autowired
-	private ServicioProvinciaImpl servicio;
+	private ServicioProvinciaImpl servicioProv;
 
 	/**
-	 * Se llama cuando se inicia la clase ConsutaProvinciaBean que setea a
-	 * Provincia creando una nueva instancia
+	 * Se llama cuando se inicia la clase ConsutaProvinciaBean que setea a Provincia
+	 * creando una nueva instancia
 	 */
 	@PostConstruct
 	public void init() {
 		setAceptarListado(Boolean.TRUE);
-		setDatosCombo(servicio.obtenerDatosProvincia());
-		setLista(servicio.buscarProvinciaAll());
+		setDatosCombo(servicioProv.obtenerDatosProvincia());
+		setLista(servicioProv.buscarProvinciaAll());
 		setIdSeleccionado(null);
 		setProvincia(null);
 	}
@@ -61,6 +61,7 @@ public class ConsultaProvinciaBean extends GenericBean{
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public Pais getPais() {
 		return pais;
 	}
@@ -68,6 +69,7 @@ public class ConsultaProvinciaBean extends GenericBean{
 	public void setPais(Pais pais) {
 		this.pais = pais;
 	}
+
 	public Provincia getProvincia() {
 		return provincia;
 	}
@@ -108,7 +110,7 @@ public class ConsultaProvinciaBean extends GenericBean{
 		this.lista = lista;
 	}
 
-	public Provincia  getProvinciaSeleccionada() {
+	public Provincia getProvinciaSeleccionada() {
 		return provinciaSeleccionada;
 	}
 
@@ -122,7 +124,7 @@ public class ConsultaProvinciaBean extends GenericBean{
 	 */
 	public void consultaProvincia() {
 		if (idSeleccionado != null) {
-			setProvincia(servicio.buscarProvinciaXId(getIdSeleccionado()));
+			setProvincia(servicioProv.buscarProvinciaXId(getIdSeleccionado()));
 		}
 	}
 

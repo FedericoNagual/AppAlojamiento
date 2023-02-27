@@ -1,6 +1,7 @@
 package ar.edu.utn.frlp.ds.miAlojamiento.entidad;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
@@ -36,18 +37,16 @@ public class Servicio implements Serializable {
 	@Column(name = "descripcion")
 	private String descripcion;
 	
-	@ManyToOne
+	@ManyToMany
 	@JoinColumn(name = "\"alojamientoId\"")
-	private Alojamiento alojamiento;
+	private List<Alojamiento> listaAlojamiento;
 
-	
-
-	public Servicio(Long id, String nombre, String descripcion, Alojamiento alojamiento) {
+	public Servicio(Long id, String nombre, String descripcion, List<Alojamiento> listaAlojamiento) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
-		this.alojamiento = alojamiento;
+		this.listaAlojamiento = listaAlojamiento;
 	}
 
 	public Servicio() {
@@ -78,12 +77,12 @@ public class Servicio implements Serializable {
 		this.descripcion = descripcion;
 	}
 
-	public Alojamiento getAlojamiento() {
-		return alojamiento;
+	public List<Alojamiento> getListaAlojamiento() {
+		return listaAlojamiento;
 	}
 
-	public void setAlojamiento(Alojamiento alojamiento) {
-		this.alojamiento = alojamiento;
+	public void setListaAlojamiento(List<Alojamiento> listaAlojamiento) {
+		this.listaAlojamiento = listaAlojamiento;
 	}
 
 	/**
