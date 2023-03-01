@@ -61,9 +61,8 @@ public class Alojamiento implements Serializable {
 	@JoinColumn(name = "\"categoriaId\"")
 	private Categoria categoria; // Sirve para marcar las estrellas del alojamiento
 
-	@ManyToMany
-	@JoinColumn(name = "\"servicioId\"")
-	private List<Servicio> listaServicio;// muchos alojamiento puede contar con muchos servicios
+	@OneToMany(mappedBy = "alojamiento")
+	private List<Servicio> listaServicio;// 1 alojamiento puede contar con muchos servicios
 
 	@OneToMany(mappedBy = "alojamiento")
 	private List<Habitacion> listaHabitacion;// 1 alojamiento puede tener muchas habitaciones

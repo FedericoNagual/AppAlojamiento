@@ -5,7 +5,6 @@ import java.util.List;
 
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.DatosImagen;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Imagen;
-import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Paquete;
 
 
 public interface ServicioImagen {

@@ -16,8 +16,6 @@ public interface ServicioHabitacion{
 	public Habitacion guardarHabitacion(Habitacion habitacion);
 
 	public List<Habitacion> buscarHabitacionXNombre(String nombre);
-	
-	//public List<Habitacion> buscarHabitacionXNombreXFecha (String nombre, Date fecha); 
 
 	public Habitacion buscarHabitacionXId(Long habitacionId);
 

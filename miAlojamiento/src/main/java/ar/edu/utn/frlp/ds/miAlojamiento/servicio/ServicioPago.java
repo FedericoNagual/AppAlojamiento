@@ -4,7 +4,6 @@ import java.util.List;
 
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.DatosPago;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Pago;
-import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Pais;
 
 
 public interface ServicioPago {

@@ -22,6 +22,7 @@ import ar.edu.utn.frlp.ds.miAlojamiento.servicio.ServicioDomicilio;
 @SessionScope
 @Service
 public class ServicioDomicilioImpl implements ServicioDomicilio {
+	
 	@Autowired
 	private DomicilioRepository domicilioRepository;
 
@@ -35,21 +36,21 @@ public class ServicioDomicilioImpl implements ServicioDomicilio {
 	}
 
 	/**
-	 * Busca una entity Domicilio por nombre
+	 * Busca una entity Domicilio por calle
 	 * 
-	 * @param nombre tipo String
+	 * 
 	 * @return List<Domicilio> resultado de un Find a la BD filtrado por nombre
 	 */
 	@Override
-	public List<Domicilio> buscarDomi(String nombre) {
+	public List<Domicilio> buscarDomicilioXCalle(String calle) {
 		// Implementar metodo que devuelva todas las Ciudad por el nombre pasado
 		// por parametro
-		// Traer la lista, filtrarla por nombre
+		// Traer la lista, filtrarla por nombre de calle
 		List<Domicilio> listaGeneral = domicilioRepository.findAll();
 		List<Domicilio> lista = new ArrayList<Domicilio>();
 
 		for (int i = 0; i < listaGeneral.size(); i++) {
-			if (nombre.equals(listaGeneral.get(i).getCalle())) {
+			if (calle.equals(listaGeneral.get(i).getCalle())) {
 				lista.add(listaGeneral.get(i));
 			}
 			i++;

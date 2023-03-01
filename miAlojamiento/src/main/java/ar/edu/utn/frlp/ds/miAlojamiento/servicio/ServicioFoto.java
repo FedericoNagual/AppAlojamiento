@@ -4,7 +4,6 @@ import java.util.List;
 
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.DatosFoto;
 import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Foto;
-import ar.edu.utn.frlp.ds.miAlojamiento.entidad.Pais;
 
 
 

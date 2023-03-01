@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -37,16 +38,16 @@ public class Servicio implements Serializable {
 	@Column(name = "descripcion")
 	private String descripcion;
 	
-	@ManyToMany
+	@ManyToOne
 	@JoinColumn(name = "\"alojamientoId\"")
-	private List<Alojamiento> listaAlojamiento;
+	private Alojamiento alojamiento;
 
-	public Servicio(Long id, String nombre, String descripcion, List<Alojamiento> listaAlojamiento) {
+	public Servicio(Long id, String nombre, String descripcion, Alojamiento alojamiento) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
-		this.listaAlojamiento = listaAlojamiento;
+		this.alojamiento = alojamiento;
 	}
 
 	public Servicio() {
@@ -77,12 +78,12 @@ public class Servicio implements Serializable {
 		this.descripcion = descripcion;
 	}
 
-	public List<Alojamiento> getListaAlojamiento() {
-		return listaAlojamiento;
+	public Alojamiento getAlojamiento() {
+		return alojamiento;
 	}
 
-	public void setListaAlojamiento(List<Alojamiento> listaAlojamiento) {
-		this.listaAlojamiento = listaAlojamiento;
+	public void setAlojamiento(Alojamiento alojamiento) {
+		this.alojamiento = alojamiento;
 	}
 
 	/**
