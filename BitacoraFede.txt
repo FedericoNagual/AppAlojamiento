@@ -352,3 +352,16 @@ Problematica:
 	Poco tiempo para mucho codigo, no me alcanzan los dedos, despues continuo arreglando el codigo y me apoyo en la BD
 	
 /////////////////////////////
+Fecha:	25/02/2023
+
+Hs:		06hs
+
+Avance:
+
+	Pude armar y testear muchas validaciones del lado del formulario y del lado del back, con muchos try catch
+	
+Problematica:
+
+	Poco tiempo para mucho codigo, no me alcanzan los dedos, falto replicar en los demas formularios y seguir con validaciones de tipo fecha
+	
+/////////////////////////////
