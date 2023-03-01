@@ -52,7 +52,6 @@ public class ServicioPagoImpl implements ServicioPago {
 			if (ultimosDigitos.equals(listaGeneral.get(i).getUltimosDigitos().toString())) {
 				lista.add(listaGeneral.get(i));
 			}
-			i++;
 		}
 		return lista;
 	}

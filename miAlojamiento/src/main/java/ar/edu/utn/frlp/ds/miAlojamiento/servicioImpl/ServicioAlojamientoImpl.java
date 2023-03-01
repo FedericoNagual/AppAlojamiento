@@ -53,7 +53,6 @@ public class ServicioAlojamientoImpl implements ServicioAlojamiento {
 			if (nombre.equals(listaGeneral.get(i).getNombre())) {
 				lista.add(listaGeneral.get(i));
 			}
-			i++;
 		}
 		return lista;
 	}

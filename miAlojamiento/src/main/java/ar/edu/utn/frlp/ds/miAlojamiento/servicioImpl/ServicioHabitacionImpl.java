@@ -54,7 +54,6 @@ public class ServicioHabitacionImpl implements ServicioHabitacion {
 			if (nombre.equals(listaGeneral.get(i).getNombre())) {
 				lista.add(listaGeneral.get(i));
 			}
-			i++;
 		}
 		return lista;
 	}

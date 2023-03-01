@@ -53,7 +53,6 @@ public class ServicioPaisImpl implements ServicioPais {
 			if (nombre.equals(listaGeneral.get(i).getNombre())) {
 				lista.add(listaGeneral.get(i));
 			}
-			i++;
 		}
 		return lista;
 	}

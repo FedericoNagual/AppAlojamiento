@@ -11,6 +11,6 @@ public interface DatoProvincia {
 	 
 	 default String getFormatoCombo() {
 			// Parseos de Datos a String para imprimir
-			return getNombre() + " ; ";
+			return getNombre();
 		}
 }

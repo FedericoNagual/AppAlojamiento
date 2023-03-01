@@ -52,7 +52,6 @@ public class ServicioImagenImpl implements ServicioImagen {
 			if (url.equals(listaGeneral.get(i).getUrl())) {
 				lista.add(listaGeneral.get(i));
 			}
-			i++;
 		}
 		return lista;
 	}

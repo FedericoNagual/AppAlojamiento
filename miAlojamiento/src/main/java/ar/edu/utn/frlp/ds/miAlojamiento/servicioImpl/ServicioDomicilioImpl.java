@@ -53,7 +53,6 @@ public class ServicioDomicilioImpl implements ServicioDomicilio {
 			if (calle.equals(listaGeneral.get(i).getCalle())) {
 				lista.add(listaGeneral.get(i));
 			}
-			i++;
 		}
 		return lista;
 	}

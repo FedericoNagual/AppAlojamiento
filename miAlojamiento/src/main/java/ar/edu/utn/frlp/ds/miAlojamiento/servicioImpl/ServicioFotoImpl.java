@@ -52,7 +52,6 @@ public class ServicioFotoImpl implements ServicioFoto {
 			if (nombre.equals(listaGeneral.get(i).getUrl())) {
 				lista.add(listaGeneral.get(i));
 			}
-			i++;
 		}
 		return lista;
 	}

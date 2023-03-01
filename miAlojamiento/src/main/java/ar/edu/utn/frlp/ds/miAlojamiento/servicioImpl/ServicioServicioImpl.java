@@ -53,7 +53,6 @@ public class ServicioServicioImpl implements ServicioServicio {
 			if (nombre.equals(listaGeneral.get(i).getNombre())) {
 				lista.add(listaGeneral.get(i));
 			}
-			i++;
 		}
 		return lista;
 	}

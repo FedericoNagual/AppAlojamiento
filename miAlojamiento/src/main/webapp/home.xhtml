@@ -5,22 +5,25 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="content">
-		<h:body>
-			<h:form>
-				<p:growl id="growl" showDetail="false" sticky="true" life="3000"/>
-				<p:panel header="#{inicioSesionBean.proximamente()}">
-					<h:panelGrid columns="2" cellpadding="5">
-						<p:outputLabel for="username" value="Usuario: "/>
-						<p:inputText id="username" value="" required="true"/>
+			<p:panel id="panelInicio" header="#{inicioSesionBean.titulo}" style="margin:12% 25% ;text-align: center">
+				<h:form>
+					<h:panelGrid columns="3" cellpadding="5" style="padding: 5% 0;margin-left: auto; margin-right: auto; margin-top:1rem; margin-bottom:1rem; text-align: left ">
+						<p:outputLabel value="Usuario: "></p:outputLabel>
+						<p:inputText id="username" value="#{inicioSesionBean.login.nombre}" required="true" for="username">
+							<p:ajax update="msgUsername" event="keyup"/>
+						</p:inputText>
+						<p:message id="msgUsername" for="username" display="icon"/>
+					
+						<p:outputLabel value="Contraseña: "></p:outputLabel>
+						<p:inputText type="password" id="password" value="#{inicioSesionBean.login.contraseña}" required="true" for="password">
+							<p:ajax update="msgPass" event="keyup"/>
+						</p:inputText>
+						<p:message id="msgPass" for="password" display="icon"/>
 					</h:panelGrid>
-					<h:panelGrid columns="2" cellpadding="5">
-						<p:outputLabel for="password" value="Contraseña: "/>
-						<p:inputText id="password" value="" required="true"/>
-					</h:panelGrid>
-					<p:commandButton value="Iniciar Sesion" actionListener="" update="growl"/>
-					<p:commandButton value="Registrarse " actionListener="" update="growl" outcome="/pageback" onclick="PF('blocker').show()"/>
-				</p:panel>
-			</h:form>
-		</h:body>
+				</h:form>
+					<p:commandButton value="Iniciar Sesion" update="panelInicio" styleClass="classBlock" action="#{inicioSesionBean.iniciarSesion()}"/>
+					<p:spacer width="20" />
+					<p:linkButton value="Registrarse " styleClass="" outcome="/formulario/altaUsuario"></p:linkButton>
+			</p:panel>
 	</ui:define>
 </ui:composition>

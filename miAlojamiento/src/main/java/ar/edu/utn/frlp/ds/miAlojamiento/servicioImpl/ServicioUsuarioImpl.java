@@ -53,7 +53,6 @@ public class ServicioUsuarioImpl implements ServicioUsuario {
 			if (dni.equals(listaGeneral.get(i).getDni())) {
 				lista.add(listaGeneral.get(i));
 			}
-			i++;
 		}
 		return lista;
 	}

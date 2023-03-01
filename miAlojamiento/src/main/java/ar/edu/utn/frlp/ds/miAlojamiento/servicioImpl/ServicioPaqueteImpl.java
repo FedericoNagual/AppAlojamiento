@@ -53,7 +53,6 @@ public class ServicioPaqueteImpl implements ServicioPaquete {
 			if (nombre.equals(listaGeneral.get(i).getNombre())) {
 				lista.add(listaGeneral.get(i));
 			}
-			i++;
 		}
 		return lista;
 	}

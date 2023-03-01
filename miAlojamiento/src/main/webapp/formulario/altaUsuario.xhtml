@@ -1,0 +1,157 @@
+<ui:composition template="/template/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="content">
+		<p:panel id="panelDatoUsuario"
+			header="#{altaUsuarioBean.titulo}" style="text-align: center;">
+			<h:form>
+			<p:messages id="msgs"/>
+			<p:panelGrid columns="3" cellpadding="7"
+				style="margin-left: auto; margin-right: auto; margin-top:1rem; margin-bottom:1rem; text-align: left;"
+				styleClass="ui-noborder" >
+					<p:outputLabel value="Nombre" indicateRequired="true"></p:outputLabel>
+					<p:inputText placeholder="Nombre" id="nombre"  for="nombre"
+						value="#{altaUsuarioBean.usuario.nombre}" 
+						required="true">
+						<p:ajax update="msgNombre" event="keyup"/>
+					</p:inputText>
+					<p:message id="msgNombre" for="nombre" display="icon"/>
+					
+					<p:outputLabel value="Apellido" indicateRequired="true"></p:outputLabel>
+					<p:inputText placeholder="Apellido" id="apellido"  for="apellido"
+						value="#{altaUsuarioBean.usuario.apellido}" 
+						required="true">
+						<p:ajax update="msgApellido" event="keyup"/>
+					</p:inputText>
+					<p:message id="msgApellido" for="apellido" display="icon"/>
+					
+					<p:outputLabel value="Fecha de Nacimiento" indicateRequired="true"></p:outputLabel>
+					<p:datePicker id="nacimiento" value="#{altaUsuarioBean.usuario.fechaNacimiento}" pattern="yyyy-MM-dd">
+						<p:ajax update="msgNacimiento" event="keyup"/>
+					</p:datePicker>
+					<p:message id="msgNacimiento" for="nacimiento" display="icon"/>
+					
+					<p:outputLabel value="Tipo de Documento" indicateRequired="true"></p:outputLabel>
+					<p:inputText placeholder="Tipo de Documento" id="tipoDocumento"  for="tipoDocumento"
+						value="#{altaUsuarioBean.usuario.tipoDocumento}" 
+						required="true">
+						<p:ajax update="msgTipoDocumento" event="keyup"/>
+					</p:inputText>
+					<p:message id="msgTipoDocumento" for="tipoDocumento" display="icon"/>
+					
+					<p:outputLabel value="Numero de Documento" indicateRequired="true"></p:outputLabel>
+					<p:inputText placeholder="DNI" id="dni"  for="dni"
+						value="#{altaUsuarioBean.usuario.dni}" 
+						required="true">
+						<p:ajax update="msgdni" event="keyup"/>
+						<p:keyFilter mask="num" />
+					</p:inputText>
+					<p:message id="msgdni" for="dni" display="icon"/>
+					
+					<p:outputLabel value="Telefono" indicateRequired="true"></p:outputLabel>
+					<p:inputNumber placeholder="Telefono" id="telefono"  for="telefono"
+						value="#{altaUsuarioBean.usuario.telefono}" 
+						required="true">
+						<p:ajax update="msgtelefono" event="keyup"/>
+					</p:inputNumber>
+					<p:message id="msgtelefono" for="telefono" display="icon"/>
+					
+					<p:outputLabel value="Pais: " indicateRequired="true" />
+					<p:selectOneMenu value="#{altaUsuarioBean.paisSeleccionado}"
+						required="true" id="Pais" for="Pais" >
+						<f:selectItem itemLabel="--Seleccione--" />
+						<f:selectItems value="#{altaUsuarioBean.listaPais}"
+							var="pais" itemLabel="#{pais.formatoCombo}"
+							itemValue="#{pais.id}" />
+						<p:ajax update="msgPais" event="itemSelect"/>
+					</p:selectOneMenu>
+					<p:message id="msgPais" for="Pais" display="icon"/>
+					
+					<p:outputLabel value="Provincia: " indicateRequired="true" />
+					<p:selectOneMenu value="#{altaUsuarioBean.provinciaSeleccionado}"
+						required="true" id="Provincia" for="Provincia" >
+						<f:selectItem itemLabel="--Seleccione--" />
+						<f:selectItems value="#{altaUsuarioBean.listaProvincia}"
+							var="provincia" itemLabel="#{provincia.formatoCombo}"
+							itemValue="#{pais.id}" />
+						<p:ajax update="msgProvincia" event="itemSelect"/>
+					</p:selectOneMenu>
+					<p:message id="msgProvincia" for="Provincia" display="icon"/>
+					
+					<p:outputLabel value="Ciudad: " indicateRequired="true" />
+					<p:selectOneMenu value="#{altaUsuarioBean.ciudadSeleccionado}"
+						required="true" id="Ciudad" for="Ciudad" >
+						<f:selectItem itemLabel="--Seleccione--" />
+						<f:selectItems value="#{altaUsuarioBean.listaCiudad}"
+							var="ciudad" itemLabel="#{ciudad.formatoCombo}"
+							itemValue="#{ciudad.id}" />
+						<p:ajax update="msgCiudad" event="itemSelect"/>
+					</p:selectOneMenu>
+					<p:message id="msgCiudad" for="Ciudad" display="icon"/>
+					
+					<p:outputLabel value="Calle del Domicilio" indicateRequired="true"></p:outputLabel>
+					<p:inputText placeholder="Calle" id="calle"  for="calle"
+						value="#{altaUsuarioBean.domicilio.calle}" 
+						required="true">
+						<p:ajax update="msgCalle" event="keyup"/>
+					</p:inputText>
+					<p:message id="msgCalle" for="calle" display="icon"/>
+					
+					<p:outputLabel value="Altura del domicilio" indicateRequired="true"></p:outputLabel>
+					<p:inputText placeholder="Altura" id="altura"  for="altura"
+						value="#{altaUsuarioBean.domicilio.altura}" 
+						required="true">
+						<p:ajax update="msgAltura" event="keyup"/>
+					</p:inputText>
+					<p:message id="msgAltura" for="altura" display="icon"/>
+					
+					<p:outputLabel value="Codigo Postal del Domicilio" indicateRequired="true"></p:outputLabel>
+					<p:inputText placeholder="CP" id="postal"  for="postal"
+						value="#{altaUsuarioBean.domicilio.codigoPostal}" 
+						required="true">
+						<p:ajax update="msgPostal" event="keyup"/>
+					</p:inputText>
+					<p:message id="msgPostal" for="postal" display="icon"/>
+					
+					<p:outputLabel value="Usuario" indicateRequired="true"></p:outputLabel>
+					<p:inputText placeholder="Usuario123" id="usuario"  for="usuario"
+						value="#{altaUsuarioBean.login.nombre}" 
+						required="true">
+						<p:ajax update="msgUsuario" event="keyup"/>
+					</p:inputText>
+					<p:message id="msgUsuario" for="usuario" display="icon"/>
+					
+					<p:outputLabel value="Contraseña" indicateRequired="true"></p:outputLabel>
+					<p:inputText type="password" placeholder="Clave" id="contrasena"  for="contrasena"
+						value="#{altaUsuarioBean.login.contraseña}" 
+						required="true">
+						<p:ajax update="msgContrasena" event="keyup"/>
+					</p:inputText>
+					<p:message id="msgContrasena" for="contrasena" display="icon"/>
+										
+			</p:panelGrid>
+			</h:form>
+			<p:toolbar>
+				<p:toolbarGroup align="right" style=" margin:0.3rem;">
+					<p:commandButton value="Crear Usuario"
+						update="panelDatoUsuario"
+						action="#{altaUsuarioBean.guardarUsuario()}"
+						styleClass="classBlock" />
+					<p:spacer width="20" />
+					<p:commandButton value="Volver" immediate="true"
+						styleClass="classBlock" action="#{altaUsuarioBean.volver()}" />
+				</p:toolbarGroup>
+				<p:toolbarGroup align="left" style="margin:0.3rem;">
+					<p:commandButton value="Limpiar" styleClass="classBlock" process="@this">
+						<p:resetInput target="panelDatoUsuario"/>
+						<p:ajax update="panelDatoUsuario" resetValues="true"/>
+					</p:commandButton>
+				</p:toolbarGroup>
+				
+			</p:toolbar>
+		</p:panel>
+	</ui:define>
+</ui:composition>

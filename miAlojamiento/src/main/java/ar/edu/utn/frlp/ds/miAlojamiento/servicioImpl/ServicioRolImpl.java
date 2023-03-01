@@ -54,7 +54,6 @@ public class ServicioRolImpl implements ServicioRol {
 			if (descripcion.equals(listaGeneral.get(i).getDescripcion())) {
 				lista.add(listaGeneral.get(i));
 			}
-			i++;
 		}
 		return lista;
 	}

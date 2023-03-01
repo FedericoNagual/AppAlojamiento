@@ -53,7 +53,6 @@ public class ServicioOfertaImpl implements ServicioOferta {
 			if (fechaInicio.equals(listaGeneral.get(i).getFechaInicio())) {
 				lista.add(listaGeneral.get(i));
 			}
-			i++;
 		}
 		return lista;
 	}

@@ -54,7 +54,6 @@ public class ServicioReservaImpl implements ServicioReserva {
 			if (fechaInicio.equals(listaGeneral.get(i).getFechaInicio().toString())) {
 				lista.add(listaGeneral.get(i));
 			}
-			i++;
 		}
 		return lista;
 	}

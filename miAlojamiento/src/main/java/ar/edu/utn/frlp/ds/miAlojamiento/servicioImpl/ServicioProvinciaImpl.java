@@ -53,7 +53,6 @@ public class ServicioProvinciaImpl implements ServicioProvincia {
 			if (nombre.equals(listaGeneral.get(i).getNombre())) {
 				lista.add(listaGeneral.get(i));
 			}
-			i++;
 		}
 		return lista;
 	}
