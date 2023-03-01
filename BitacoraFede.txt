@@ -365,3 +365,14 @@ Problematica:
 	Poco tiempo para mucho codigo, no me alcanzan los dedos, falto replicar en los demas formularios y seguir con validaciones de tipo fecha
 	
 /////////////////////////////
+Fecha: 01/03/2023
+
+Hs: 	06hs
+
+Avance:	
+
+	Se armaron vrias vistas y realizaron pruebas para poder correr correctamente el programa. Y programar la logica para inscripcion de usuario y demas, para poder dar el alta y recrearlo hasta donde se pudo.
+	
+Problematica:
+
+	Poco tiempo para mucho codigo, Con Mauro intentamos activar en la recta final y hacer el resto del trabajo, ademas de poder cumplir con los requisitos que pedian, pero se nos fue bastante complicado por tema de tiempo. El equipo sufrio bajas considerables y falto contenido teorico para completar el proyecto, ademas de sinceridad de todos los integrantes. Esperemos poder aprobar la materia ya que el ezfuerzo de todo el año fue muy grande sumado al ezfuerzo laboral, ya que no contabamos con disponibilidad full time para dedicarle al proyecto.
